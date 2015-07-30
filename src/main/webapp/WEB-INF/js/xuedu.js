@@ -26,6 +26,17 @@ function showResult() {
 	$(".result").addClass("result-show");
 }
 
+function showContribute() {
+	$(".contribute").removeClass("hidden");
+	$(".contribute").removeClass("hide-contribute");
+	$(".contribute").addClass("show-contribute");
+}
+
+function hideContribute() {
+	$(".contribute").removeClass("show-contribute");
+	$(".contribute").addClass("hide-contribute");
+}
+
 function showMain() {
 	$(".ans-block").css("display", "none");
 

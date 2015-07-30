@@ -26,7 +26,7 @@ public class AnswerDao {
 	}
 	
 	public List<Answer> getAnswerList() {
-		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC, UPDATE_DATETIME DESC");
 	}
 	
 	public Answer getAnswerDetail(int id) {
@@ -35,5 +35,14 @@ public class AnswerDao {
 	
 	public void deleteAnswer(int id) {
 		commonDao.update("UPDATE ANSWER SET IS_ACTIVE = 0 WHERE ID = ?", id);
+	}
+	
+	public void increaseSearchCount(int id) {
+		Answer answer = commonDao.getFirst(Answer.class, "SELECT * FROM ANSWER WHERE ID = ?", id);
+		if (answer != null) {
+			int searchCount = answer.getSearchCount();
+			searchCount++;
+			commonDao.update("UPDATE ANSWER SET SEARCH_COUNT = ? WHERE ID = ?", searchCount, id);
+		}
 	}
 }

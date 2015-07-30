@@ -17,7 +17,7 @@ import com.xiaofo1022.xuedu.model.User;
 
 public class LoginFilter implements Filter {
 	private Pattern allowedResources;
-	private final static String resPattern = ".*((login)|(answerlist)|(question)|(images/)|(img/)|(css/)|(js/)|(fonts/)).*";
+	private final static String resPattern = ".*((background)).*";
 	
 	public void init(FilterConfig arg0) throws ServletException {
 		allowedResources = Pattern.compile(resPattern);
@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
 		User user = null;
 		boolean canEnterSystem = false;
 		
-		if (!uri.equals(baseUri) && !allowedResources.matcher(uri).matches()) {
+		if (!uri.equals(baseUri) && allowedResources.matcher(uri).matches()) {
 			HttpSession session = request.getSession(false);
 			if (session != null) {
 				user = (User) session.getAttribute("user");

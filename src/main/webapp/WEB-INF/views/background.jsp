@@ -8,138 +8,14 @@
 <title>薛 度 之 后 台</title>
 <link rel="icon" href="<c:url value='images/favicon.ico'/>" type="image/x-icon" /> 
 <link rel="shortcut icon" href="<c:url value='images/favicon.ico'/>" type="image/x-icon" />
-<style>
-@font-face {
-	font-family:"bige-young-2";
-	src:url(fonts/bige-young-2.ttf);
-}
-
-html, body {
-	margin:0;
-	padding:0;
-	width:100%;
-	height:100%;
-	font-family:"bige-young-2";
-	text-align:center;
-}
-
-.container {
-	display:inline-block;
-}
-
-.clearfix:after {
-	content:"";
-	clear:both;
-}
-
-.block {
-	width:430px;
-	height:490px;
-	border:1px solid #000;
-	text-align:center;
-	box-sizing:border-box;
-	float:left;
-	margin:10px;
-}
-
-.block input {
-	outline:none;
-	width:400px;
-	height:30px;
-	margin:10px;
-	margin-bottom:0;
-	border:1px solid #000;
-	font-family:"bige-young-2";
-	font-size:22px;
-}
-
-.block textarea {
-	outline:none;
-	width:400px;
-	height:380px;
-	margin:10px;
-	margin-bottom:0;
-	border:1px solid #000;
-	font-family:"bige-young-2";
-	font-size:16px;
-	resize:none;
-	box-sizing:border-box;
-}
-
-.btn {
-	display:inline-block;
-	width:185px;
-	height:35px;
-	margin:10px;
-	border:1px solid #000;
-	text-align:center;
-	padding:5px;
-	font-size:22px;
-	box-sizing:border-box;
-	transition:background-color .5s, color .5s;
-}
-
-.btn:hover {
-	cursor:pointer;
-	background-color:#000;
-	color:#fff;
-}
-
-.question-block {
-	display:inline-block;
-	width:400px;
-	height:420px;
-	border:1px solid #000;
-	box-sizing:border-box;
-	overflow:auto;
-}
-
-.question-row {
-	height:40px;
-	border-bottom:1px solid #000;
-	width:100%;
-	text-align:left;
-	padding:10px;
-	box-sizing:border-box;
-}
-
-.question-row .info {
-	float:left;
-}
-
-.question-row .btn-control {
-	float:right;
-	padding-left:10px;
-	padding-right:10px;
-	border-left:1px solid #000;
-	transition:background-color .5s, color .5s;
-}
-
-.question-row .btn-control:hover {
-	cursor:pointer;
-	background-color:#000;
-	color:#fff;
-}
-
-.btn-active {
-	background-color:#000;
-	color:#fff;
-}
-
-.active {
-	display:inline-block;
-}
-
-.inactive {
-	display:none;
-}
-</style>
+<link href="<c:url value='css/background.css'/>" rel="stylesheet"/>
 </head>
 <body>
 <div class="container clearfix">
 	<div class="block">
-		<div id="btn-my" class="btn btn-active" onclick="showMy()">我的问答</div>
-		<div id="btn-listener" class="btn" onclick="showListener()">听众的搜索</div>
+		<div id="btn-my" class="btn btn-tab btn-active" onclick="pageTab('my')">迪吧词库</div>
+		<div id="btn-listener" class="btn btn-tab" onclick="pageTab('listener')">听众搜索</div>
+		<div id="btn-oil" class="btn btn-tab" onclick="pageTab('oil')">听众贡献</div>
 		
 		<div id="question-my" class="question-block active">
 			<c:forEach items="${answerList}" var="answer">
@@ -160,6 +36,16 @@ html, body {
 				</div>
 			</c:forEach>
 		</div>
+		
+		<div id="question-oil" class="question-block inactive">
+			<c:forEach items="${fansAnswerList}" var="fansAnswer">
+				<div class="question-row clearfix">
+					<div class="info">${fansAnswer.fansName}: ${fansAnswer.title}</div>
+					<div class="btn-control" onclick="deleteFansAnswer(${fansAnswer.id})">删除</div>
+					<div class="btn-control" onclick="getFansAnswer(${fansAnswer.id})">查看</div>
+				</div>
+			</c:forEach>
+		</div>
 	</div>
 	
 	<div class="block">
@@ -170,29 +56,20 @@ html, body {
 	
 	<input id="answer-id" type="hidden"/>
 	<input id="question-id" type="hidden"/>
+	<input id="oil-id" type="hidden"/>
 </div>
 
 <script src="<c:url value='js/jquery.js'/>"></script>
 <script src="<c:url value='js/ajax-util.js'/>"></script>
 <script>
-	function showListener() {
-		$("#btn-my").removeClass("btn-active");
-		$("#btn-listener").addClass("btn-active");
+	function pageTab(id) {
+		$(".btn-tab").removeClass("btn-active");
+		$("#btn-" + id).addClass("btn-active");
 		
-		$("#question-my").removeClass("active");
-		$("#question-my").addClass("inactive");
-		$("#question-listener").removeClass("inactive");
-		$("#question-listener").addClass("active");
-	}
-	
-	function showMy() {
-		$("#btn-my").addClass("btn-active");
-		$("#btn-listener").removeClass("btn-active");
-		
-		$("#question-listener").removeClass("active");
-		$("#question-listener").addClass("inactive");
-		$("#question-my").removeClass("inactive");
-		$("#question-my").addClass("active");
+		$(".question-block").removeClass("active");
+		$(".question-block").addClass("inactive");
+		$("#question-" + id).removeClass("inactive");
+		$("#question-" + id).addClass("active");
 	}
 	
 	function addAnswer() {
@@ -205,8 +82,12 @@ html, body {
 				if (!questionId) {
 					questionId = 0;
 				}
+				var oilId = $("#oil-id").val();
+				if (!oilId) {
+					oilId = 0;
+				}
 				var id = $("#answer-id").val();
-				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "'/>", {id:id, title:title, answer:answer}, function(data) {
+				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>", {id:id, title:title, answer:answer}, function(data) {
 					if (data == "success") {
 						location.reload(true);
 					}
@@ -224,7 +105,7 @@ html, body {
 	}
 	
 	function deleteAnswer(id) {
-		var result = confirm("确认删掉这一问吗？");
+		var result = confirm("确认删掉这一条吗？");
 		if (result) {
 			$.post("<c:url value='/deleteanswer/" + id + "'/>", null, function(data) {
 				if (data == "success") {
@@ -246,6 +127,27 @@ html, body {
 				location.reload(true);
 			}
 		});
+	}
+	
+	function getFansAnswer(id) {
+		$("#question-id").val("");
+		$("#answer-id").val("");
+		$("#oil-id").val(id);
+		$.get("<c:url value='/getfansanswer/" + id + "'/>", function(data) {
+			$("#title").val(data.title);
+			$("#answer").val(data.answer);
+		});
+	}
+	
+	function deleteFansAnswer(id) {
+		var result = confirm("确认删掉这一条吗？");
+		if (result) {
+			$.post("<c:url value='/deletefansanswer/" + id + "'/>", null, function(data) {
+				if (data == "success") {
+					location.reload(true);
+				}
+			});
+		}
 	}
 </script>
 </body>

@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xiaofo1022.xuedu.common.CommonConst;
 import com.xiaofo1022.xuedu.dao.AnswerDao;
+import com.xiaofo1022.xuedu.dao.FansAnswerDao;
 import com.xiaofo1022.xuedu.dao.LoginDao;
 import com.xiaofo1022.xuedu.dao.QuestionDao;
 import com.xiaofo1022.xuedu.model.Answer;
+import com.xiaofo1022.xuedu.model.FansAnswer;
 import com.xiaofo1022.xuedu.model.Question;
 import com.xiaofo1022.xuedu.model.User;
 
@@ -30,6 +32,8 @@ public class MainController {
 	private LoginDao loginDao;
 	@Autowired
 	private AnswerDao answerDao;
+	@Autowired
+	private FansAnswerDao fansAnswerDao;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap modelMap) {
@@ -55,6 +59,7 @@ public class MainController {
 	public String background(HttpServletRequest request, ModelMap modelMap) {
 		modelMap.addAttribute("answerList", answerDao.getAnswerList());
 		modelMap.addAttribute("questionList", questionDao.getQuestionList());
+		modelMap.addAttribute("fansAnswerList", fansAnswerDao.getFansAnswerList());
 		return "background";
 	}
 	
@@ -71,9 +76,9 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
-	@RequestMapping(value="/addanswer/{questionId}", method=RequestMethod.POST)
+	@RequestMapping(value="/addanswer/{questionId}/{oilId}", method=RequestMethod.POST)
 	@ResponseBody
-	public String addanswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable Integer questionId, HttpServletRequest request, ModelMap modelMap) {
+	public String addanswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable int questionId, @PathVariable int oilId, HttpServletRequest request, ModelMap modelMap) {
 		if (answer.getId() == 0) {
 			answerDao.insertAnswer(answer);
 		} else {
@@ -81,6 +86,9 @@ public class MainController {
 		}
 		if (questionId != 0) {
 			questionDao.giveAnAnswer(questionId);
+		}
+		if (oilId != 0) {
+			fansAnswerDao.approveFansAnswer(oilId);
 		}
 		return CommonConst.SUCCESS;
 	}
@@ -102,6 +110,33 @@ public class MainController {
 	@ResponseBody
 	public String ignorequestion(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
 		questionDao.ignoreQuestion(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/increasesearch/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String increasesearch(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.increaseSearchCount(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/addfansanswer", method=RequestMethod.POST)
+	@ResponseBody
+	public String addfansanswer(@RequestBody FansAnswer fansAnswer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		fansAnswerDao.insertFansAnswer(fansAnswer);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/getfansanswer/{id}", method=RequestMethod.GET)
+	@ResponseBody
+	public FansAnswer getfansanswer(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		return fansAnswerDao.getFansAnswerDetail(id);
+	}
+	
+	@RequestMapping(value="/deletefansanswer/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String deletefansanswer(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		fansAnswerDao.deleteFansAnswer(id);
 		return CommonConst.SUCCESS;
 	}
 }

@@ -20,15 +20,23 @@
 		</div>
 	</div>
 	<div class="side-block-down">
-		<div class="search-block">
-			<a>
-				<input id="search-text" type="text" maxlength="100"/>
-				<span class="top"></span>
-				<span class="left"></span>
-				<span class="bottom"></span>
+		<div class="down-box">
+			<div class="search-block">
+				<a>
+					<input id="search-text" type="text" maxlength="100"/>
+					<span class="top"></span>
+					<span class="left"></span>
+					<span class="bottom"></span>
+				</a>
+				<a class="search-btn" onclick="requestQuestion()">薛人一度</a>
+				<div id="search-dropdown" class="search-dropdown">
+				</div>
+			</div>
+			<a class="oil-link" onclick="showContribute()">
+				我为迪吧献石油
+				<span class="under-link"></span>
 			</a>
-			<a class="search-btn" onclick="requestQuestion()">薛人一度</a>
-			<div id="search-dropdown" class="search-dropdown">
+			<div class="hot-search">
 			</div>
 		</div>
 	</div>
@@ -54,6 +62,16 @@
 				&lt; 知道了吧？
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="contribute hidden">
+	<div class="form">
+		<span class="close-btn" onclick="hideContribute()"></span>
+		<input id="fans-name" type="text" maxlength="100" placeholder="我是谁？" />
+		<input id="fans-title" type="text" maxlength="100" placeholder="我要说？" />
+		<textarea id="fans-answer" maxlength="1000" placeholder="是什么？"></textarea>
+		<div class="btn" onclick="contributeOil()">提交</div>
 	</div>
 </div>
 
@@ -97,10 +115,13 @@
 		}
 	}
 	
-	function showDu(id) {
+	function showDu(id, donotSetSearch) {
 		var result = resultMap[id];
 		if (result) {
-			$("#search-text").val(result.title);
+			$.post("<c:url value='/increasesearch/" + id + "'/>", null, function(data) {});
+			if (!donotSetSearch) {
+				$("#search-text").val(result.title);
+			}
 			$("#answer-title").html(result.title);
 			$("#answer-info").html(result.answer.replace(/\n/g, "<br/>"));
 		}
@@ -114,10 +135,35 @@
 					var data = list[i];
 					searchMap[data.title] = data.id;
 					resultMap[data.id] = data;
+					if (i < 9) {
+						$(".hot-search").append(createHotSearchBlock(parseInt(i) + 1, data.id, data.title, data.searchCount));
+					}
 				}
 			}
 		});
 	}();
+	
+	function createHotSearchBlock(index, id, title, count) {
+		var indexClass = "";
+		
+		if (index == 1) {
+			indexClass = "very-hot";
+		} else if (index == 2) {
+			indexClass = "so-hot";
+		} else if (index == 3) {
+			indexClass = "normal-hot";
+		} else {
+			indexClass = "just-sos";
+		}
+		
+		return $('<span class="hot-block">' + 
+					'<span class="' + indexClass + '">' + index + '.</span>' + 
+					'<a class="hot-link" onclick="showDu(' + id + ', true)"><span>' + title + '</span>' + 
+						'<span class="under-link"></span>' + 
+					'</a>' + 
+					'<span class="' + indexClass + ' fright">' + count + '</span>' + 
+				'</span>');
+	}
 	
 	function requestQuestion() {
 		var question = $("#search-text").val();
@@ -131,6 +177,39 @@
 				showResult();
 				AjaxUtil.post("<c:url value='/question'/>", {question:question}, function(data) {});
 			}
+		}
+	}
+	
+	var contributing = false;
+	
+	function contributeOil() {
+		if (!contributing) {
+			var fansName = $("#fans-name").val();
+			var title = $("#fans-title").val();
+			var answer = $("#fans-answer").val();
+			
+			if (!fansName) {
+				alert("你要是不告诉我你是谁，我就不告诉你我是谁");
+				$("#fans-name").focus();
+				return;
+			}
+			if (!title) {
+				alert("你要说什么呀");
+				$("#fans-title").focus();
+				return;
+			}
+			if (!answer) {
+				alert("那么这是什么呢");
+				$("#fans-answer").focus();
+				return;
+			}
+			
+			contributing = true;
+			
+			AjaxUtil.post("<c:url value='/addfansanswer'/>", {fansName:fansName, title:title, answer:answer}, function(data) {
+				alert("您的提议会很快得到薛科长的审批，审批通过后您的提议会被纳入薛度词条，感谢！");
+				location.reload(true);
+			});
 		}
 	}
 </script>

@@ -4,21 +4,23 @@ import java.util.Date;
 
 import com.xiaofo1022.xuedu.dao.common.Column;
 
-public class Answer {
+public class FansAnswer {
 	@Column("ID")
 	private int id;
 	@Column("INSERT_DATETIME")
 	private Date insertDatetime;
 	@Column("UPDATE_DATETIME")
 	private Date updateDatetime;
+	@Column("FANS_NAME")
+	private String fansName;
 	@Column("TITLE")
 	private String title;
 	@Column("ANSWER")
 	private String answer;
 	@Column("IS_ACTIVE")
 	private int isActive;
-	@Column("SEARCH_COUNT")
-	private int searchCount;
+	@Column("IS_APPROVED")
+	private int isApproved;
 	
 	public int getId() {
 		return id;
@@ -38,6 +40,12 @@ public class Answer {
 	public void setUpdateDatetime(Date updateDatetime) {
 		this.updateDatetime = updateDatetime;
 	}
+	public String getFansName() {
+		return fansName;
+	}
+	public void setFansName(String fansName) {
+		this.fansName = fansName;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -56,10 +64,10 @@ public class Answer {
 	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
-	public int getSearchCount() {
-		return searchCount;
+	public int getIsApproved() {
+		return isApproved;
 	}
-	public void setSearchCount(int searchCount) {
-		this.searchCount = searchCount;
+	public void setIsApproved(int isApproved) {
+		this.isApproved = isApproved;
 	}
 }
