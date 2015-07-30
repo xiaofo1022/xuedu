@@ -23,7 +23,7 @@
 		<div class="down-box" style="border:0px solid black;">
 			<div class="search-block">
 				<a>
-					<input id="search-text" type="text" maxlength="100"/>
+					<input id="search-text" type="text" maxlength="30"/>
 					<span class="top"></span>
 					<span class="left"></span>
 					<span class="bottom"></span>
@@ -35,8 +35,31 @@
 				我为迪吧献石油
 				<span class="under-link"></span>
 			</a>
-			<div id="hot-search" class="search-board hot-search"></div>
-			<div id="new-search" class="search-board new-search"></div>
+			<div id="hot-search" class="search-board hot-search" style="display:none;"></div>
+			<div id="new-search" class="search-board new-search" style="display:none;"></div>
+		</div>
+	</div>
+	<div id="contribute" class="contribute hidden">
+		<div class="form">
+			<span class="close-btn" onclick="hideContribute()"></span>
+			<input id="fans-name" type="text" maxlength="100" placeholder="我是谁？" />
+			<input id="fans-title" type="text" maxlength="100" placeholder="我要说？" />
+			<textarea id="fans-answer" maxlength="1000" placeholder="是什么？"></textarea>
+			<div class="btn" onclick="contributeOil()">提交</div>
+		</div>
+	</div>
+	<div id="all-lastest" class="contribute hidden">
+		<div class="form" style="height:480px;">
+			<span class="close-btn" onclick="hide50Latest()"></span>
+			<span>最新二十条</span>
+			<div id="new-50-search" class="more-search-board"></div>
+		</div>
+	</div>
+	<div id="all-hotest" class="contribute hidden">
+		<div class="form" style="height:480px;">
+			<span class="close-btn" onclick="hide50Hotest()"></span>
+			<span>最热二十条</span>
+			<div id="hot-50-search" class="more-search-board"></div>
 		</div>
 	</div>
 </div>
@@ -57,20 +80,10 @@
 				<p id="answer-info">
 				</p>
 			</div>
-			<div class="back-btn" onclick="showMain()">
+			<div id="back-btn" class="back-btn" onclick="showMain()">
 				&lt; 知道了吧？
 			</div>
 		</div>
-	</div>
-</div>
-
-<div class="contribute hidden">
-	<div class="form">
-		<span class="close-btn" onclick="hideContribute()"></span>
-		<input id="fans-name" type="text" maxlength="100" placeholder="我是谁？" />
-		<input id="fans-title" type="text" maxlength="100" placeholder="我要说？" />
-		<textarea id="fans-answer" maxlength="1000" placeholder="是什么？"></textarea>
-		<div class="btn" onclick="contributeOil()">提交</div>
 	</div>
 </div>
 
@@ -85,6 +98,7 @@
 	var searchMap = {};
 	var resultMap = {};
 	var resultCount = 0;
+	var isDontKnow = false;
 	
 	$("#search-text").keypress(function(e) {
 		if (e.keyCode == "13") {
@@ -123,18 +137,21 @@
 			}
 			$("#answer-title").html(result.title);
 			$("#answer-info").html(result.answer.replace(/\n/g, "<br/>"));
+			isDontKnow = false;
+			showResult();
 		}
-		showResult();
 	}
 	
 	var hotestAnswerList = [];
 	var lastestAnswerList = [];
 	var maxPresentSize = 9;
+	var maxPresent50 = 20;
 	
 	+function init() {
 		$.get("<c:url value='/answerlist'/>", function(list) {
 			if (list) {
 				hotestAnswerList = list;
+				var isOverMax = false;
 				for (var i in list) {
 					var data = list[i];
 					searchMap[data.title] = data.id;
@@ -142,47 +159,61 @@
 					if (i < maxPresentSize) {
 						appendHotSearchLink("hot-search", i, data);
 					} else {
-						//appendShowAllLink("hot-search");
-						break;
+						if (!isOverMax) {
+							appendShowAllLink("hot-search");
+							isOverMax = true;
+						}
+					}
+					if (i < maxPresent50) {
+						appendHotSearchLink("hot-50-search", i, data);
 					}
 				}
+				$("#hot-search").css("display", "block");
 			}
 		});
 		
 		$.get("<c:url value='/lastestAnswerlist'/>", function(list) {
 			if (list) {
 				lastestAnswerList = list;
+				var isOverMax = false;
 				for (var i in list) {
 					var data = list[i];
 					if (i < maxPresentSize) {
 						appendHotSearchLink("new-search", i, data);
 					} else {
-						//appendShowAllLink("new-search");
+						if (!isOverMax) {
+							appendShowAllLink("new-search");
+							isOverMax = true;
+						}
+					}
+					if (i < maxPresent50) {
+						appendHotSearchLink("new-50-search", i, data);
+					} else {
 						break;
 					}
 				}
+				$("#new-search").css("display", "block");
 			}
 		});
 	}();
 	
 	function appendShowAllLink(searchId) {
-		$("#" + searchId).append($("<a id='" + searchId + "' class='show-all-link' onclick='presentAllAnswer(this)'>查看全部 </a>"));
+		var alltip = "";
+		if (searchId == "new-search") {
+			alltip = "最新二十条";
+		} else {
+			alltip = "最热二十条";
+		}
+		$("#" + searchId).append($("<a id='" + searchId + "' class='show-all-link' onclick='present50Answers(this)'>" + alltip + "<span class='under-link'></span></a>"));
 	}
 	
-	function presentAllAnswer(allLink) {
+	function present50Answers(allLink) {
 		var link = $(allLink);
 		var linkId = link.attr("id");
-		var list;
 		if (linkId == "new-search") {
-			list = lastestAnswerList;
+			show50Latest();
 		} else {
-			list = hotestAnswerList;
-		}
-		link.hide();
-		var searchBlock = $("#" + linkId);
-		for (var i = maxPresentSize; i < list.length; i++) {
-			var data = list[i];
-			searchBlock.append(createHotSearchBlock(parseInt(i) + 1, data.id, data.title, data.searchCount));
+			show50Hotest();
 		}
 	}
 	
@@ -200,7 +231,7 @@
 		} else if (index == 3) {
 			indexClass = "normal-hot";
 		} else {
-			indexClass = "just-sos";
+			indexClass = "just-soso";
 		}
 		
 		return $('<span class="hot-block">' + 
@@ -220,8 +251,9 @@
 				showDu(searchid);
 			} else {
 				$("#answer-title").html(question);
-				$("#answer-info").html("你这都什么问题啊，胡闹胡闹！");
-				showResult();
+				$("#answer-info").html("这个这个，我也不知道耶。");
+				isDontKnow = true;
+				showResult(true);
 				AjaxUtil.post("<c:url value='/question'/>", {question:question}, function(data) {});
 			}
 		}

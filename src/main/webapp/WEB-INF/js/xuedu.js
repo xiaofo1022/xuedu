@@ -14,7 +14,13 @@ $("#search-text").blur(function(e) {
 	}, 500);
 });
 
-function showResult() {
+function showResult(isDontKnow) {
+	if (isDontKnow) {
+		$("#back-btn").html("那我来说一帽儿 >");
+	} else {
+		$("#back-btn").html("< 知道了吧");
+	}
+	
 	$("#answer").css("display", "block");
 
 	$(".main").css("z-index", "9");
@@ -27,17 +33,44 @@ function showResult() {
 }
 
 function showContribute() {
-	$(".contribute").removeClass("hidden");
-	$(".contribute").removeClass("hide-contribute");
-	$(".contribute").addClass("show-contribute");
+	$("#contribute").removeClass("hidden");
+	$("#contribute").removeClass("hide-contribute");
+	$("#contribute").addClass("show-contribute");
 }
 
 function hideContribute() {
-	$(".contribute").removeClass("show-contribute");
-	$(".contribute").addClass("hide-contribute");
+	$("#contribute").removeClass("show-contribute");
+	$("#contribute").addClass("hide-contribute");
+}
+
+function show50Latest() {
+	$("#all-lastest").removeClass("hidden");
+	$("#all-lastest").removeClass("hide-contribute");
+	$("#all-lastest").addClass("show-contribute");
+}
+
+function hide50Latest() {
+	$("#all-lastest").removeClass("show-contribute");
+	$("#all-lastest").addClass("hide-contribute");
+}
+
+function show50Hotest() {
+	$("#all-hotest").removeClass("hidden");
+	$("#all-hotest").removeClass("hide-contribute");
+	$("#all-hotest").addClass("show-contribute");
+}
+
+function hide50Hotest() {
+	$("#all-hotest").removeClass("show-contribute");
+	$("#all-hotest").addClass("hide-contribute");
 }
 
 function showMain() {
+	if (isDontKnow) {
+		$("#fans-title").val($("#search-text").val());
+		showContribute();
+	}
+	
 	$(".ans-block").css("display", "none");
 
 	$(".main").css("z-index", "99");

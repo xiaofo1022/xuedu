@@ -21,7 +21,7 @@
 			<c:forEach items="${answerList}" var="answer">
 				<div class="question-row clearfix">
 					<div class="info">${answer.title}</div>
-					<div class="btn-control" onclick="deleteAnswer(${answer.id})">删除</div>
+					<div class="btn-control" onclick="deleteAnswer(${answer.id}, this)">删除</div>
 					<div class="btn-control" onclick="getAnswer(${answer.id})">更新</div>
 				</div>
 			</c:forEach>
@@ -31,7 +31,7 @@
 			<c:forEach items="${questionList}" var="question">
 				<div class="question-row clearfix">
 					<div class="info">${question.question}</div>
-					<div class="btn-control" onclick="ignoreQuestion(${question.id})">忽略</div>
+					<div class="btn-control" onclick="ignoreQuestion(${question.id}, this)">忽略</div>
 					<div class="btn-control" onclick="giveAnAnswer(${question.id}, '${question.question}')">解答</div>
 				</div>
 			</c:forEach>
@@ -41,7 +41,7 @@
 			<c:forEach items="${fansAnswerList}" var="fansAnswer">
 				<div class="question-row clearfix">
 					<div class="info">${fansAnswer.fansName}: ${fansAnswer.title}</div>
-					<div class="btn-control" onclick="deleteFansAnswer(${fansAnswer.id})">删除</div>
+					<div class="btn-control" onclick="deleteFansAnswer(${fansAnswer.id}, this)">删除</div>
 					<div class="btn-control" onclick="getFansAnswer(${fansAnswer.id})">查看</div>
 				</div>
 			</c:forEach>
@@ -89,7 +89,11 @@
 				var id = $("#answer-id").val();
 				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>", {id:id, title:title, answer:answer}, function(data) {
 					if (data == "success") {
-						location.reload(true);
+						if (id == 0) {
+							location.reload(true);
+						} else {
+							clearInput();
+						}
 					}
 				});
 			}
@@ -104,12 +108,12 @@
 		});
 	}
 	
-	function deleteAnswer(id) {
+	function deleteAnswer(id, element) {
 		var result = confirm("确认删掉这一条吗？");
 		if (result) {
 			$.post("<c:url value='/deleteanswer/" + id + "'/>", null, function(data) {
 				if (data == "success") {
-					location.reload(true);
+					removeRow(element);
 				}
 			});
 		}
@@ -121,12 +125,18 @@
 		$("#answer").val("");
 	}
 	
-	function ignoreQuestion(id) {
+	function ignoreQuestion(id, element) {
 		$.post("<c:url value='/ignorequestion/" + id + "'/>", null, function(data) {
 			if (data == "success") {
-				location.reload(true);
+				removeRow(element);
 			}
 		});
+	}
+	
+	function removeRow(element) {
+		var elem = $(element);
+		var par = elem.parent();
+		par.remove();
 	}
 	
 	function getFansAnswer(id) {
@@ -139,12 +149,20 @@
 		});
 	}
 	
-	function deleteFansAnswer(id) {
+	function clearInput() {
+		$("#question-id").val("");
+		$("#answer-id").val("");
+		$("#oil-id").val("");
+		$("#title").val("");
+		$("#answer").val("");
+	}
+	
+	function deleteFansAnswer(id, element) {
 		var result = confirm("确认删掉这一条吗？");
 		if (result) {
 			$.post("<c:url value='/deletefansanswer/" + id + "'/>", null, function(data) {
 				if (data == "success") {
-					location.reload(true);
+					removeRow(element);
 				}
 			});
 		}
