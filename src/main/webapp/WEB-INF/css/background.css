@@ -97,6 +97,10 @@ html, body {
 
 .question-row .info {
 	float:left;
+	width:250px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }
 
 .question-row .btn-control {

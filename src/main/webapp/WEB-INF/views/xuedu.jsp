@@ -77,7 +77,7 @@
 				<p>
 					答：
 				</p>
-				<p id="answer-info">
+				<p id="answer-info" class="answer-info">
 				</p>
 			</div>
 			<div id="back-btn" class="back-btn" onclick="showMain()">
@@ -234,9 +234,15 @@
 			indexClass = "just-soso";
 		}
 		
+		var linkText = title;
+		
+		if (linkText.length > 12) {
+			linkText = linkText.substring(0, 12) + "...";
+		}
+		
 		return $('<span class="hot-block">' + 
-					'<span class="' + indexClass + '">' + index + '.</span>' + 
-					'<a class="hot-link" onclick="showDu(' + id + ', true)"><span>' + title + '</span>' + 
+					'<span class="' + indexClass + '" style="overflow:auto;">' + index + '.</span>' + 
+					'<a class="hot-link" onclick="showDu(' + id + ', true)"><span>' + linkText + '</span>' + 
 						'<span class="under-link"></span>' + 
 					'</a>' + 
 					'<span class="' + indexClass + ' fright">' + count + '</span>' + 
