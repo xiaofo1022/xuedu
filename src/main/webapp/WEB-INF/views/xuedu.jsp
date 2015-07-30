@@ -19,8 +19,8 @@
 			薛度
 		</div>
 	</div>
-	<div class="side-block-down">
-		<div class="down-box">
+	<div class="side-block-down" style="border:0px solid gray;">
+		<div class="down-box" style="border:0px solid black;">
 			<div class="search-block">
 				<a>
 					<input id="search-text" type="text" maxlength="100"/>
@@ -29,15 +29,14 @@
 					<span class="bottom"></span>
 				</a>
 				<a class="search-btn" onclick="requestQuestion()">薛人一度</a>
-				<div id="search-dropdown" class="search-dropdown">
-				</div>
+				<div id="search-dropdown" class="search-dropdown"></div>
 			</div>
 			<a class="oil-link" onclick="showContribute()">
 				我为迪吧献石油
 				<span class="under-link"></span>
 			</a>
-			<div class="hot-search">
-			</div>
+			<div id="hot-search" class="search-board hot-search"></div>
+			<div id="new-search" class="search-board new-search"></div>
 		</div>
 	</div>
 </div>
@@ -76,7 +75,7 @@
 </div>
 
 <div class="footer">
-	薛人一度 优思无数 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> ©2015
+	薛人一度 优斯无数 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> ©2015
 </div>
 
 <script src="<c:url value='js/jquery.js'/>"></script>
@@ -128,20 +127,68 @@
 		showResult();
 	}
 	
+	var hotestAnswerList = [];
+	var lastestAnswerList = [];
+	var maxPresentSize = 9;
+	
 	+function init() {
 		$.get("<c:url value='/answerlist'/>", function(list) {
 			if (list) {
+				hotestAnswerList = list;
 				for (var i in list) {
 					var data = list[i];
 					searchMap[data.title] = data.id;
 					resultMap[data.id] = data;
-					if (i < 9) {
-						$(".hot-search").append(createHotSearchBlock(parseInt(i) + 1, data.id, data.title, data.searchCount));
+					if (i < maxPresentSize) {
+						appendHotSearchLink("hot-search", i, data);
+					} else {
+						//appendShowAllLink("hot-search");
+						break;
+					}
+				}
+			}
+		});
+		
+		$.get("<c:url value='/lastestAnswerlist'/>", function(list) {
+			if (list) {
+				lastestAnswerList = list;
+				for (var i in list) {
+					var data = list[i];
+					if (i < maxPresentSize) {
+						appendHotSearchLink("new-search", i, data);
+					} else {
+						//appendShowAllLink("new-search");
+						break;
 					}
 				}
 			}
 		});
 	}();
+	
+	function appendShowAllLink(searchId) {
+		$("#" + searchId).append($("<a id='" + searchId + "' class='show-all-link' onclick='presentAllAnswer(this)'>查看全部 </a>"));
+	}
+	
+	function presentAllAnswer(allLink) {
+		var link = $(allLink);
+		var linkId = link.attr("id");
+		var list;
+		if (linkId == "new-search") {
+			list = lastestAnswerList;
+		} else {
+			list = hotestAnswerList;
+		}
+		link.hide();
+		var searchBlock = $("#" + linkId);
+		for (var i = maxPresentSize; i < list.length; i++) {
+			var data = list[i];
+			searchBlock.append(createHotSearchBlock(parseInt(i) + 1, data.id, data.title, data.searchCount));
+		}
+	}
+	
+	function appendHotSearchLink(searchId, index, data) {
+		$("#" + searchId).append(createHotSearchBlock(parseInt(index) + 1, data.id, data.title, data.searchCount));
+	}
 	
 	function createHotSearchBlock(index, id, title, count) {
 		var indexClass = "";

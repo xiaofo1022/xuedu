@@ -25,8 +25,12 @@ public class AnswerDao {
 			new Date(), answer.getTitle(), answer.getAnswer(), answer.getId());
 	}
 	
-	public List<Answer> getAnswerList() {
-		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC, UPDATE_DATETIME DESC");
+	public List<Answer> getHotestAnswerList() {
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC");
+	}
+	
+	public List<Answer> getLatestAnswerList() {
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
 	}
 	
 	public Answer getAnswerDetail(int id) {

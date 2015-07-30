@@ -155,14 +155,12 @@ a {
 .side-block-down .search-block .search-dropdown {
 	width:482px;
 	height:0;
-	float:left;
-	clear:left;
 	border:1px solid #A9A9A9;
 	border-top-width:0;
 	background-color:#fff;
-	margin-top:-1px;
 	overflow-x:hidden;
-	position:relative;
+	position:absolute;
+	top:40px;
 	z-index:99;
 	
 	-ms-transition:height .3s;
@@ -439,25 +437,34 @@ a {
 	display:inline-block;
 }
 
-.hot-search {
+.search-board {
 	display:inline-block;
 	border:1px solid #A9A9A9;
 	text-align:left;
 	padding:10px;
 	padding-top:20px;
 	box-sizing:border-box;
-	position:absolute;
-	right:0;
-	top:80px;
+	position:relative;
+	margin:20px;
+	margin-top:60px;
+	margin-right:0;
+	float:right;
 }
 
-.hot-search:before {
+.search-board:before {
 	display:block;
 	background-color:#fff;
-	content:"热词排行";
 	position:absolute;
 	left:10px;
 	top:-8px;
+}
+
+.hot-search:before {
+	content:"热词排行";
+}
+
+.new-search:before {
+	content:"热油出锅";
 }
 
 .hot-block {
@@ -627,5 +634,17 @@ a {
 }
 
 .form .close-btn:hover {
+	cursor:pointer;
+}
+
+.show-all-link {
+	text-align:center;
+	float:right;
+	margin-top:5px;
+	color:#3388FF;
+	font-size:14px;
+}
+
+.show-all-link:hover {
 	cursor:pointer;
 }

@@ -57,7 +57,7 @@ public class MainController {
 	
 	@RequestMapping(value="/background", method=RequestMethod.GET)
 	public String background(HttpServletRequest request, ModelMap modelMap) {
-		modelMap.addAttribute("answerList", answerDao.getAnswerList());
+		modelMap.addAttribute("answerList", answerDao.getLatestAnswerList());
 		modelMap.addAttribute("questionList", questionDao.getQuestionList());
 		modelMap.addAttribute("fansAnswerList", fansAnswerDao.getFansAnswerList());
 		return "background";
@@ -66,7 +66,13 @@ public class MainController {
 	@RequestMapping(value="/answerlist", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Answer> answerlist(HttpServletRequest request, ModelMap modelMap) {
-		return answerDao.getAnswerList();
+		return answerDao.getHotestAnswerList();
+	}
+	
+	@RequestMapping(value="/lastestAnswerlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> lastestAnswerlist(HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.getLatestAnswerList();
 	}
 	
 	@RequestMapping(value="/question", method=RequestMethod.POST)
