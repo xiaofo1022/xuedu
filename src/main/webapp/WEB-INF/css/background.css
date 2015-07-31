@@ -33,7 +33,7 @@ html, body {
 	margin:10px;
 }
 
-.block input {
+.block input[type=text] {
 	outline:none;
 	width:400px;
 	height:30px;
@@ -44,10 +44,18 @@ html, body {
 	font-size:22px;
 }
 
+.block input#easterCode {
+	width:340px;
+}
+
+.block input[type=checkbox] {
+	outline:none;
+}
+
 .block textarea {
 	outline:none;
 	width:400px;
-	height:380px;
+	height:290px;
 	margin:10px;
 	margin-bottom:0;
 	border:1px solid #000;

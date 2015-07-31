@@ -19,6 +19,12 @@ public class Answer {
 	private int isActive;
 	@Column("SEARCH_COUNT")
 	private int searchCount;
+	@Column("IS_EASTER_EGG")
+	private int isEasterEgg;
+	@Column("EASTER_CODE")
+	private String easterCode;
+	@Column("NEXT_EASTER_TIP")
+	private String nextEasterTip;
 	
 	public int getId() {
 		return id;
@@ -61,5 +67,23 @@ public class Answer {
 	}
 	public void setSearchCount(int searchCount) {
 		this.searchCount = searchCount;
+	}
+	public int getIsEasterEgg() {
+		return isEasterEgg;
+	}
+	public void setIsEasterEgg(int isEasterEgg) {
+		this.isEasterEgg = isEasterEgg;
+	}
+	public String getEasterCode() {
+		return easterCode;
+	}
+	public void setEasterCode(String easterCode) {
+		this.easterCode = easterCode;
+	}
+	public String getNextEasterTip() {
+		return nextEasterTip;
+	}
+	public void setNextEasterTip(String nextEasterTip) {
+		this.nextEasterTip = nextEasterTip;
 	}
 }

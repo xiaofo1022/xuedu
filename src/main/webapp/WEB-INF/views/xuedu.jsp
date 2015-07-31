@@ -37,6 +37,7 @@
 			<div id="hot-search" class="search-board hot-search"></div>
 			<div id="new-search" class="search-board new-search"></div>
 		</div>
+		<div id="easter-egg-dialog" class="easter-egg-dialog"></div>
 	</div>
 	
 	<div id="contribute" class="contribute hidden">
@@ -64,6 +65,8 @@
 			<div id="hot-50-search" class="more-search-board"></div>
 		</div>
 	</div>
+	
+	<canvas id="canvas"></canvas>
 </div>
 
 <div class="result inactive">
@@ -96,6 +99,7 @@
 <script src="<c:url value='js/jquery.js'/>"></script>
 <script src="<c:url value='js/ajax-util.js'/>"></script>
 <script src="<c:url value='js/xuedu.js'/>"></script>
+<script src="<c:url value='js/spark.js'/>"></script>
 <script>
 	var searchMap = {};
 	var resultMap = {};
@@ -137,15 +141,32 @@
 	function showDu(id, donotSetSearch) {
 		var result = resultMap[id];
 		if (result) {
-			$.post("<c:url value='/increasesearch/" + id + "'/>", null, function(data) {});
 			if (!donotSetSearch) {
 				$("#search-text").val(result.title);
 			}
 			$("#answer-title").html(result.title);
 			$("#answer-info").html(result.answer.replace(/\n/g, "<br/>"));
 			isDontKnow = false;
-			showResult();
+			if (result.isEasterEgg) {
+				$.post("<c:url value='/removedeaster/" + id + "'/>", null, function(data) {});
+				makeEasterEgg();
+				showEasterTip(result.easterCode)
+			} else {
+				$.post("<c:url value='/increasesearch/" + id + "'/>", null, function(data) {});
+				showResult();
+			}
 		}
+	}
+	
+	function showEasterTip(easterCode) {
+		var easterTip = "恭喜你搜中薛度彩蛋一枚";
+		if (easterCode) {
+			easterTip += (" 请牢记彩蛋码:" + easterCode);
+		}
+		$("#easter-egg-dialog").html(easterTip);
+		$("#easter-egg-dialog").css("-webkit-filter", "blur(0rem)");
+		$("#easter-egg-dialog").css("filter", "blur(0rem)");
+		$("#easter-egg-dialog").css("opacity", "1");
 	}
 	
 	var hotestAnswerList = [];

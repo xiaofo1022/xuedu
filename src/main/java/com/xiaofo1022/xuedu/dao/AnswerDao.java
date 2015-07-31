@@ -1,5 +1,6 @@
 package com.xiaofo1022.xuedu.dao;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -14,15 +15,34 @@ public class AnswerDao {
 	@Autowired
 	private CommonDao commonDao;
 	
+	private static Calendar calendar = Calendar.getInstance();
+	
 	public void insertAnswer(Answer answer) {
 		Date now = new Date();
-		commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER) VALUES (?, ?, ?, ?)",
-			now, now, answer.getTitle(), answer.getAnswer());
+		calendar.setTime(now);
+		if (answer.getIsEasterEgg() == 1) {
+			calendar.set(Calendar.YEAR, 2014);
+		}
+		commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, IS_EASTER_EGG, EASTER_CODE, NEXT_EASTER_TIP) VALUES (?, ?, ?, ?, ?, ?, ?)",
+			calendar.getTime(), calendar.getTime(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip());
 	}
 	
 	public void updateAnswer(Answer answer) {
-		commonDao.update("UPDATE ANSWER SET UPDATE_DATETIME = ?, TITLE = ?, ANSWER = ? WHERE ID = ?",
-			new Date(), answer.getTitle(), answer.getAnswer(), answer.getId());
+		if (answer.getIsEasterEgg() == 1) {
+			updateAnswerWithoutDatetime(answer);
+		} else {
+			updateAnswerWithDatetime(answer);
+		}
+	}
+	
+	public void updateAnswerWithoutDatetime(Answer answer) {
+		commonDao.update("UPDATE ANSWER SET TITLE = ?, ANSWER = ?, IS_EASTER_EGG = ?, EASTER_CODE = ?, NEXT_EASTER_TIP = ? WHERE ID = ?",
+			answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getId());
+	}
+	
+	public void updateAnswerWithDatetime(Answer answer) {
+		commonDao.update("UPDATE ANSWER SET UPDATE_DATETIME = ?, TITLE = ?, ANSWER = ?, IS_EASTER_EGG = ?, EASTER_CODE = ?, NEXT_EASTER_TIP = ? WHERE ID = ?",
+			new Date(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getId());
 	}
 	
 	public List<Answer> getHotestAnswerList() {
@@ -48,5 +68,9 @@ public class AnswerDao {
 			searchCount++;
 			commonDao.update("UPDATE ANSWER SET SEARCH_COUNT = ? WHERE ID = ?", searchCount, id);
 		}
+	}
+	
+	public void removeEaster(int id) {
+		commonDao.update("UPDATE ANSWER SET IS_EASTER_EGG = 0 WHERE ID = ?", id);
 	}
 }

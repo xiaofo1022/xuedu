@@ -55,6 +55,7 @@ a {
 	top:50%;
 	margin-top:-206px;
 	margin-left:-292px;
+	z-index:18;
 }
 
 .main-block .logo {
@@ -561,10 +562,6 @@ a {
 	to { transform:translateY(-100%); }
 }
 
-@keyframes hide-contribute {
-	to { transform:translateY(-100%); }
-}
-
 .hide-contribute {
 	animation-name:hide-contribute;
 	animation-duration:.5s;
@@ -668,4 +665,24 @@ a {
 
 .show-all-link:hover .under-link {
 	width:100%;
+}
+
+#canvas {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	display:block;
+	background-color:#fff;
+	z-index:17;
+}
+
+.easter-egg-dialog {
+	height:40px;
+	margin-top:10px;
+	filter:blur(1rem);
+	-webkit-filter:blur(1rem);
+	opacity:0;
+	transition:-webkit-filter 2s, filter 2s, opacity 2s;
 }

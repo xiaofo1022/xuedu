@@ -112,6 +112,13 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
+	@RequestMapping(value="/removedeaster/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String removedeaster(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.removeEaster(id);
+		return CommonConst.SUCCESS;
+	}
+	
 	@RequestMapping(value="/ignorequestion/{id}", method=RequestMethod.POST)
 	@ResponseBody
 	public String ignorequestion(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {

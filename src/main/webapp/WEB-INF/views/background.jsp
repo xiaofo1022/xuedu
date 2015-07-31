@@ -49,8 +49,11 @@
 	</div>
 	
 	<div class="block">
-		<input id="title" placeholder="问：" type="text" maxlength="100"/>
-		<textarea id="answer" placeholder="答：" maxlength="1000"></textarea>
+		<input id="title" placeholder="标题：" type="text" maxlength="100"/>
+		<textarea id="answer" placeholder="内容：" maxlength="1000"></textarea>
+		<input id="isEasterEgg" type="checkbox"/>彩蛋
+		<input id="easterCode" placeholder="彩蛋码：" type="text" maxlength="6"/>
+		<input id="nextEasterTip" placeholder="下一条彩蛋提示：" type="text" maxlength="100"/>
 		<div class="btn" onclick="addAnswer()">提交</div>
 	</div>
 	
@@ -75,6 +78,20 @@
 	function addAnswer() {
 		var title = $("#title").val();
 		var answer = $("#answer").val();
+		var easterChecked = $("#isEasterEgg").prop("checked");
+		var isEasterEgg = easterChecked ? 1 : 0;
+		var easterCode = $("#easterCode").val();
+		var nextEasterTip = $("#nextEasterTip").val();
+		
+		if (!title) {
+			alert("请输入词条标题");
+			return;
+		}
+		if (!answer) {
+			alert("请输入词条内容");
+			return;
+		}
+		
 		if (title && answer) {
 			var result = confirm("确认就这样提交吗？");
 			if (result) {
@@ -87,15 +104,18 @@
 					oilId = 0;
 				}
 				var id = $("#answer-id").val();
-				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>", {id:id, title:title, answer:answer}, function(data) {
-					if (data == "success") {
-						if (id == 0) {
-							location.reload(true);
-						} else {
-							clearInput();
+				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>",
+					{id:id, title:title, answer:answer, isEasterEgg:isEasterEgg, easterCode:easterCode, nextEasterTip:nextEasterTip},
+					function(data) {
+						if (data == "success") {
+							if (id == 0) {
+								location.reload(true);
+							} else {
+								clearInput();
+							}
 						}
 					}
-				});
+				);
 			}
 		}
 	}
@@ -105,6 +125,14 @@
 		$.get("<c:url value='/answerdetail/" + id + "'/>", function(data) {
 			$("#title").val(data.title);
 			$("#answer").val(data.answer);
+			var isEasterEgg = data.isEasterEgg;
+			if (isEasterEgg) {
+				$("#isEasterEgg").prop("checked", true);
+			} else {
+				$("#isEasterEgg").prop("checked", false);
+			}
+			$("#easterCode").val(data.easterCode);
+			$("#nextEasterTip").val(data.nextEasterTip);
 		});
 	}
 	
@@ -155,6 +183,9 @@
 		$("#oil-id").val("");
 		$("#title").val("");
 		$("#answer").val("");
+		$("#isEasterEgg").prop("checked", false);
+		$("#easterCode").val("");
+		$("#nextEasterTip").val("");
 	}
 	
 	function deleteFansAnswer(id, element) {
