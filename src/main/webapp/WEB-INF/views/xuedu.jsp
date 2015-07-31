@@ -11,16 +11,15 @@
 <link href="<c:url value='css/xuedu.css'/>" rel="stylesheet"/>
 </head>
 <body>
+
 <div class="main active">
-	<div class="side-block-up">
+	<div class="main-block">
 		<div class="logo">
 			Xue
 			<img src="images/xuedu/MrXue.png"/>
 			薛度
 		</div>
-	</div>
-	<div class="side-block-down" style="border:0px solid gray;">
-		<div class="down-box" style="border:0px solid black;">
+		<div class="down-box">
 			<div class="search-block">
 				<a>
 					<input id="search-text" type="text" maxlength="30"/>
@@ -35,10 +34,11 @@
 				我为迪吧献石油
 				<span class="under-link"></span>
 			</a>
-			<div id="hot-search" class="search-board hot-search" style="display:none;"></div>
-			<div id="new-search" class="search-board new-search" style="display:none;"></div>
+			<div id="hot-search" class="search-board hot-search"></div>
+			<div id="new-search" class="search-board new-search"></div>
 		</div>
 	</div>
+	
 	<div id="contribute" class="contribute hidden">
 		<div class="form">
 			<span class="close-btn" onclick="hideContribute()"></span>
@@ -48,6 +48,7 @@
 			<div class="btn" onclick="contributeOil()">提交</div>
 		</div>
 	</div>
+	
 	<div id="all-lastest" class="contribute hidden">
 		<div class="form" style="height:480px;">
 			<span class="close-btn" onclick="hide50Latest()"></span>
@@ -55,6 +56,7 @@
 			<div id="new-50-search" class="more-search-board"></div>
 		</div>
 	</div>
+	
 	<div id="all-hotest" class="contribute hidden">
 		<div class="form" style="height:480px;">
 			<span class="close-btn" onclick="hide50Hotest()"></span>
@@ -116,8 +118,12 @@
 		$("#search-dropdown").html("");
 		resultCount = 0;
 		if (search) {
+			var keyValue;
+			var searchValue;
 			for (var key in searchMap) {
-				if (key.indexOf(search) >= 0) {
+				keyValue = key.toLowerCase();
+				searchValue = search.toLowerCase();
+				if (keyValue.indexOf(searchValue) >= 0) {
 					$("#search-dropdown").append("<p onclick='showDu(" + searchMap[key] + ")'>" + key + "</p>");
 					resultCount++;
 					if (resultCount > 5) {
@@ -168,7 +174,7 @@
 						appendHotSearchLink("hot-50-search", i, data);
 					}
 				}
-				$("#hot-search").css("display", "block");
+				$("#hot-search").css("visibility", "visible");
 			}
 		});
 		
@@ -192,7 +198,7 @@
 						break;
 					}
 				}
-				$("#new-search").css("display", "block");
+				$("#new-search").css("visibility", "visible");
 			}
 		});
 	}();
@@ -204,7 +210,7 @@
 		} else {
 			alltip = "最热二十条";
 		}
-		$("#" + searchId).append($("<a id='" + searchId + "' class='show-all-link' onclick='present50Answers(this)'>" + alltip + "<span class='under-link'></span></a>"));
+		$("#" + searchId).append($("<a id='" + searchId + "' class='show-all-link' onclick='present50Answers(this)'>" + alltip + "</a>"));
 	}
 	
 	function present50Answers(allLink) {
@@ -236,12 +242,12 @@
 		
 		var linkText = title;
 		
-		if (linkText.length > 12) {
-			linkText = linkText.substring(0, 12) + "...";
+		if (linkText.length > 15) {
+			linkText = linkText.substring(0, 15) + "...";
 		}
 		
 		return $('<span class="hot-block">' + 
-					'<span class="' + indexClass + '" style="overflow:auto;">' + index + '.</span>' + 
+					'<span class="' + indexClass + '">' + index + '.</span>' + 
 					'<a class="hot-link" onclick="showDu(' + id + ', true)"><span>' + linkText + '</span>' + 
 						'<span class="under-link"></span>' + 
 					'</a>' + 
@@ -292,7 +298,7 @@
 			contributing = true;
 			
 			AjaxUtil.post("<c:url value='/addfansanswer'/>", {fansName:fansName, title:title, answer:answer}, function(data) {
-				alert("您的提议会很快得到薛科长的审批，审批通过后您的提议会被纳入薛度词条，感谢！");
+				alert("薛科长会尽快审批你的提议，好好干小同志！");
 				location.reload(true);
 			});
 		}
