@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xiaofo1022.xuedu.common.CommonConst;
+import com.xiaofo1022.xuedu.core.RequestChecker;
 import com.xiaofo1022.xuedu.dao.AnswerDao;
 import com.xiaofo1022.xuedu.dao.FansAnswerDao;
 import com.xiaofo1022.xuedu.dao.LoginDao;
@@ -37,7 +38,11 @@ public class MainController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap modelMap) {
-		return "xuedu";
+		if (RequestChecker.isFromMobile(request)) {
+			return "xuedu";
+		} else {
+			return "xuedu";
+		}
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
@@ -85,9 +90,11 @@ public class MainController {
 	@RequestMapping(value="/addanswer/{questionId}/{oilId}", method=RequestMethod.POST)
 	@ResponseBody
 	public String addanswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable int questionId, @PathVariable int oilId, HttpServletRequest request, ModelMap modelMap) {
+		int answerId = 0;
 		if (answer.getId() == 0) {
-			answerDao.insertAnswer(answer);
+			answerId = answerDao.insertAnswer(answer);
 		} else {
+			answerId = answer.getId();
 			answerDao.updateAnswer(answer);
 		}
 		if (questionId != 0) {
@@ -96,7 +103,7 @@ public class MainController {
 		if (oilId != 0) {
 			fansAnswerDao.approveFansAnswer(oilId);
 		}
-		return CommonConst.SUCCESS;
+		return String.valueOf(answerId);
 	}
 	
 	@RequestMapping(value="/answerdetail/{id}", method=RequestMethod.GET)

@@ -273,8 +273,8 @@
 		
 		var linkText = title;
 		
-		if (linkText.length > 15) {
-			linkText = linkText.substring(0, 15) + "...";
+		if (linkText.length > 12) {
+			linkText = linkText.substring(0, 12) + "...";
 		}
 		
 		return $('<span class="hot-block">' + 

@@ -17,13 +17,13 @@ public class AnswerDao {
 	
 	private static Calendar calendar = Calendar.getInstance();
 	
-	public void insertAnswer(Answer answer) {
+	public int insertAnswer(Answer answer) {
 		Date now = new Date();
 		calendar.setTime(now);
 		if (answer.getIsEasterEgg() == 1) {
 			calendar.set(Calendar.YEAR, 2014);
 		}
-		commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, IS_EASTER_EGG, EASTER_CODE, NEXT_EASTER_TIP, FANS_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+		return commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, IS_EASTER_EGG, EASTER_CODE, NEXT_EASTER_TIP, FANS_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
 			calendar.getTime(), calendar.getTime(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getFansId());
 	}
 	

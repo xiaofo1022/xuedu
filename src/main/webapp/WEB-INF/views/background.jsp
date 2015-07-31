@@ -32,7 +32,7 @@
 				<div class="question-row clearfix">
 					<div class="info">${question.question}</div>
 					<div class="btn-control" onclick="ignoreQuestion(${question.id}, this)">忽略</div>
-					<div class="btn-control" onclick="giveAnAnswer(${question.id}, '${question.question}')">解答</div>
+					<div class="btn-control" onclick="giveAnAnswer(${question.id}, '${question.question}', this)">解答</div>
 				</div>
 			</c:forEach>
 		</div>
@@ -42,7 +42,7 @@
 				<div class="question-row clearfix">
 					<div class="info">${fansAnswer.fansName}: ${fansAnswer.title}</div>
 					<div class="btn-control" onclick="deleteFansAnswer(${fansAnswer.id}, this)">删除</div>
-					<div class="btn-control" onclick="getFansAnswer(${fansAnswer.id})">查看</div>
+					<div class="btn-control" onclick="getFansAnswer(${fansAnswer.id}, this)">查看</div>
 				</div>
 			</c:forEach>
 		</div>
@@ -65,6 +65,8 @@
 <script src="<c:url value='js/jquery.js'/>"></script>
 <script src="<c:url value='js/ajax-util.js'/>"></script>
 <script>
+	var globalElement;
+
 	function pageTab(id) {
 		$(".btn-tab").removeClass("btn-active");
 		$("#btn-" + id).addClass("btn-active");
@@ -119,12 +121,15 @@
 				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>",
 					{id:id, title:title, answer:answer, isEasterEgg:isEasterEgg, easterCode:easterCode, nextEasterTip:nextEasterTip, fansId:oilId},
 					function(data) {
-						if (data == "success") {
+						if (data) {
 							if (id == 0) {
-								location.reload(true);
-							} else {
-								clearInput();
+								$("#question-my").prepend(createAnswerBlock(data, title));
+								if (globalElement) {
+									removeRow(globalElement);
+									globalElement = null;
+								}
 							}
+							clearInput();
 						}
 					}
 				);
@@ -165,7 +170,8 @@
 		}
 	}
 	
-	function giveAnAnswer(id, question) {
+	function giveAnAnswer(id, question, element) {
+		globalElement = element;
 		setId("question-id", id);
 		$("#title").val(question);
 		$("#answer").val("");
@@ -185,7 +191,8 @@
 		par.remove();
 	}
 	
-	function getFansAnswer(id) {
+	function getFansAnswer(id, element) {
+		globalElement = element;
 		setId("oil-id", id);
 		$.get("<c:url value='/getfansanswer/" + id + "'/>", function(data) {
 			$("#title").val(data.title);
@@ -213,6 +220,14 @@
 				}
 			});
 		}
+	}
+	
+	function createAnswerBlock(id, title) {
+		return $('<div class="question-row clearfix">' + 
+					'<div class="info">' + title + '</div>' + 
+					'<div class="btn-control" onclick="deleteAnswer(' + id + ', this)">删除</div>' + 
+					'<div class="btn-control" onclick="getAnswer(' + id + ')">更新</div>' + 
+				'</div>');
 	}
 </script>
 </body>
