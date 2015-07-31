@@ -16,8 +16,10 @@ $("#search-text").blur(function(e) {
 
 function showResult(isDontKnow) {
 	if (isDontKnow) {
-		$("#back-btn").html("那我来说一帽儿 >");
+		$("#back-btn").html("< 算了");
+		$("#contribute-btn").removeClass("hide");
 	} else {
+		$("#contribute-btn").addClass("hide");
 		$("#back-btn").html("< 知道了吧");
 	}
 	
@@ -65,12 +67,13 @@ function hide50Hotest() {
 	$("#all-hotest").addClass("hide-contribute");
 }
 
+function sayOneMore() {
+	$("#fans-title").val($("#search-text").val());
+	showContribute();
+	showMain();
+}
+
 function showMain() {
-	if (isDontKnow) {
-		$("#fans-title").val($("#search-text").val());
-		showContribute();
-	}
-	
 	$(".ans-block").css("display", "none");
 
 	$(".main").css("z-index", "99");

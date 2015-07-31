@@ -88,6 +88,9 @@
 			<div id="back-btn" class="back-btn" onclick="showMain()">
 				&lt; 知道了吧？
 			</div>
+			<div id="contribute-btn" class="back-btn hide" style="right:100px;" onclick="sayOneMore()">
+				那我来说一帽儿?
+			</div>
 		</div>
 	</div>
 </div>
@@ -104,7 +107,6 @@
 	var searchMap = {};
 	var resultMap = {};
 	var resultCount = 0;
-	var isDontKnow = false;
 	
 	$("#search-text").keypress(function(e) {
 		if (e.keyCode == "13") {
@@ -293,7 +295,6 @@
 			} else {
 				$("#answer-title").html(question);
 				$("#answer-info").html("这个这个，我也不知道耶。");
-				isDontKnow = true;
 				showResult(true);
 				AjaxUtil.post("<c:url value='/question'/>", {question:question}, function(data) {});
 			}

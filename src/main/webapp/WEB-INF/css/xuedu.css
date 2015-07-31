@@ -422,6 +422,14 @@ a {
 	display:none;
 }
 
+.show {
+	visibility:visible;
+}
+
+.hide {
+	visibility:hidden;
+}
+
 .footer {
 	position:absolute;
 	bottom:0;
