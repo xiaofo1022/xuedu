@@ -112,10 +112,17 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
-	@RequestMapping(value="/removedeaster/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/removeeaster/{id}", method=RequestMethod.POST)
 	@ResponseBody
-	public String removedeaster(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+	public String removeeaster(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
 		answerDao.removeEaster(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/addeaster/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String addeaster(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.addEaster(id);
 		return CommonConst.SUCCESS;
 	}
 	

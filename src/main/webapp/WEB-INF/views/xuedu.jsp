@@ -145,10 +145,14 @@
 				$("#search-text").val(result.title);
 			}
 			$("#answer-title").html(result.title);
-			$("#answer-info").html(result.answer.replace(/\n/g, "<br/>"));
+			var answer = result.answer.replace(/\n/g, "<br/>");
+			if (result.fansAnswer) {
+				answer += (getContributeFromBlock(result.fansAnswer.fansName));
+			}
+			$("#answer-info").html(answer);
 			isDontKnow = false;
 			if (result.isEasterEgg) {
-				$.post("<c:url value='/removedeaster/" + id + "'/>", null, function(data) {});
+				$.post("<c:url value='/removeeaster/" + id + "'/>", null, function(data) {});
 				makeEasterEgg();
 				showEasterTip(result.easterCode)
 			} else {
@@ -156,6 +160,10 @@
 				showResult();
 			}
 		}
+	}
+	
+	function getContributeFromBlock(fansName) {
+		return "<div class='fans-contribute-block'>来自:" + fansName + "的贡献</div>";
 	}
 	
 	function showEasterTip(easterCode) {

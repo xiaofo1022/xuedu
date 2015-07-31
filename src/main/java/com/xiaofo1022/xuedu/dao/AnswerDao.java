@@ -23,8 +23,8 @@ public class AnswerDao {
 		if (answer.getIsEasterEgg() == 1) {
 			calendar.set(Calendar.YEAR, 2014);
 		}
-		commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, IS_EASTER_EGG, EASTER_CODE, NEXT_EASTER_TIP) VALUES (?, ?, ?, ?, ?, ?, ?)",
-			calendar.getTime(), calendar.getTime(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip());
+		commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, IS_EASTER_EGG, EASTER_CODE, NEXT_EASTER_TIP, FANS_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+			calendar.getTime(), calendar.getTime(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getFansId());
 	}
 	
 	public void updateAnswer(Answer answer) {
@@ -72,5 +72,9 @@ public class AnswerDao {
 	
 	public void removeEaster(int id) {
 		commonDao.update("UPDATE ANSWER SET IS_EASTER_EGG = 0 WHERE ID = ?", id);
+	}
+	
+	public void addEaster(int id) {
+		commonDao.update("UPDATE ANSWER SET IS_EASTER_EGG = 1 WHERE ID = ?", id);
 	}
 }

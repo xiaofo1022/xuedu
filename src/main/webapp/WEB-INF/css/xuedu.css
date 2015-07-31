@@ -686,3 +686,10 @@ a {
 	opacity:0;
 	transition:-webkit-filter 2s, filter 2s, opacity 2s;
 }
+
+.fans-contribute-block {
+	border-top:2px solid #000;
+	text-align:right;
+	margin-top:10px;
+	padding-top:10px;
+}

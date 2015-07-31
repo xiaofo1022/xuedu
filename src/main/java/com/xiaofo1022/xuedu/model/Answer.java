@@ -3,6 +3,7 @@ package com.xiaofo1022.xuedu.model;
 import java.util.Date;
 
 import com.xiaofo1022.xuedu.dao.common.Column;
+import com.xiaofo1022.xuedu.dao.common.JoinTable;
 
 public class Answer {
 	@Column("ID")
@@ -25,6 +26,10 @@ public class Answer {
 	private String easterCode;
 	@Column("NEXT_EASTER_TIP")
 	private String nextEasterTip;
+	@Column("FANS_ID")
+	private int fansId;
+	@JoinTable(tableName="FANS_ANSWER", joinField="fansId")
+	private FansAnswer fansAnswer;
 	
 	public int getId() {
 		return id;
@@ -85,5 +90,17 @@ public class Answer {
 	}
 	public void setNextEasterTip(String nextEasterTip) {
 		this.nextEasterTip = nextEasterTip;
+	}
+	public int getFansId() {
+		return fansId;
+	}
+	public void setFansId(int fansId) {
+		this.fansId = fansId;
+	}
+	public FansAnswer getFansAnswer() {
+		return fansAnswer;
+	}
+	public void setFansAnswer(FansAnswer fansAnswer) {
+		this.fansAnswer = fansAnswer;
 	}
 }

@@ -51,7 +51,7 @@
 	<div class="block">
 		<input id="title" placeholder="标题：" type="text" maxlength="100"/>
 		<textarea id="answer" placeholder="内容：" maxlength="1000"></textarea>
-		<input id="isEasterEgg" type="checkbox"/>彩蛋
+		<input id="isEasterEgg" type="checkbox" onclick="changeEaster()"/>彩蛋
 		<input id="easterCode" placeholder="彩蛋码：" type="text" maxlength="6"/>
 		<input id="nextEasterTip" placeholder="下一条彩蛋提示：" type="text" maxlength="100"/>
 		<div class="btn" onclick="addAnswer()">提交</div>
@@ -73,6 +73,18 @@
 		$(".question-block").addClass("inactive");
 		$("#question-" + id).removeClass("inactive");
 		$("#question-" + id).addClass("active");
+	}
+	
+	function changeEaster() {
+		var id = $("#answer-id").val();
+		if (id) {
+			var easterChecked = $("#isEasterEgg").prop("checked");
+			if (easterChecked) {
+				$.post("<c:url value='/addeaster/" + id + "'/>", null, function(data) {});
+			} else {
+				$.post("<c:url value='/removeeaster/" + id + "'/>", null, function(data) {});
+			}
+		}
 	}
 	
 	function addAnswer() {
@@ -105,7 +117,7 @@
 				}
 				var id = $("#answer-id").val();
 				AjaxUtil.post("<c:url value='/addanswer/" + questionId + "/" + oilId + "'/>",
-					{id:id, title:title, answer:answer, isEasterEgg:isEasterEgg, easterCode:easterCode, nextEasterTip:nextEasterTip},
+					{id:id, title:title, answer:answer, isEasterEgg:isEasterEgg, easterCode:easterCode, nextEasterTip:nextEasterTip, fansId:oilId},
 					function(data) {
 						if (data == "success") {
 							if (id == 0) {
@@ -120,8 +132,14 @@
 		}
 	}
 	
+	function setId(elementId, id) {
+		clearInput();
+		$("#" + elementId).val(id);
+	}
+	
 	function getAnswer(id) {
-		$("#answer-id").val(id);
+		setId("answer-id", id);
+		
 		$.get("<c:url value='/answerdetail/" + id + "'/>", function(data) {
 			$("#title").val(data.title);
 			$("#answer").val(data.answer);
@@ -148,7 +166,7 @@
 	}
 	
 	function giveAnAnswer(id, question) {
-		$("#question-id").val(id);
+		setId("question-id", id);
 		$("#title").val(question);
 		$("#answer").val("");
 	}
@@ -168,9 +186,7 @@
 	}
 	
 	function getFansAnswer(id) {
-		$("#question-id").val("");
-		$("#answer-id").val("");
-		$("#oil-id").val(id);
+		setId("oil-id", id);
 		$.get("<c:url value='/getfansanswer/" + id + "'/>", function(data) {
 			$("#title").val(data.title);
 			$("#answer").val(data.answer);
