@@ -38,8 +38,10 @@ public class MainController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap modelMap) {
+		modelMap.addAttribute("answerList", answerDao.getLatestAnswerList());
+		modelMap.addAttribute("hotestAnswerList", answerDao.getHotestAnswerList());
 		if (RequestChecker.isFromMobile(request)) {
-			return "xuedu";
+			return "xuedumobile";
 		} else {
 			return "xuedu";
 		}
