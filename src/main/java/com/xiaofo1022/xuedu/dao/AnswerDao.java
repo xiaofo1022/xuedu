@@ -1,6 +1,7 @@
 package com.xiaofo1022.xuedu.dao;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -45,12 +46,22 @@ public class AnswerDao {
 			new Date(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getId());
 	}
 	
+	public void ding(int id) {
+		commonDao.update("UPDATE ANSWER SET UPDATE_DATETIME = ? WHERE ID = ?", new Date(), id);
+	}
+	
 	public List<Answer> getHotestAnswerList() {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC");
 	}
 	
 	public List<Answer> getLatestAnswerList() {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
+	}
+	
+	public List<Answer> getShuffleAnswerList() {
+		List<Answer> originalList = this.getLatestAnswerList();
+		Collections.shuffle(originalList);
+		return originalList;
 	}
 	
 	public Answer getAnswerDetail(int id) {

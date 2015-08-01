@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+body {
+	text-align:center;
+}
+
+.clearfix:after {
+	content:"";
+	clear:both;
+}
+
+.nooutline {
+	outline:none;
+}
+
+.search-block {
+	display:inline-block;
+	width:95%;
+	margin-top:100px;
+	margin-bottom:5px;
+}
+
+.logo {
+	display:block;
+	text-align:center;
+	font-size:40px;
+	color:#E10601;
+}
+
+.logo img {
+	width:60px;
+	margin-top:-60px;
+}
+
+.footer {
+	text-align:center;
+	color:#A9A9A9;
+	font-size:12px;
+	margin-bottom:5px;
+}
+
+.footer a {
+	display:inline-block;
+}
+
+.answer-list {
+	display:inline-block;
+	width:100%;
+	margin:-1px;
+}
+
+.contribute-block {
+	margin-top:5px;
+}
+
+.contribute-block button {
+	width:95%;
+}
+
+.answer-panel {
+	display:inline-block;
+	width:95%;
+	margin-top:10px;
+	padding:0;
+}

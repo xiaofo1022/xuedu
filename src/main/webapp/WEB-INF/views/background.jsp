@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container clearfix">
-	<div class="block">
+	<div class="block" style="width:480px;">
 		<div id="btn-my" class="btn btn-tab btn-active" onclick="pageTab('my')">迪吧词库</div>
 		<div id="btn-listener" class="btn btn-tab" onclick="pageTab('listener')">听众搜索</div>
 		<div id="btn-oil" class="btn btn-tab" onclick="pageTab('oil')">听众贡献</div>
@@ -23,6 +23,7 @@
 					<div class="info">${answer.title}</div>
 					<div class="btn-control" onclick="deleteAnswer(${answer.id}, this)">删除</div>
 					<div class="btn-control" onclick="getAnswer(${answer.id})">更新</div>
+					<div class="btn-control" onclick="ding(${answer.id}, this)">顶</div>
 				</div>
 			</c:forEach>
 		</div>
@@ -228,6 +229,15 @@
 					'<div class="btn-control" onclick="deleteAnswer(' + id + ', this)">删除</div>' + 
 					'<div class="btn-control" onclick="getAnswer(' + id + ')">更新</div>' + 
 				'</div>');
+	}
+	
+	function ding(id, element) {
+		$.post("<c:url value='/ding/" + id + "'/>", null, function(data) {
+			if (data == "success") {
+				removeRow(element);
+				$("#question-my").prepend($(element).parent());
+			}
+		});
 	}
 </script>
 </body>

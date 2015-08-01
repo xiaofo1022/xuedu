@@ -40,10 +40,11 @@ public class MainController {
 	public String index(HttpServletRequest request, ModelMap modelMap) {
 		modelMap.addAttribute("answerList", answerDao.getLatestAnswerList());
 		modelMap.addAttribute("hotestAnswerList", answerDao.getHotestAnswerList());
+		modelMap.addAttribute("shuffleAnswerList", answerDao.getShuffleAnswerList());
 		if (RequestChecker.isFromMobile(request)) {
 			return "xuedumobile";
 		} else {
-			return "xuedu";
+			return "xueduboot";
 		}
 	}
 	
@@ -118,6 +119,13 @@ public class MainController {
 	@ResponseBody
 	public String deleteanswer(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
 		answerDao.deleteAnswer(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/ding/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String ding(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.ding(id);
 		return CommonConst.SUCCESS;
 	}
 	
