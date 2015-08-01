@@ -11,6 +11,8 @@ public class FansAnswer {
 	private Date insertDatetime;
 	@Column("UPDATE_DATETIME")
 	private Date updateDatetime;
+	@Column(value="UPDATE_DATETIME", isFormatDatetime=true)
+	private String updateDatetimeLabel;
 	@Column("FANS_NAME")
 	private String fansName;
 	@Column("TITLE")
@@ -69,5 +71,11 @@ public class FansAnswer {
 	}
 	public void setIsApproved(int isApproved) {
 		this.isApproved = isApproved;
+	}
+	public String getUpdateDatetimeLabel() {
+		return updateDatetimeLabel;
+	}
+	public void setUpdateDatetimeLabel(String updateDatetimeLabel) {
+		this.updateDatetimeLabel = updateDatetimeLabel;
 	}
 }

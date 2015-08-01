@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import com.xiaofo1022.xuedu.model.Question;
 import com.xiaofo1022.xuedu.model.User;
 
 @Controller("mainController")
+@Transactional
 public class MainController {
 	@Autowired
 	private QuestionDao questionDao;
@@ -48,9 +50,9 @@ public class MainController {
 		}
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/backdoor", method=RequestMethod.GET)
 	public String login(HttpServletRequest request, ModelMap modelMap) {
-		return "login";
+		return "loginboot";
 	}
 	
 	@RequestMapping(value="/dologin", method=RequestMethod.POST)
@@ -65,10 +67,19 @@ public class MainController {
 	
 	@RequestMapping(value="/background", method=RequestMethod.GET)
 	public String background(HttpServletRequest request, ModelMap modelMap) {
-		modelMap.addAttribute("answerList", answerDao.getLatestAnswerList());
-		modelMap.addAttribute("questionList", questionDao.getQuestionList());
-		modelMap.addAttribute("fansAnswerList", fansAnswerDao.getFansAnswerList());
-		return "background";
+		return "backgroundboot";
+	}
+	
+	@RequestMapping(value="/fansanswerlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<FansAnswer> fansanswerlist(HttpServletRequest request, ModelMap modelMap) {
+		return fansAnswerDao.getFansAnswerList();
+	}
+	
+	@RequestMapping(value="/questionlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Question> questionlist(HttpServletRequest request, ModelMap modelMap) {
+		return questionDao.getQuestionList();
 	}
 	
 	@RequestMapping(value="/answerlist", method=RequestMethod.GET)
@@ -90,23 +101,34 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
-	@RequestMapping(value="/addanswer/{questionId}/{oilId}", method=RequestMethod.POST)
+	@RequestMapping(value="/addanswer", method=RequestMethod.POST)
 	@ResponseBody
-	public String addanswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable int questionId, @PathVariable int oilId, HttpServletRequest request, ModelMap modelMap) {
-		int answerId = 0;
-		if (answer.getId() == 0) {
-			answerId = answerDao.insertAnswer(answer);
-		} else {
-			answerId = answer.getId();
-			answerDao.updateAnswer(answer);
-		}
-		if (questionId != 0) {
-			questionDao.giveAnAnswer(questionId);
-		}
-		if (oilId != 0) {
-			fansAnswerDao.approveFansAnswer(oilId);
-		}
-		return String.valueOf(answerId);
+	public String addanswer(@RequestBody Answer answer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.insertAnswer(answer);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/addSearchAnswer/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String addSearchAnswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.insertAnswer(answer);
+		questionDao.giveAnAnswer(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/approveFansAnswer/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String approveFansAnswer(@RequestBody Answer answer, BindingResult bindingResult, @PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.insertAnswer(answer);
+		fansAnswerDao.approveFansAnswer(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/updateAnswer", method=RequestMethod.POST)
+	@ResponseBody
+	public String updateAnswer(@RequestBody Answer answer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.updateAnswer(answer);
+		return CommonConst.SUCCESS;
 	}
 	
 	@RequestMapping(value="/answerdetail/{id}", method=RequestMethod.GET)

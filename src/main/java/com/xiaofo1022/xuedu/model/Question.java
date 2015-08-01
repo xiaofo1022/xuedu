@@ -11,6 +11,8 @@ public class Question {
 	private Date insertDatetime;
 	@Column("UPDATE_DATETIME")
 	private Date updateDatetime;
+	@Column(value="UPDATE_DATETIME", isFormatDatetime=true)
+	private String updateDatetimeLabel;
 	@Column("QUESTION")
 	private String question;
 	@Column("IS_ACTIVE")
@@ -61,5 +63,11 @@ public class Question {
 	}
 	public void setFromWho(String fromWho) {
 		this.fromWho = fromWho;
+	}
+	public String getUpdateDatetimeLabel() {
+		return updateDatetimeLabel;
+	}
+	public void setUpdateDatetimeLabel(String updateDatetimeLabel) {
+		this.updateDatetimeLabel = updateDatetimeLabel;
 	}
 }

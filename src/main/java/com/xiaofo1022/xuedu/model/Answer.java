@@ -12,6 +12,8 @@ public class Answer {
 	private Date insertDatetime;
 	@Column("UPDATE_DATETIME")
 	private Date updateDatetime;
+	@Column(value="UPDATE_DATETIME", isFormatDatetime=true)
+	private String updateDatetimeLabel;
 	@Column("TITLE")
 	private String title;
 	@Column("ANSWER")
@@ -102,5 +104,11 @@ public class Answer {
 	}
 	public void setFansAnswer(FansAnswer fansAnswer) {
 		this.fansAnswer = fansAnswer;
+	}
+	public String getUpdateDatetimeLabel() {
+		return updateDatetimeLabel;
+	}
+	public void setUpdateDatetimeLabel(String updateDatetimeLabel) {
+		this.updateDatetimeLabel = updateDatetimeLabel;
 	}
 }
