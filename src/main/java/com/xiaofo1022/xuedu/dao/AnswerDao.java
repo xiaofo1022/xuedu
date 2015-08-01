@@ -58,6 +58,10 @@ public class AnswerDao {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
 	}
 	
+	public List<Answer> getAnswerListByFansName(String fansName) {
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER A INNER JOIN FANS_ANSWER B ON A.FANS_ID = B.ID WHERE B.FANS_NAME = TRIM('" + fansName + "') AND A.IS_ACTIVE = 1");
+	}
+	
 	public List<Answer> getShuffleAnswerList() {
 		List<Answer> originalList = this.getLatestAnswerList();
 		Collections.shuffle(originalList);
@@ -66,6 +70,10 @@ public class AnswerDao {
 	
 	public Answer getAnswerDetail(int id) {
 		return commonDao.getFirst(Answer.class, "SELECT * FROM ANSWER WHERE ID = ?", id);
+	}
+	
+	public Answer getAnswerByFansId(int fansId) {
+		return commonDao.getFirst(Answer.class, "SELECT * FROM ANSWER WHERE FANS_ID = ?", fansId);
 	}
 	
 	public void deleteAnswer(int id) {

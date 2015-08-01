@@ -103,6 +103,30 @@
 			      		</div>
 			    	</div>
 				</div>
+				
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFour">
+			      		<h4 class="panel-title">
+			        		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			          			迪吧贡献榜
+			        		</a>
+			      		</h4>
+			    	</div>
+					<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+			      		<div class="panel-body">
+			      			<ul class="list-group answer-list clearfix">
+								<c:forEach items="${fansContributeList}" var="answer" varStatus="status">
+									<c:if test="${status.index < 5}">
+										<button type="button" class="list-group-item" style="outline:none;" onclick="showFansContributeModal('${answer.fansName}')">
+											${status.index + 1}. ${answer.fansName}
+											<span style="float:right;">${answer.contributeCount}斤油</span>
+										</button>
+									</c:if>
+								</c:forEach>
+							</ul>
+			      		</div>
+			    	</div>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-2"></div>
@@ -161,7 +185,7 @@
 		<div class="modal-content">
 	        <div class="modal-header">
 	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        	<h4 class="modal-title">检索结果</h4>
+	        	<h4 id="search-result-title" class="modal-title"></h4>
 	      	</div>
 	      	<div class="modal-body clearfix">
 	      		<ul id="search-result-ul" class="list-group answer-list">

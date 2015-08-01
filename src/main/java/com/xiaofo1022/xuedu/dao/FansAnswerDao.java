@@ -1,18 +1,25 @@
 package com.xiaofo1022.xuedu.dao;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.xiaofo1022.xuedu.dao.common.CommonDao;
 import com.xiaofo1022.xuedu.model.FansAnswer;
+import com.xiaofo1022.xuedu.model.FansContribute;
 
 @Repository
 public class FansAnswerDao {
 	@Autowired
 	private CommonDao commonDao;
+	@Autowired
+	private AnswerDao answerDao;
 	
 	public void insertFansAnswer(FansAnswer fansAnswer) {
 		if (isValidAnswer(fansAnswer)) {
@@ -47,6 +54,42 @@ public class FansAnswerDao {
 	
 	public List<FansAnswer> getFansAnswerList() {
 		return commonDao.query(FansAnswer.class, "SELECT * FROM FANS_ANSWER WHERE IS_ACTIVE = 1 AND IS_APPROVED = 0 ORDER BY UPDATE_DATETIME DESC");
+	}
+	
+	public List<FansContribute> getFansContributeList() {
+		List<FansContribute> fansContributeList = new ArrayList<FansContribute>();
+		List<FansAnswer> approvedFansAnswerList = getApprovedFansAnswerList();
+		Map<String, FansContribute> fansMap = new HashMap<String, FansContribute>();
+		
+		if (approvedFansAnswerList != null && approvedFansAnswerList.size() > 0) {
+			for (FansAnswer fansAnswer : approvedFansAnswerList) {
+				String fansName = fansAnswer.getFansName();
+				if (fansName != null) {
+					fansName = fansName.trim();
+					if (!fansMap.containsKey(fansName)) {
+						FansContribute fansContribute = new FansContribute();
+						fansContribute.setFansName(fansName);
+						fansContribute.setContributeCount(1);
+						fansMap.put(fansName, fansContribute);
+					} else {
+						FansContribute fansContribute = fansMap.get(fansName);
+						fansContribute.setContributeCount(fansContribute.getContributeCount() + 1);
+					}
+				}
+			}
+		}
+		
+		for (String key : fansMap.keySet()) {
+			fansContributeList.add(fansMap.get(key));
+		}
+		
+		Collections.sort(fansContributeList);
+		
+		return fansContributeList;
+	}
+	
+	public List<FansAnswer> getApprovedFansAnswerList() {
+		return commonDao.query(FansAnswer.class, "SELECT * FROM FANS_ANSWER A INNER JOIN ANSWER B ON A.ID = B.FANS_ID WHERE B.IS_ACTIVE = 1");
 	}
 	
 	public FansAnswer getFansAnswerDetail(int id) {

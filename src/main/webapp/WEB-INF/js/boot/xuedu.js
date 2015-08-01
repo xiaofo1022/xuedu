@@ -44,6 +44,24 @@ function inputCheck() {
 	}
 }
 
+function showFansContributeModal(fansName) {
+	AjaxUtil.post(baseurl + "/answerlistByFans", {fansName:fansName}, function(list) {
+		if (list) {
+			$("#search-result-ul").html("");
+			var html = "";
+			for (var i in list) {
+				var index = parseInt(i) + 1;
+				var result = list[i];
+				var btnHtml = getListGroupHtml(result.id, index, result.title);
+				html += btnHtml;
+			}
+			$("#search-result-ul").html(html);
+			$("#search-result-title").html("TA的贡献");
+			$("#search-result-modal").modal("show");
+		}
+	});
+}
+
 function showResultListModal(resultList) {
 	$("#search-result-ul").html("");
 	var html = "";
@@ -51,11 +69,16 @@ function showResultListModal(resultList) {
 		var index = parseInt(i) + 1;
 		var id = resultList[i];
 		var result = resultMap[id];
-		var btnHtml = '<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(' + id + ')">' + index + '. ' + result.title + '</button>';
+		var btnHtml = getListGroupHtml(id, index, result.title);
 		html += btnHtml;
 	}
 	$("#search-result-ul").html(html);
+	$("#search-result-title").html("检索结果");
 	$("#search-result-modal").modal("show");
+}
+
+function getListGroupHtml(id, index, title) {
+	return '<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(' + id + ')">' + index + '. ' + title + '</button>';
 }
 
 function getAnswer(id) {

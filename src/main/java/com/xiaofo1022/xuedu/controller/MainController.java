@@ -23,6 +23,7 @@ import com.xiaofo1022.xuedu.dao.LoginDao;
 import com.xiaofo1022.xuedu.dao.QuestionDao;
 import com.xiaofo1022.xuedu.model.Answer;
 import com.xiaofo1022.xuedu.model.FansAnswer;
+import com.xiaofo1022.xuedu.model.FansContribute;
 import com.xiaofo1022.xuedu.model.Question;
 import com.xiaofo1022.xuedu.model.User;
 
@@ -43,6 +44,7 @@ public class MainController {
 		modelMap.addAttribute("answerList", answerDao.getLatestAnswerList());
 		modelMap.addAttribute("hotestAnswerList", answerDao.getHotestAnswerList());
 		modelMap.addAttribute("shuffleAnswerList", answerDao.getShuffleAnswerList());
+		modelMap.addAttribute("fansContributeList", fansAnswerDao.getFansContributeList());
 		if (RequestChecker.isFromMobile(request)) {
 			return "xuedumobile";
 		} else {
@@ -70,6 +72,12 @@ public class MainController {
 		return "backgroundboot";
 	}
 	
+	@RequestMapping(value="/fanscontributelist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<FansContribute> fanscontributelist(HttpServletRequest request, ModelMap modelMap) {
+		return fansAnswerDao.getFansContributeList();
+	}
+	
 	@RequestMapping(value="/fansanswerlist", method=RequestMethod.GET)
 	@ResponseBody
 	public List<FansAnswer> fansanswerlist(HttpServletRequest request, ModelMap modelMap) {
@@ -86,6 +94,12 @@ public class MainController {
 	@ResponseBody
 	public List<Answer> answerlist(HttpServletRequest request, ModelMap modelMap) {
 		return answerDao.getHotestAnswerList();
+	}
+	
+	@RequestMapping(value="/answerlistByFans", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Answer> answerlistByFans(@RequestBody FansContribute fansContribute, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.getAnswerListByFansName(fansContribute.getFansName());
 	}
 	
 	@RequestMapping(value="/lastestAnswerlist", method=RequestMethod.GET)
