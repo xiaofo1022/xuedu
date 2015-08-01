@@ -170,7 +170,7 @@ body {
 </div>
 
 <!-- Modals -->
-<div id="answer-modal" class="modal fade" style="text-align:left;">
+<div id="answer-modal" class="modal fade" style="text-align:left;z-index:1199;">
 	<div class="modal-dialog">
 		<div class="modal-content">
 	        <div class="modal-header">
@@ -180,7 +180,7 @@ body {
 	      	<div class="modal-body clearfix">
 	      	</div>
 	      	<div class="modal-footer">
-	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">我知道啦</button>
+	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal"></button>
 	      	</div>
 	    </div>
 	</div>
@@ -210,6 +210,24 @@ body {
 	      	</div>
     	</div>
   	</div>
+</div>
+
+<div id="search-result-modal" class="modal fade" style="z-index:1099;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+	        <div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        	<h4 class="modal-title">检索结果</h4>
+	      	</div>
+	      	<div class="modal-body clearfix">
+	      		<ul id="search-result-ul" class="list-group answer-list">
+				</ul>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">关闭</button>
+	      	</div>
+	    </div>
+	</div>
 </div>
 <!-- Modals -->
 

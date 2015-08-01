@@ -2,6 +2,10 @@ var searchMap = {};
 var resultMap = {};
 var resultCount = 0;
 
+$("#answer-modal").on("hide.bs.modal", function(e) {
+	$("#search-result-modal").modal("hide");
+});
+
 +function init() {
 	if (baseurl == "/") {
 		baseurl = "";
@@ -20,18 +24,38 @@ var resultCount = 0;
 function inputCheck() {
 	var search = $("#search-text").val();
 	if (search) {
+		var resultList = [];
 		var keyValue;
 		var searchValue;
 		for (var key in searchMap) {
 			keyValue = key.toLowerCase();
 			searchValue = search.toLowerCase();
 			if (keyValue.indexOf(searchValue) >= 0) {
-				getAnswer(searchMap[key]);
-				return;
+				resultList.push(searchMap[key]);
 			}
 		}
-		getAnswer(0);
+		if (resultList.length > 1) {
+			showResultListModal(resultList);
+		} else if (resultList.length == 1) {
+			getAnswer(resultList[0]);
+		} else {
+			getAnswer(0);
+		}
 	}
+}
+
+function showResultListModal(resultList) {
+	$("#search-result-ul").html("");
+	var html = "";
+	for (var i in resultList) {
+		var index = parseInt(i) + 1;
+		var id = resultList[i];
+		var result = resultMap[id];
+		var btnHtml = '<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(' + id + ')">' + index + '. ' + result.title + '</button>';
+		html += btnHtml;
+	}
+	$("#search-result-ul").html(html);
+	$("#search-result-modal").modal("show");
 }
 
 function getAnswer(id) {
@@ -46,7 +70,7 @@ function getAnswer(id) {
 		}
 		modal.find(".modal-title").html(result.title);
 		modal.find(".modal-body").html(answer);
-		modal.find("#close-btn").text("我知道啦");
+		modal.find("#close-btn").text("真有学问");
 	} else {
 		modal.find(".modal-title").html("这个这个");
 		modal.find(".modal-body").html("我也不知道啦");

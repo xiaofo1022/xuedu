@@ -151,7 +151,7 @@
 </div>
 
 <script>
-	$("#word-modal").on("bs.modal.hide", function(e) {
+	$("#word-modal").on("hidden.bs.modal", function(e) {
 		$("#title").val("");
 		$("#answer").val("");
 	});
