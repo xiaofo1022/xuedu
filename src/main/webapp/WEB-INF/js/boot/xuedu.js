@@ -95,6 +95,10 @@ function getAnswer(id) {
 		modal.find(".modal-body").html(answer);
 		modal.find("#close-btn").text("真有学问");
 	} else {
+		var question = $("#search-text").val();
+		if (question) {
+			AjaxUtil.post(baseurl + "/question", {question:question}, function(data) {});
+		}
 		modal.find(".modal-title").html("这个这个");
 		modal.find(".modal-body").html("我也不知道啦");
 		modal.find("#close-btn").text("那好吧");
