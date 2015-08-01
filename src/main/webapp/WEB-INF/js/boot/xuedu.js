@@ -86,7 +86,7 @@ function getAnswer(id) {
 	var modal = $("#answer-modal");
 	if (result) {
 		$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
-		var answer = result.answer;
+		var answer = result.answer.replace(/\n/g, "<br/>");
 		if (result.fansAnswer) {
 			var fansName = result.fansAnswer.fansName;
 			answer += getContributeFromBlock(fansName);
