@@ -75,7 +75,10 @@
       			<ul class="list-group answer-list">
 					<c:forEach items="${hotestAnswerList}" var="answer" varStatus="status">
 						<c:if test="${status.index < 20}">
-							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">${status.index + 1}. ${answer.title}</button>
+							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
+								${status.index + 1}. ${answer.title}
+								<span style="float:right;">${answer.searchCount}次被搜</span>
+							</button>
 						</c:if>
 					</c:forEach>
 				</ul>
