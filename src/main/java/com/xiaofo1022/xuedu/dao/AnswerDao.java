@@ -28,6 +28,12 @@ public class AnswerDao {
 			calendar.getTime(), calendar.getTime(), answer.getTitle(), answer.getAnswer(), answer.getIsEasterEgg(), answer.getEasterCode(), answer.getNextEasterTip(), answer.getFansId());
 	}
 	
+	public int insertAnswer(String title, String answer, int fansId) {
+		Date now = new Date();
+		return commonDao.insert("INSERT INTO ANSWER (INSERT_DATETIME, UPDATE_DATETIME, TITLE, ANSWER, FANS_ID) VALUES (?, ?, ?, ?, ?)",
+				now, now, title, answer, fansId);
+	}
+	
 	public void updateAnswer(Answer answer) {
 		if (answer.getIsEasterEgg() == 1) {
 			updateAnswerWithoutDatetime(answer);

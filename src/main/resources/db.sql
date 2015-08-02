@@ -71,3 +71,5 @@ CREATE TABLE xuedu.supplement_answer (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
+
+ALTER TABLE xuedu.supplement_answer ADD TITLE VARCHAR(100);

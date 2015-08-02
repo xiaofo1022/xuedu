@@ -184,6 +184,9 @@
 		li.addClass("active");
 		$("#" + tableId).removeClass("hidden");
 		$("#" + tableId).addClass("show");
+		// Refresh
+		getContributeList();
+		getSuppleList();
 	}
 
 	getAnswerList();
@@ -249,11 +252,15 @@
 				for (var i in list) {
 					var index = (parseInt(i) + 1);
 					var data = list[i];
+					var title = data.parentAnswerTitle;
+					if (!title) {
+						title = data.title
+					}
 					var html = "<tr>";
 					html += ("<td>" + index + "</td>");
 					html += ("<td>" + data.updateDatetimeLabel + "</td>");
 					html += ("<td>" + data.fansName + "</td>");
-					html += ("<td>" + data.parentAnswerTitle + "</td>");
+					html += ("<td>" + title + "</td>");
 					html += ("<td>" + data.answer + "</td>");
 					html += ("<td>" + 
 								"<button class='btn btn-success btn-xs' onclick='approveSupplement(" + data.id + ", " + data.answerId + ")'>通过</button>" + 

@@ -12,6 +12,12 @@ $("#supplement-modal").on("hide.bs.modal", function(e) {
 	$("#answer-modal").modal("hide");
 });
 
+$("#search-text").keypress(function(e) {
+	if (e.keyCode == "13") {
+		inputCheck();
+    }
+});
+
 +function init() {
 	if (baseurl == "/") {
 		baseurl = "";
@@ -201,6 +207,7 @@ function submitSupple() {
 		var answerId = $("#answer-modal-id").val();
 		var fansName = $("#supple-fans-name").val();
 		var answer = $("#supple-fans-answer").val();
+		var title = "";
 		
 		if (!fansName) {
 			alert("你是谁呀");
@@ -213,10 +220,15 @@ function submitSupple() {
 			return;
 		}
 		
+		if (answerId == "0") {
+			title = $("#search-text").val();
+		}
+		
 		suppleing = true;
 		
-		AjaxUtil.post(baseurl + "/addsupplementanswer", {answerId:answerId, fansName:fansName, answer:answer}, function(data) {
+		AjaxUtil.post(baseurl + "/addsupplementanswer", {answerId:answerId, fansName:fansName, answer:answer, title:title}, function(data) {
 			alert(mrxuestip);
+			suppleing = false;
 			$("#supplement-modal").modal("hide");
 		});
 	}

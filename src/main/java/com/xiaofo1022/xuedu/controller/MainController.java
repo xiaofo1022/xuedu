@@ -247,8 +247,16 @@ public class MainController {
 	@RequestMapping(value="/approveSupplement/{id}/{answerId}", method=RequestMethod.POST)
 	@ResponseBody
 	public String approveSupplement(@PathVariable int id, @PathVariable int answerId, HttpServletRequest request, ModelMap modelMap) {
+		if (answerId == 0) {
+			SupplementAnswer supplementAnswer = supplementAnswerDao.getSupplementAnswer(id);
+			if (supplementAnswer != null) {
+				int fansId = fansAnswerDao.insertFansAnswer(supplementAnswer.getFansName(), supplementAnswer.getTitle(), supplementAnswer.getAnswer());
+				answerDao.insertAnswer(supplementAnswer.getTitle(), supplementAnswer.getAnswer(), fansId);
+			}
+		} else {
+			answerDao.ding(answerId);
+		}
 		supplementAnswerDao.approveSupplement(id);
-		answerDao.ding(answerId);
 		return CommonConst.SUCCESS;
 	}
 	

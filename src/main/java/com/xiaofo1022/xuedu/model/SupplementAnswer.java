@@ -25,6 +25,8 @@ public class SupplementAnswer {
 	private int answerId;
 	@Column("PARENT_ANSWER_TITLE")
 	private String parentAnswerTitle;
+	@Column("TITLE")
+	private String title;
 	
 	public int getId() {
 		return id;
@@ -85,5 +87,11 @@ public class SupplementAnswer {
 	}
 	public void setParentAnswerTitle(String parentAnswerTitle) {
 		this.parentAnswerTitle = parentAnswerTitle;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

@@ -16,8 +16,8 @@ public class SupplementAnswerDao {
 	
 	public void insertIntoSupplementAnswer(SupplementAnswer supplementAnswer) {
 		Date now = new Date();
-		commonDao.insert("INSERT INTO SUPPLEMENT_ANSWER (INSERT_DATETIME, UPDATE_DATETIME, ANSWER_ID, FANS_NAME, ANSWER) VALUES (?, ?, ?, ?, ?)",
-				now, now, supplementAnswer.getAnswerId(), supplementAnswer.getFansName(), supplementAnswer.getAnswer());
+		commonDao.insert("INSERT INTO SUPPLEMENT_ANSWER (INSERT_DATETIME, UPDATE_DATETIME, ANSWER_ID, FANS_NAME, ANSWER, TITLE) VALUES (?, ?, ?, ?, ?, ?)",
+				now, now, supplementAnswer.getAnswerId(), supplementAnswer.getFansName(), supplementAnswer.getAnswer(), supplementAnswer.getTitle());
 	}
 	
 	public List<SupplementAnswer> getSuppleAnswerList(int answerId) {
@@ -26,6 +26,10 @@ public class SupplementAnswerDao {
 	
 	public List<SupplementAnswer> getUnapprovedAnswerList() {
 		return commonDao.query(SupplementAnswer.class, "SELECT A.*, B.TITLE AS PARENT_ANSWER_TITLE FROM SUPPLEMENT_ANSWER A LEFT JOIN ANSWER B ON A.ANSWER_ID = B.ID WHERE A.IS_ACTIVE = 1 AND A.IS_APPROVED = 0 ORDER BY UPDATE_DATETIME DESC");
+	}
+	
+	public SupplementAnswer getSupplementAnswer(int suppleId) {
+		return commonDao.getFirst(SupplementAnswer.class, "SELECT * FROM SUPPLEMENT_ANSWER WHERE ID = ?", suppleId);
 	}
 	
 	public void approveSupplement(int id) {

@@ -29,6 +29,12 @@ public class FansAnswerDao {
 		}
 	}
 	
+	public int insertFansAnswer(String fansName, String title, String answer) {
+		Date now = new Date();
+		return commonDao.insert("INSERT INTO FANS_ANSWER (INSERT_DATETIME, UPDATE_DATETIME, FANS_NAME, TITLE, ANSWER, IS_APPROVED) VALUES (?, ?, ?, ?, ?, ?)",
+			now, now, fansName, title, answer, 1);
+	}
+	
 	public boolean isValidAnswer(FansAnswer fansAnswer) {
 		if (fansAnswer != null) {
 			String fansname = fansAnswer.getFansName();
