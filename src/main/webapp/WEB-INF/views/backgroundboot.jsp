@@ -256,7 +256,7 @@
 					html += ("<td>" + data.parentAnswerTitle + "</td>");
 					html += ("<td>" + data.answer + "</td>");
 					html += ("<td>" + 
-								"<button class='btn btn-success btn-xs' onclick='approveSupplement(" + data.id + ")'>通过</button>" + 
+								"<button class='btn btn-success btn-xs' onclick='approveSupplement(" + data.id + ", " + data.answerId + ")'>通过</button>" + 
 								"<button class='btn btn-danger btn-xs' onclick='denialSupplement(" + data.id + ")'>拒绝</button>" + 
 							"</td>");
 					html += "</tr>";
@@ -432,20 +432,26 @@
 		});
 	}
 	
-	function approveSupplement(id) {
-		$.post("<c:url value='/approveSupplement/" + id + "'/>", null, function(data) {
-			if (data == "success") {
-				getSuppleList();
-			}
-		});
+	function approveSupplement(id, answerId) {
+		var result = confirm("是否确定通过这一条？");
+		if (result) {
+			$.post("<c:url value='/approveSupplement/" + id + "/" + answerId + "'/>", null, function(data) {
+				if (data == "success") {
+					getSuppleList();
+				}
+			});
+		}
 	}
 	
 	function denialSupplement(id) {
-		$.post("<c:url value='/denialSupplement/" + id + "'/>", null, function(data) {
-			if (data == "success") {
-				getSuppleList();
-			}
-		});
+		var result = confirm("是否确定删除这一条？");
+		if (result) {
+			$.post("<c:url value='/denialSupplement/" + id + "'/>", null, function(data) {
+				if (data == "success") {
+					getSuppleList();
+				}
+			});
+		}
 	}
 </script>
 </body>

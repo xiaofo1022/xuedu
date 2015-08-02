@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <title>薛 度</title>
 <meta charset="utf-8">
+<meta name="keywords" content="优斯迪吧、薛度、薛 度、薛优雅、薛东辉、李羽、李斯文、彪马苏、苏德彪"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="<c:url value='images/favicon.ico'/>" type="image/x-icon" /> 

@@ -244,10 +244,11 @@ public class MainController {
 		return supplementAnswerDao.getUnapprovedAnswerList();
 	}
 	
-	@RequestMapping(value="/approveSupplement/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/approveSupplement/{id}/{answerId}", method=RequestMethod.POST)
 	@ResponseBody
-	public String approveSupplement(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+	public String approveSupplement(@PathVariable int id, @PathVariable int answerId, HttpServletRequest request, ModelMap modelMap) {
 		supplementAnswerDao.approveSupplement(id);
+		answerDao.ding(answerId);
 		return CommonConst.SUCCESS;
 	}
 	
