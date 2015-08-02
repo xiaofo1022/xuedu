@@ -32,6 +32,8 @@ public class Answer {
 	private int fansId;
 	@JoinTable(tableName="FANS_ANSWER", joinField="fansId")
 	private FansAnswer fansAnswer;
+	@Column("HAPPY_COUNT")
+	private int happyCount;
 	
 	public int getId() {
 		return id;
@@ -110,5 +112,11 @@ public class Answer {
 	}
 	public void setUpdateDatetimeLabel(String updateDatetimeLabel) {
 		this.updateDatetimeLabel = updateDatetimeLabel;
+	}
+	public int getHappyCount() {
+		return happyCount;
+	}
+	public void setHappyCount(int happyCount) {
+		this.happyCount = happyCount;
 	}
 }

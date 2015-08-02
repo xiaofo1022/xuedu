@@ -68,6 +68,7 @@
 	  		<ul class="nav nav-tabs nav-justified">
 				<li id="li-wordbank" role="presentation" class="li-tab active" onclick="changeTableView(this)"><a>迪吧词库</a></li>
 			  	<li id="li-wordcontribute" role="presentation" class="li-tab" onclick="changeTableView(this)"><a>听众贡献</a></li>
+			  	<li id="li-wordsupple" role="presentation" class="li-tab" onclick="changeTableView(this)"><a>听众补充</a></li>
 			  	<li id="li-wordsearch" role="presentation" class="li-tab" onclick="changeTableView(this)"><a>搜索记录</a></li>
 			</ul>
 			
@@ -98,6 +99,23 @@
 				        </tr>
 				    </thead>
 				    <tbody id="contribute-tbody">
+				    </tbody>
+				</table>
+			</div>
+			
+			<div id="wordsupple" class="table-block hidden">
+				<table class="table table-bordered table-hover">
+					<thead>
+				        <tr>
+				          <th>#</th>
+				          <th>时间</th>
+				          <th>来自</th>
+				          <th>关于</th>
+				          <th>的补充</th>
+				          <th>操作</th>
+				        </tr>
+				    </thead>
+				    <tbody id="supple-tbody">
 				    </tbody>
 				</table>
 			</div>
@@ -170,6 +188,7 @@
 
 	getAnswerList();
 	getContributeList();
+	getSuppleList();
 	getSearchList();
 	
 	function getAnswerList() {
@@ -218,6 +237,32 @@
 					bodyHtml += html;
 				}
 				$("#contribute-tbody").html(bodyHtml);
+			}
+		});
+	}
+	
+	function getSuppleList() {
+		$.get("<c:url value='/unapprovedSuppleAnswerlist'/>", function(list) {
+			if (list) {
+				$("#supple-tbody").html("");
+				var bodyHtml = "";
+				for (var i in list) {
+					var index = (parseInt(i) + 1);
+					var data = list[i];
+					var html = "<tr>";
+					html += ("<td>" + index + "</td>");
+					html += ("<td>" + data.updateDatetimeLabel + "</td>");
+					html += ("<td>" + data.fansName + "</td>");
+					html += ("<td>" + data.parentAnswerTitle + "</td>");
+					html += ("<td>" + data.answer + "</td>");
+					html += ("<td>" + 
+								"<button class='btn btn-success btn-xs' onclick='approveSupplement(" + data.id + ")'>通过</button>" + 
+								"<button class='btn btn-danger btn-xs' onclick='denialSupplement(" + data.id + ")'>拒绝</button>" + 
+							"</td>");
+					html += "</tr>";
+					bodyHtml += html;
+				}
+				$("#supple-tbody").html(bodyHtml);
 			}
 		});
 	}
@@ -383,6 +428,22 @@
 		$.post("<c:url value='/ignorequestion/" + id + "'/>", null, function(data) {
 			if (data == "success") {
 				getSearchList();
+			}
+		});
+	}
+	
+	function approveSupplement(id) {
+		$.post("<c:url value='/approveSupplement/" + id + "'/>", null, function(data) {
+			if (data == "success") {
+				getSuppleList();
+			}
+		});
+	}
+	
+	function denialSupplement(id) {
+		$.post("<c:url value='/denialSupplement/" + id + "'/>", null, function(data) {
+			if (data == "success") {
+				getSuppleList();
 			}
 		});
 	}

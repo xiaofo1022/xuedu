@@ -78,6 +78,12 @@ body {
 	margin-top:10px;
 	padding:0;
 }
+
+.supple-block {
+	border-top:1px solid #E5E5E5;
+	margin-top:10px;
+	padding-top:10px;
+}
 </style>
 </head>
 <body>

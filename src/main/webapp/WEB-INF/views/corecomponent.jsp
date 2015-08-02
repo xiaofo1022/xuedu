@@ -87,6 +87,30 @@
 	</div>
 	
 	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingFive">
+      		<h4 class="panel-title">
+        		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          			迪吧哈哈哈
+        		</a>
+      		</h4>
+    	</div>
+		<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      		<div class="panel-body">
+      			<ul class="list-group answer-list">
+					<c:forEach items="${happiestAnswerList}" var="answer" varStatus="status">
+						<c:if test="${status.index < 10}">
+							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
+								${status.index + 1}. ${answer.title}
+								<span style="float:right;">${answer.happyCount}次乐疯了</span>
+							</button>
+						</c:if>
+					</c:forEach>
+				</ul>
+      		</div>
+    	</div>
+	</div>
+	
+	<div class="panel panel-default">
 		<div class="panel-heading" role="tab" id="headingFour">
       		<h4 class="panel-title">
         		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -112,20 +136,67 @@
 </div>
 
 <!-- Modals -->
+<div id="search-result-modal" class="modal fade" style="z-index:1099;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+	        <div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        	<h4 id="search-result-title" class="modal-title"></h4>
+	      	</div>
+	      	<div class="modal-body clearfix">
+	      		<ul id="search-result-ul" class="list-group answer-list">
+				</ul>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">关闭</button>
+	      	</div>
+	    </div>
+	</div>
+</div>
+
 <div id="answer-modal" class="modal fade" style="text-align:left;z-index:1199;">
+	<input id="answer-modal-id" type="hidden"/>
 	<div class="modal-dialog">
 		<div class="modal-content">
 	        <div class="modal-header">
 	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        	<h4 class="modal-title"></h4>
 	      	</div>
-	      	<div class="modal-body clearfix">
+	      	<div id="answer-modal-body" class="modal-body clearfix">
 	      	</div>
 	      	<div class="modal-footer">
-	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal"></button>
+	      		<button type="button" class="btn btn-primary btn-sm" style="outline:none;" onclick="suppleSome()">我补充两句</button>
+	      		<button type="button" class="btn btn-info btn-sm" style="outline:none;" onclick="happyCrazy()">
+	      			<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+	      			乐疯了+1
+	      		</button>
+	        	<button id="close-btn" type="button" class="btn btn-default btn-sm" style="outline:none;" data-dismiss="modal"></button>
 	      	</div>
 	    </div>
 	</div>
+</div>
+
+<div id="supplement-modal" class="modal fade" style="text-align:left;z-index:1299;" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title">我补充两句</h4>
+      		</div>
+	      	<div class="modal-body">
+          		<div class="form-group">
+            		<input id="supple-fans-name" placeholder="我是谁？" type="text" class="form-control" maxlength="100">
+          		</div>
+          		<div class="form-group">
+            		<textarea id="supple-fans-answer" placeholder="我的补充？" class="form-control" rows="4" maxlength="1000"></textarea>
+          		</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">关闭</button>
+	        	<button type="button" class="btn btn-primary" style="outline:none;" onclick="submitSupple()">提交</button>
+	      	</div>
+    	</div>
+  	</div>
 </div>
 
 <div id="contribute-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -133,7 +204,7 @@
     	<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title" id="exampleModalLabel">我为迪吧献石油</h4>
+        		<h4 class="modal-title">我为迪吧献石油</h4>
       		</div>
 	      	<div class="modal-body">
           		<div class="form-group">
@@ -152,23 +223,5 @@
 	      	</div>
     	</div>
   	</div>
-</div>
-
-<div id="search-result-modal" class="modal fade" style="z-index:1099;">
-	<div class="modal-dialog">
-		<div class="modal-content">
-	        <div class="modal-header">
-	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        	<h4 id="search-result-title" class="modal-title"></h4>
-	      	</div>
-	      	<div class="modal-body clearfix">
-	      		<ul id="search-result-ul" class="list-group answer-list">
-				</ul>
-	      	</div>
-	      	<div class="modal-footer">
-	        	<button id="close-btn" type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">关闭</button>
-	      	</div>
-	    </div>
-	</div>
 </div>
 <!-- Modals -->

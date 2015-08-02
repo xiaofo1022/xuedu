@@ -6,6 +6,12 @@ $("#answer-modal").on("hide.bs.modal", function(e) {
 	$("#search-result-modal").modal("hide");
 });
 
+$("#supplement-modal").on("hide.bs.modal", function(e) {
+	$("#supple-fans-name").val("");
+	$("#supple-fans-answer").val("");
+	$("#answer-modal").modal("hide");
+});
+
 +function init() {
 	if (baseurl == "/") {
 		baseurl = "";
@@ -81,16 +87,23 @@ function getListGroupHtml(id, index, title) {
 	return '<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(' + id + ')">' + index + '. ' + title + '</button>';
 }
 
+var increaseMap = {};
+
 function getAnswer(id) {
 	var result = resultMap[id];
 	var modal = $("#answer-modal");
 	if (result) {
-		$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
-		var answer = result.answer.replace(/\n/g, "<br/>");
+		if (!increaseMap[id]) {
+			$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
+			increaseMap[id] = true;
+		}
+		var answer = "<div class='clearfix'>" + result.answer.replace(/\n/g, "<br/>");
 		if (result.fansAnswer) {
 			var fansName = result.fansAnswer.fansName;
 			answer += getContributeFromBlock(fansName);
 		}
+		answer += "</div>";
+		getSuppleAnswer(id);
 		modal.find(".modal-title").html(result.title);
 		modal.find(".modal-body").html(answer);
 		modal.find("#close-btn").text("真有学问");
@@ -99,11 +112,25 @@ function getAnswer(id) {
 		if (question) {
 			AjaxUtil.post(baseurl + "/question", {question:question}, function(data) {});
 		}
-		modal.find(".modal-title").html("这个这个");
+		modal.find(".modal-title").html("这个...");
 		modal.find(".modal-body").html("我也不知道啦");
 		modal.find("#close-btn").text("那好吧");
 	}
+	$("#answer-modal-id").val(id);
 	modal.modal("show");
+}
+
+function getSuppleAnswer(answerId) {
+	$.get(baseurl + "/suppleAnswerlist/" + answerId, function(list) {
+		if (list) {
+			var modalBody = $("#answer-modal-body");
+			for (var i in list) {
+				var data = list[i];
+				var suppleHtml = ("<div class='supple-block clearfix'>" + data.answer + "<br/><span style='float:right;'> --- 来自:" + data.fansName + "的补充</span></div>");
+				modalBody.append($(suppleHtml));
+			}
+		}
+	});
 }
 
 function getContributeFromBlock(fansName) {
@@ -117,6 +144,7 @@ function clearContribute() {
 }
 
 var contributing = false;
+var mrxuestip = "薛科长会尽快审批你的提议，好好干小同志！";
 
 function contributeOil() {
 	if (!contributing) {
@@ -125,7 +153,7 @@ function contributeOil() {
 		var answer = $("#fans-answer").val();
 		
 		if (!fansName) {
-			alert("你要是不告诉我你是谁，我就不告诉你我是谁");
+			alert("你是谁呀");
 			$("#fans-name").focus();
 			return;
 		}
@@ -143,10 +171,53 @@ function contributeOil() {
 		contributing = true;
 		
 		AjaxUtil.post(baseurl + "/addfansanswer", {fansName:fansName, title:title, answer:answer}, function(data) {
-			alert("薛科长会尽快审批你的提议，好好干小同志！");
+			alert(mrxuestip);
 			$("#contribute-modal").modal("hide");
 			clearContribute();
 			contributing = false;
+		});
+	}
+}
+
+var happyMap = {};
+
+function happyCrazy() {
+	var id = $("#answer-modal-id").val();
+	if (id && !happyMap[id]) {
+		$.post(baseurl + "/increasehappy/" + id, null, function(data) {});
+		happyMap[id] = true;
+	}
+	$("#answer-modal").modal("hide");
+}
+
+function suppleSome() {
+	$("#supplement-modal").modal("show");
+}
+
+var suppleing = false;
+
+function submitSupple() {
+	if (!suppleing) {
+		var answerId = $("#answer-modal-id").val();
+		var fansName = $("#supple-fans-name").val();
+		var answer = $("#supple-fans-answer").val();
+		
+		if (!fansName) {
+			alert("你是谁呀");
+			$("#supple-fans-name").focus();
+			return;
+		}
+		if (!answer) {
+			alert("你要补充什么呀");
+			$("#supple-fans-answer").focus();
+			return;
+		}
+		
+		suppleing = true;
+		
+		AjaxUtil.post(baseurl + "/addsupplementanswer", {answerId:answerId, fansName:fansName, answer:answer}, function(data) {
+			alert(mrxuestip);
+			$("#supplement-modal").modal("hide");
 		});
 	}
 }

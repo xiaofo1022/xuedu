@@ -21,10 +21,12 @@ import com.xiaofo1022.xuedu.dao.AnswerDao;
 import com.xiaofo1022.xuedu.dao.FansAnswerDao;
 import com.xiaofo1022.xuedu.dao.LoginDao;
 import com.xiaofo1022.xuedu.dao.QuestionDao;
+import com.xiaofo1022.xuedu.dao.SupplementAnswerDao;
 import com.xiaofo1022.xuedu.model.Answer;
 import com.xiaofo1022.xuedu.model.FansAnswer;
 import com.xiaofo1022.xuedu.model.FansContribute;
 import com.xiaofo1022.xuedu.model.Question;
+import com.xiaofo1022.xuedu.model.SupplementAnswer;
 import com.xiaofo1022.xuedu.model.User;
 
 @Controller("mainController")
@@ -38,6 +40,8 @@ public class MainController {
 	private AnswerDao answerDao;
 	@Autowired
 	private FansAnswerDao fansAnswerDao;
+	@Autowired
+	private SupplementAnswerDao supplementAnswerDao;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap modelMap) {
@@ -45,6 +49,7 @@ public class MainController {
 		modelMap.addAttribute("hotestAnswerList", answerDao.getHotestAnswerList());
 		modelMap.addAttribute("shuffleAnswerList", answerDao.getShuffleAnswerList());
 		modelMap.addAttribute("fansContributeList", fansAnswerDao.getFansContributeList());
+		modelMap.addAttribute("happiestAnswerList", answerDao.getHappiestAnswerList());
 		if (RequestChecker.isFromMobile(request)) {
 			return "xuedumobile";
 		} else {
@@ -193,6 +198,13 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
+	@RequestMapping(value="/increasehappy/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String increasehappy(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		answerDao.increaseHappyCount(id);
+		return CommonConst.SUCCESS;
+	}
+	
 	@RequestMapping(value="/addfansanswer", method=RequestMethod.POST)
 	@ResponseBody
 	public String addfansanswer(@RequestBody FansAnswer fansAnswer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
@@ -210,6 +222,39 @@ public class MainController {
 	@ResponseBody
 	public String deletefansanswer(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
 		fansAnswerDao.deleteFansAnswer(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/addsupplementanswer", method=RequestMethod.POST)
+	@ResponseBody
+	public String addsupplementanswer(@RequestBody SupplementAnswer supplementAnswer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		supplementAnswerDao.insertIntoSupplementAnswer(supplementAnswer);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/suppleAnswerlist/{answerId}", method=RequestMethod.GET)
+	@ResponseBody
+	public List<SupplementAnswer> suppleAnswerlist(@PathVariable int answerId, HttpServletRequest request, ModelMap modelMap) {
+		return supplementAnswerDao.getSuppleAnswerList(answerId);
+	}
+	
+	@RequestMapping(value="/unapprovedSuppleAnswerlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<SupplementAnswer> unapprovedSuppleAnswerlist(HttpServletRequest request, ModelMap modelMap) {
+		return supplementAnswerDao.getUnapprovedAnswerList();
+	}
+	
+	@RequestMapping(value="/approveSupplement/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String approveSupplement(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		supplementAnswerDao.approveSupplement(id);
+		return CommonConst.SUCCESS;
+	}
+	
+	@RequestMapping(value="/denialSupplement/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String denialSupplement(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		supplementAnswerDao.denialSupplement(id);
 		return CommonConst.SUCCESS;
 	}
 }

@@ -58,6 +58,10 @@ public class AnswerDao {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
 	}
 	
+	public List<Answer> getHappiestAnswerList() {
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 AND HAPPY_COUNT > 0 ORDER BY HAPPY_COUNT DESC");
+	}
+	
 	public List<Answer> getAnswerListByFansName(String fansName) {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER A INNER JOIN FANS_ANSWER B ON A.FANS_ID = B.ID WHERE B.FANS_NAME = TRIM('" + fansName + "') AND A.IS_ACTIVE = 1");
 	}
@@ -86,6 +90,15 @@ public class AnswerDao {
 			int searchCount = answer.getSearchCount();
 			searchCount++;
 			commonDao.update("UPDATE ANSWER SET SEARCH_COUNT = ? WHERE ID = ?", searchCount, id);
+		}
+	}
+	
+	public void increaseHappyCount(int id) {
+		Answer answer = commonDao.getFirst(Answer.class, "SELECT * FROM ANSWER WHERE ID = ?", id);
+		if (answer != null) {
+			int happyCount = answer.getHappyCount();
+			happyCount++;
+			commonDao.update("UPDATE ANSWER SET HAPPY_COUNT = ? WHERE ID = ?", happyCount, id);
 		}
 	}
 	
