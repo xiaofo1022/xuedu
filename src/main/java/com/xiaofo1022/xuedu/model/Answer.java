@@ -1,6 +1,7 @@
 package com.xiaofo1022.xuedu.model;
 
 import java.util.Date;
+import java.util.List;
 
 import com.xiaofo1022.xuedu.dao.common.Column;
 import com.xiaofo1022.xuedu.dao.common.JoinTable;
@@ -34,6 +35,7 @@ public class Answer {
 	private FansAnswer fansAnswer;
 	@Column("HAPPY_COUNT")
 	private int happyCount;
+	private List<SupplementAnswer> supplementAnswerList;
 	
 	public int getId() {
 		return id;
@@ -118,5 +120,11 @@ public class Answer {
 	}
 	public void setHappyCount(int happyCount) {
 		this.happyCount = happyCount;
+	}
+	public List<SupplementAnswer> getSupplementAnswerList() {
+		return supplementAnswerList;
+	}
+	public void setSupplementAnswerList(List<SupplementAnswer> supplementAnswerList) {
+		this.supplementAnswerList = supplementAnswerList;
 	}
 }

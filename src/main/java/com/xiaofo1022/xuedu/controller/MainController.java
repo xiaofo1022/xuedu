@@ -150,6 +150,12 @@ public class MainController {
 		return CommonConst.SUCCESS;
 	}
 	
+	@RequestMapping(value="/getanswer/{id}", method=RequestMethod.GET)
+	@ResponseBody
+	public Answer getanswer(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.getAnswer(id);
+	}
+	
 	@RequestMapping(value="/answerdetail/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	public Answer answerdetail(@PathVariable int id, HttpServletRequest request, ModelMap modelMap) {

@@ -96,47 +96,46 @@ function getListGroupHtml(id, index, title) {
 var increaseMap = {};
 
 function getAnswer(id) {
-	var result = resultMap[id];
 	var modal = $("#answer-modal");
-	if (result) {
-		if (!increaseMap[id]) {
-			$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
-			increaseMap[id] = true;
+	$.get(baseurl + "/getanswer/" + id, function(result) {
+		if (result) {
+			if (!increaseMap[id]) {
+				$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
+				increaseMap[id] = true;
+			}
+			var answer = "<div class='clearfix'>" + result.answer.replace(/\n/g, "<br/>");
+			if (result.fansAnswer) {
+				var fansName = result.fansAnswer.fansName;
+				answer += getContributeFromBlock(fansName);
+			}
+			answer += "</div>";
+			modal.find(".modal-title").html(result.title);
+			modal.find(".modal-body").html(answer);
+			getSuppleAnswer(result.supplementAnswerList);
+			modal.find("#close-btn").text("真有学问");
+		} else {
+			var question = $("#search-text").val();
+			if (question) {
+				AjaxUtil.post(baseurl + "/question", {question:question}, function(data) {});
+			}
+			modal.find(".modal-title").html("这个...");
+			modal.find(".modal-body").html("我也不知道啦");
+			modal.find("#close-btn").text("那好吧");
 		}
-		var answer = "<div class='clearfix'>" + result.answer.replace(/\n/g, "<br/>");
-		if (result.fansAnswer) {
-			var fansName = result.fansAnswer.fansName;
-			answer += getContributeFromBlock(fansName);
-		}
-		answer += "</div>";
-		getSuppleAnswer(id);
-		modal.find(".modal-title").html(result.title);
-		modal.find(".modal-body").html(answer);
-		modal.find("#close-btn").text("真有学问");
-	} else {
-		var question = $("#search-text").val();
-		if (question) {
-			AjaxUtil.post(baseurl + "/question", {question:question}, function(data) {});
-		}
-		modal.find(".modal-title").html("这个...");
-		modal.find(".modal-body").html("我也不知道啦");
-		modal.find("#close-btn").text("那好吧");
-	}
-	$("#answer-modal-id").val(id);
-	modal.modal("show");
+		$("#answer-modal-id").val(id);
+		modal.modal("show");
+	});
 }
 
-function getSuppleAnswer(answerId) {
-	$.get(baseurl + "/suppleAnswerlist/" + answerId, function(list) {
-		if (list) {
-			var modalBody = $("#answer-modal-body");
-			for (var i in list) {
-				var data = list[i];
-				var suppleHtml = ("<div class='supple-block clearfix'>" + data.answer + "<br/><span style='float:right;'> --- 来自:" + data.fansName + "的补充</span></div>");
-				modalBody.append($(suppleHtml));
-			}
+function getSuppleAnswer(list) {
+	if (list) {
+		var modalBody = $("#answer-modal-body");
+		for (var i in list) {
+			var data = list[i];
+			var suppleHtml = ("<div class='supple-block clearfix'>" + data.answer + "<br/><span style='float:right;'> --- 来自:" + data.fansName + "的补充</span></div>");
+			modalBody.append($(suppleHtml));
 		}
-	});
+	}
 }
 
 function getContributeFromBlock(fansName) {

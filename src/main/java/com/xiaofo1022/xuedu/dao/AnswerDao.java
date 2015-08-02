@@ -15,6 +15,8 @@ import com.xiaofo1022.xuedu.model.Answer;
 public class AnswerDao {
 	@Autowired
 	private CommonDao commonDao;
+	@Autowired
+	private SupplementAnswerDao supplementAnswerDao;
 	
 	private static Calendar calendar = Calendar.getInstance();
 	
@@ -76,6 +78,14 @@ public class AnswerDao {
 		List<Answer> originalList = this.getLatestAnswerList();
 		Collections.shuffle(originalList);
 		return originalList;
+	}
+	
+	public Answer getAnswer(int id) {
+		Answer answer = this.getAnswerDetail(id);
+		if (answer != null) {
+			answer.setSupplementAnswerList(supplementAnswerDao.getSuppleAnswerList(id));
+		}
+		return answer;
 	}
 	
 	public Answer getAnswerDetail(int id) {
