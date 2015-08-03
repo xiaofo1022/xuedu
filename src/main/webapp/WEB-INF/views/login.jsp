@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>薛 度 之 登 录</title>
+<title>薛微一度 , 潇洒一路</title>
 <link rel="icon" href="<c:url value='images/favicon.ico'/>" type="image/x-icon" /> 
 <link rel="shortcut icon" href="<c:url value='images/favicon.ico'/>" type="image/x-icon" />
 <link href="<c:url value='css/login.css'/>" rel="stylesheet"/>

@@ -10,7 +10,7 @@
 	<div class="input-group">
 		<input id="search-text" type="text" class="form-control" maxlength="100" />
 		<span class="input-group-btn">
-			<button class="btn btn-primary" style="outline:none;" type="button" onclick="inputCheck()">薛人一度</button>
+			<button class="btn btn-primary" style="outline:none;" type="button" onclick="inputCheck()">薛微一度</button>
 		</span>
 	</div>
 </div>
