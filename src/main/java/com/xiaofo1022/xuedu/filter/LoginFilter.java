@@ -17,7 +17,7 @@ import com.xiaofo1022.xuedu.model.User;
 
 public class LoginFilter implements Filter {
 	private Pattern allowedResources;
-	private final static String resPattern = ".*((background)).*";
+	private final static String resPattern = ".*((background)|(alllastestAnswerlist)).*";
 	
 	public void init(FilterConfig arg0) throws ServletException {
 		allowedResources = Pattern.compile(resPattern);

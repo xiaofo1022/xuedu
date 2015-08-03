@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.xiaofo1022.xuedu.dao.common.CommonDao;
 import com.xiaofo1022.xuedu.model.FansAnswer;
 import com.xiaofo1022.xuedu.model.FansContribute;
+import com.xiaofo1022.xuedu.model.SupplementAnswer;
 
 @Repository
 public class FansAnswerDao {
@@ -20,6 +21,8 @@ public class FansAnswerDao {
 	private CommonDao commonDao;
 	@Autowired
 	private AnswerDao answerDao;
+	@Autowired
+	private SupplementAnswerDao supplementAnswerDao;
 	
 	public void insertFansAnswer(FansAnswer fansAnswer) {
 		if (isValidAnswer(fansAnswer)) {
@@ -65,11 +68,30 @@ public class FansAnswerDao {
 	public List<FansContribute> getFansContributeList() {
 		List<FansContribute> fansContributeList = new ArrayList<FansContribute>();
 		List<FansAnswer> approvedFansAnswerList = getApprovedFansAnswerList();
+		List<SupplementAnswer> supplementAnswerList = supplementAnswerDao.getApprovedAnswerList();
 		Map<String, FansContribute> fansMap = new HashMap<String, FansContribute>();
 		
 		if (approvedFansAnswerList != null && approvedFansAnswerList.size() > 0) {
 			for (FansAnswer fansAnswer : approvedFansAnswerList) {
 				String fansName = fansAnswer.getFansName();
+				if (fansName != null) {
+					fansName = fansName.trim();
+					if (!fansMap.containsKey(fansName)) {
+						FansContribute fansContribute = new FansContribute();
+						fansContribute.setFansName(fansName);
+						fansContribute.setContributeCount(1);
+						fansMap.put(fansName, fansContribute);
+					} else {
+						FansContribute fansContribute = fansMap.get(fansName);
+						fansContribute.setContributeCount(fansContribute.getContributeCount() + 1);
+					}
+				}
+			}
+		}
+		
+		if (supplementAnswerList != null && supplementAnswerList.size() > 0) {
+			for (SupplementAnswer supplementAnswer : supplementAnswerList) {
+				String fansName = supplementAnswer.getFansName();
 				if (fansName != null) {
 					fansName = fansName.trim();
 					if (!fansMap.containsKey(fansName)) {

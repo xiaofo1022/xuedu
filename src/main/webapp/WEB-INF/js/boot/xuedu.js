@@ -1,7 +1,3 @@
-var searchMap = {};
-var resultMap = {};
-var resultCount = 0;
-
 $("#answer-modal").on("hide.bs.modal", function(e) {
 	$("#search-result-modal").modal("hide");
 });
@@ -22,37 +18,24 @@ $("#search-text").keypress(function(e) {
 	if (baseurl == "/") {
 		baseurl = "";
 	}
-	$.get(baseurl + "/answerlist", function(list) {
-		if (list) {
-			for (var i in list) {
-				var data = list[i];
-				searchMap[data.title] = data.id;
-				resultMap[data.id] = data;
-			}
-		}
-	});
 }();
 
 function inputCheck() {
 	var search = $("#search-text").val();
 	if (search) {
-		var resultList = [];
-		var keyValue;
-		var searchValue;
-		for (var key in searchMap) {
-			keyValue = key.toLowerCase();
-			searchValue = search.toLowerCase();
-			if (keyValue.indexOf(searchValue) >= 0) {
-				resultList.push(searchMap[key]);
+		AjaxUtil.post(baseurl + "/blursearch", {title:search}, function(resultList) {
+			if (resultList) {
+				if (resultList.length > 1) {
+					showResultListModal(resultList);
+				} else if (resultList.length == 1) {
+					getAnswer(resultList[0].id);
+				} else {
+					getAnswer(0);
+				}
+			} else {
+				getAnswer(0);
 			}
-		}
-		if (resultList.length > 1) {
-			showResultListModal(resultList);
-		} else if (resultList.length == 1) {
-			getAnswer(resultList[0]);
-		} else {
-			getAnswer(0);
-		}
+		});
 	}
 }
 
@@ -79,9 +62,8 @@ function showResultListModal(resultList) {
 	var html = "";
 	for (var i in resultList) {
 		var index = parseInt(i) + 1;
-		var id = resultList[i];
-		var result = resultMap[id];
-		var btnHtml = getListGroupHtml(id, index, result.title);
+		var result = resultList[i];
+		var btnHtml = getListGroupHtml(result.id, index, result.title);
 		html += btnHtml;
 	}
 	$("#search-result-ul").html(html);

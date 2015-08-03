@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>薛 度</title>
+<title>薛微一度 , 潇洒一路</title>
 <meta charset="utf-8">
 <meta name="keywords" content="优斯迪吧、薛度、薛 度、薛优雅、薛东辉、李羽、李斯文、彪马苏、苏德彪"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,7 @@
 </div>
 
 <div class="footer">
-	薛人一度 优斯无数 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> | 浙ICP备15023861号 | ©2015
+	薛微一度 潇洒一路 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> | 浙ICP备15023861号 | ©2015
 </div>
 
 <script>

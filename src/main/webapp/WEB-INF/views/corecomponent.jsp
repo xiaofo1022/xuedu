@@ -10,7 +10,7 @@
 	<div class="input-group">
 		<input id="search-text" type="text" class="form-control" maxlength="100" />
 		<span class="input-group-btn">
-			<button class="btn btn-primary" style="outline:none;" type="button" onclick="inputCheck()">薛人一度</button>
+			<button class="btn btn-primary" style="outline:none;" type="button" onclick="inputCheck()">薛微一度</button>
 		</span>
 	</div>
 </div>
@@ -32,9 +32,7 @@
       		<div class="panel-body">
       			<ul class="list-group answer-list">
 					<c:forEach items="${shuffleAnswerList}" var="answer" varStatus="status">
-						<c:if test="${status.index < 20}">
-							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">${status.index + 1}. ${answer.title}</button>
-						</c:if>
+						<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">${status.index + 1}. ${answer.title}</button>
 					</c:forEach>
 				</ul>
       		</div>
@@ -53,9 +51,7 @@
       		<div class="panel-body">
       			<ul class="list-group answer-list">
 					<c:forEach items="${answerList}" var="answer" varStatus="status">
-						<c:if test="${status.index < 20}">
-							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">${status.index + 1}. ${answer.title}</button>
-						</c:if>
+						<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">${status.index + 1}. ${answer.title}</button>
 					</c:forEach>
 				</ul>
       		</div>
@@ -74,12 +70,10 @@
       		<div class="panel-body">
       			<ul class="list-group answer-list">
 					<c:forEach items="${hotestAnswerList}" var="answer" varStatus="status">
-						<c:if test="${status.index < 20}">
-							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
-								${status.index + 1}. ${answer.title}
-								<span style="float:right;">${answer.searchCount}次被搜</span>
-							</button>
-						</c:if>
+						<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
+							${status.index + 1}. ${answer.title}
+							<span style="float:right;">${answer.searchCount}次被搜</span>
+						</button>
 					</c:forEach>
 				</ul>
       		</div>
@@ -98,12 +92,10 @@
       		<div class="panel-body">
       			<ul class="list-group answer-list">
 					<c:forEach items="${happiestAnswerList}" var="answer" varStatus="status">
-						<c:if test="${status.index < 10}">
-							<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
-								${status.index + 1}. ${answer.title}
-								<span style="float:right;">${answer.happyCount}次乐疯了</span>
-							</button>
-						</c:if>
+						<button type="button" class="list-group-item" style="outline:none;" onclick="getAnswer(${answer.id})">
+							${status.index + 1}. ${answer.title}
+							<span style="float:right;">${answer.happyCount}次乐疯了</span>
+						</button>
 					</c:forEach>
 				</ul>
       		</div>

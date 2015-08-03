@@ -95,6 +95,12 @@ public class MainController {
 		return questionDao.getQuestionList();
 	}
 	
+	@RequestMapping(value="/blursearch", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Answer> blursearch(@RequestBody Answer answer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.blurSearchAnswerList(answer);
+	}
+	
 	@RequestMapping(value="/answerlist", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Answer> answerlist(HttpServletRequest request, ModelMap modelMap) {
@@ -105,6 +111,12 @@ public class MainController {
 	@ResponseBody
 	public List<Answer> answerlistByFans(@RequestBody FansContribute fansContribute, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
 		return answerDao.getAnswerListByFansName(fansContribute.getFansName());
+	}
+	
+	@RequestMapping(value="/alllastestAnswerlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> alllastestAnswerlist(HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.getAllLatestAnswerList();
 	}
 	
 	@RequestMapping(value="/lastestAnswerlist", method=RequestMethod.GET)
