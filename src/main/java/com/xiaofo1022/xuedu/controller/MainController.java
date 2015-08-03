@@ -113,6 +113,12 @@ public class MainController {
 		return answerDao.getAnswerListByFansName(fansContribute.getFansName());
 	}
 	
+	@RequestMapping(value="/alllastestAnswerlist", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> alllastestAnswerlist(HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.getAllLatestAnswerList();
+	}
+	
 	@RequestMapping(value="/lastestAnswerlist", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Answer> lastestAnswerlist(HttpServletRequest request, ModelMap modelMap) {

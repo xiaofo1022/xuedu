@@ -1,7 +1,3 @@
-var searchMap = {};
-var resultMap = {};
-var resultCount = 0;
-
 $("#answer-modal").on("hide.bs.modal", function(e) {
 	$("#search-result-modal").modal("hide");
 });
@@ -22,15 +18,6 @@ $("#search-text").keypress(function(e) {
 	if (baseurl == "/") {
 		baseurl = "";
 	}
-	$.get(baseurl + "/answerlist", function(list) {
-		if (list) {
-			for (var i in list) {
-				var data = list[i];
-				searchMap[data.title] = data.id;
-				resultMap[data.id] = data;
-			}
-		}
-	});
 }();
 
 function inputCheck() {

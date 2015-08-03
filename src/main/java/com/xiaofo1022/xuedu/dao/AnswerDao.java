@@ -2,7 +2,6 @@ package com.xiaofo1022.xuedu.dao;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -73,15 +72,19 @@ public class AnswerDao {
 	}
 	
 	public List<Answer> getHotestAnswerList() {
-		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC");
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC LIMIT 20");
 	}
 	
-	public List<Answer> getLatestAnswerList() {
+	public List<Answer> getAllLatestAnswerList() {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
 	}
 	
+	public List<Answer> getLatestAnswerList() {
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC LIMIT 20");
+	}
+	
 	public List<Answer> getHappiestAnswerList() {
-		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 AND HAPPY_COUNT > 0 ORDER BY HAPPY_COUNT DESC");
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 AND HAPPY_COUNT > 0 ORDER BY HAPPY_COUNT DESC LIMIT 10");
 	}
 	
 	public List<Answer> getAnswerListByFansName(String fansName) {
@@ -110,9 +113,18 @@ public class AnswerDao {
 	}
 	
 	public List<Answer> getShuffleAnswerList() {
-		List<Answer> originalList = this.getLatestAnswerList();
-		Collections.shuffle(originalList);
-		return originalList;
+		List<Answer> shuffleAnswerList = new ArrayList<Answer>(20);
+		Map<Integer, Integer> shuffleMap = new HashMap<Integer, Integer>();
+		int answerCount = 0;
+		while (answerCount < 20) {
+			Answer shuffleAnswer = this.getShuffleAnswer();
+			if (!shuffleMap.containsKey(shuffleAnswer.getId())) {
+				shuffleAnswerList.add(shuffleAnswer);
+				shuffleMap.put(shuffleAnswer.getId(), shuffleAnswer.getId());
+				answerCount++;
+			}
+		}
+		return shuffleAnswerList;
 	}
 	
 	public Answer getAnswer(int id) {
@@ -121,6 +133,10 @@ public class AnswerDao {
 			answer.setSupplementAnswerList(supplementAnswerDao.getSuppleAnswerList(id));
 		}
 		return answer;
+	}
+	
+	public Answer getShuffleAnswer() {
+		return commonDao.getFirst(Answer.class, "SELECT * FROM ANSWER AS T1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(ID) FROM ANSWER) - (SELECT MIN(ID) FROM ANSWER)) + (SELECT MIN(ID) FROM ANSWER)) AS ID) AS T2 WHERE T1.IS_ACTIVE = 1 AND T1.ID >= T2.ID ORDER BY T1.ID LIMIT 1");
 	}
 	
 	public Answer getAnswerDetail(int id) {

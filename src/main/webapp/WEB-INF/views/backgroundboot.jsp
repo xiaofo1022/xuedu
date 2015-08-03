@@ -195,7 +195,7 @@
 	getSearchList();
 	
 	function getAnswerList() {
-		$.get("<c:url value='/lastestAnswerlist'/>", function(list) {
+		$.get("<c:url value='/alllastestAnswerlist'/>", function(list) {
 			if (list) {
 				$("#answer-tbody").html();
 				var answerHtml = "";

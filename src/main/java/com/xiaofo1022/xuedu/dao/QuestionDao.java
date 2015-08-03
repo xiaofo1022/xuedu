@@ -26,7 +26,7 @@ public class QuestionDao {
 	}
 	
 	public List<Question> getQuestionList() {
-		return commonDao.query(Question.class, "SELECT * FROM QUESTION WHERE IS_ACTIVE = 1 AND IS_ANSWERED = 0 ORDER BY UPDATE_DATETIME DESC");
+		return commonDao.query(Question.class, "SELECT * FROM QUESTION WHERE IS_ACTIVE = 1 AND IS_ANSWERED = 0 ORDER BY UPDATE_DATETIME DESC LIMIT 20");
 	}
 	
 	public boolean isExistSameQuestion(String ques) {
