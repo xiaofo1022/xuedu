@@ -61,6 +61,17 @@ public class AnswerDao {
 		commonDao.update("UPDATE ANSWER SET UPDATE_DATETIME = ? WHERE ID = ?", new Date(), id);
 	}
 	
+	public List<Answer> blurSearchAnswerList(Answer answer) {
+		String title = answer.getTitle();
+		if (title != null) {
+			title = title.trim();
+			if (!title.equals("")) {
+				return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE TITLE LIKE '%" + title + "%' AND IS_ACTIVE = 1 ORDER BY UPDATE_DATETIME DESC");
+			}
+		}
+		return null;
+	}
+	
 	public List<Answer> getHotestAnswerList() {
 		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 ORDER BY SEARCH_COUNT DESC");
 	}

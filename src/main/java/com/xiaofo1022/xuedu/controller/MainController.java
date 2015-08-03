@@ -95,6 +95,12 @@ public class MainController {
 		return questionDao.getQuestionList();
 	}
 	
+	@RequestMapping(value="/blursearch", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Answer> blursearch(@RequestBody Answer answer, BindingResult bindingResult, HttpServletRequest request, ModelMap modelMap) {
+		return answerDao.blurSearchAnswerList(answer);
+	}
+	
 	@RequestMapping(value="/answerlist", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Answer> answerlist(HttpServletRequest request, ModelMap modelMap) {
