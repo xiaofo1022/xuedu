@@ -90,6 +90,7 @@ public class AnswerDao {
 			for (Answer answer : suppleAnswerList) {
 				if (!answerMap.containsKey(answer.getTitle())) {
 					resultList.add(answer);
+					answerMap.put(answer.getTitle(), answer);
 				}
 			}
 		}
