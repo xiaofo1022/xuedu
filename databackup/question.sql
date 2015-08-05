@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-05 09:22:22
+Date: 2015-08-05 23:12:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=639 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=650 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -670,3 +670,14 @@ INSERT INTO `question` VALUES ('635', '2015-08-04 23:51:50', '2015-08-04 23:51:5
 INSERT INTO `question` VALUES ('636', '2015-08-04 23:52:30', '2015-08-04 23:52:30', '帆儿哥口头禅', '1', '0', null);
 INSERT INTO `question` VALUES ('637', '2015-08-05 00:18:58', '2015-08-05 00:18:58', '败火厅', '1', '0', null);
 INSERT INTO `question` VALUES ('638', '2015-08-05 01:21:22', '2015-08-05 01:21:22', '警卫员', '1', '0', null);
+INSERT INTO `question` VALUES ('639', '2015-08-05 11:53:25', '2015-08-05 11:53:25', '欧洲人', '1', '0', null);
+INSERT INTO `question` VALUES ('640', '2015-08-05 16:28:08', '2015-08-05 16:28:08', '为什么 是', '1', '0', null);
+INSERT INTO `question` VALUES ('641', '2015-08-05 16:28:16', '2015-08-05 16:28:16', '为什么是', '1', '0', null);
+INSERT INTO `question` VALUES ('642', '2015-08-05 16:28:38', '2015-08-05 16:28:38', '007', '1', '0', null);
+INSERT INTO `question` VALUES ('643', '2015-08-05 16:41:30', '2015-08-05 16:41:30', '表马苏', '1', '0', null);
+INSERT INTO `question` VALUES ('644', '2015-08-05 18:04:46', '2015-08-05 18:04:46', '大白兔泡泡糖', '1', '0', null);
+INSERT INTO `question` VALUES ('645', '2015-08-05 18:49:31', '2015-08-05 18:49:31', '笋尖', '1', '0', null);
+INSERT INTO `question` VALUES ('646', '2015-08-05 19:35:42', '2015-08-05 19:35:42', '76', '1', '0', null);
+INSERT INTO `question` VALUES ('647', '2015-08-05 20:21:04', '2015-08-05 20:21:04', '手术', '1', '0', null);
+INSERT INTO `question` VALUES ('648', '2015-08-05 21:04:34', '2015-08-05 21:04:34', '秦迪泉', '1', '0', null);
+INSERT INTO `question` VALUES ('649', '2015-08-05 21:21:21', '2015-08-05 21:21:21', '苏朵', '1', '0', null);

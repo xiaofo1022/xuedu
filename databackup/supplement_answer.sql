@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-05 09:22:27
+Date: 2015-08-05 23:13:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -258,3 +258,33 @@ INSERT INTO `supplement_answer` VALUES ('221', '2015-08-04 23:13:23', '2015-08-0
 INSERT INTO `supplement_answer` VALUES ('222', '2015-08-04 23:46:02', '2015-08-04 23:46:02', '293', '直男老孟', '起源自 梦回唐朝 这一期', '0', '0', '');
 INSERT INTO `supplement_answer` VALUES ('223', '2015-08-05 01:22:48', '2015-08-05 01:22:48', '0', 'Beautiful princess', '高大帅气，彪马的粗恋', '1', '1', '警卫员');
 INSERT INTO `supplement_answer` VALUES ('224', '2015-08-05 03:07:59', '2015-08-05 03:07:59', '3', '鸭尼玛', '当女婿的料儿~', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('225', '2015-08-05 11:53:54', '2015-08-05 11:53:54', '379', 'MathLotus乐队小刘', '不正经', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('226', '2015-08-05 11:57:25', '2015-08-05 11:57:25', '142', 'MathLotus乐队小刘', '人类文化的瑰宝！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('227', '2015-08-05 11:58:20', '2015-08-05 11:58:20', '20', 'MathLotus乐队小刘', '也叫高der鞋', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('228', '2015-08-05 12:00:25', '2015-08-05 12:00:25', '376', 'MathLotus乐队小刘', '有样儿！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('229', '2015-08-05 12:04:36', '2015-08-05 12:04:36', '177', 'MathLotus乐队小刘', '比“差点意思”还差，造句：邦乔维除了《New Jersey》之外都是缺的', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('230', '2015-08-05 12:05:47', '2015-08-05 12:05:47', '148', 'MathLotus乐队小刘', '干过，薛老师曾经有段时间做过花艺方面的业务。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('231', '2015-08-05 12:07:02', '2015-08-05 12:07:02', '200', 'MathLotus乐队小刘', '楼上默写王。。。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('232', '2015-08-05 12:07:26', '2015-08-05 12:07:26', '277', 'MathLotus乐队小刘', '福建叫“滚传单”', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('233', '2015-08-05 12:10:16', '2015-08-05 12:10:16', '182', 'MathLotus乐队小刘', '骑着趴赛折沟里了。眼镜店取眼睛5分钟不到趴赛丢了。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('234', '2015-08-05 12:12:08', '2015-08-05 12:12:08', '24', 'MathLotus乐队小刘', '架子鼓演奏家，和上百位知名音乐人合作过', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('235', '2015-08-05 14:01:10', '2015-08-05 14:01:10', '175', '看风景的人', '你丫傻逼！帆儿哥的世界里，他的朋友都是傻逼，他的好朋友都是大傻逼，他讨厌的人都是臭傻逼～', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('236', '2015-08-05 15:57:54', '2015-08-05 15:57:54', '439', 'ich', '举着的伞 掉在了雨中', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('237', '2015-08-05 16:28:56', '2015-08-05 16:28:56', '160', '溜肝尖儿', '霍金的传人', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('238', '2015-08-05 16:32:54', '2015-08-05 16:32:54', '97', '汪汪', '一边洗澡一边touch浴室镜子说“小苏你好棒”', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('239', '2015-08-05 16:34:32', '2015-08-05 16:34:32', '404', '汪汪', '帅气无比 外国小闺女儿卖房子卖地的追！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('240', '2015-08-05 16:42:14', '2015-08-05 16:42:14', '66', 'leon凉老师', '一种糕点，类比凤梨酥、提拉米苏，然后又彪马酥', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('241', '2015-08-05 16:43:52', '2015-08-05 16:43:52', '156', '纯手工肉狗', '炝锅侠，甩粪侠', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('242', '2015-08-05 16:49:37', '2015-08-05 16:49:37', '355', 'MathLotus乐队小刘', '在雪地上啪啪来几个飞腿，被包了石头的雪球开了。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('243', '2015-08-05 16:50:50', '2015-08-05 16:50:50', '431', 'MathLotus乐队小刘', '为了找那个鼓的音色，拿毛衣针儿打的', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('244', '2015-08-05 16:51:28', '2015-08-05 16:51:28', '30', 'MathLotus乐队小刘', '真谛', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('245', '2015-08-05 16:58:20', '2015-08-05 16:58:20', '27', 'MathLotus乐队小刘', '北戴河海螺侠，混过东方一号，北暴创始人', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('246', '2015-08-05 19:15:13', '2015-08-05 19:15:13', '160', '溜肝尖儿', '爱喝王老吉', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('247', '2015-08-05 19:20:30', '2015-08-05 19:20:30', '160', '溜肝尖儿', '不流汗，你什么时候看过人参流汗了？', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('248', '2015-08-05 19:25:18', '2015-08-05 19:25:18', '160', '溜肝尖儿', 'Metallica，帆儿，和交响乐团～', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('249', '2015-08-05 19:34:21', '2015-08-05 19:34:21', '497', '小萌萌', '月半→胖\n弯→在同性恋术语中，一般将异性恋或者双性恋当中异性恋者被迫或不是完全情愿转变为同性恋者的行为称为被掰弯。行为多发生在男或女同性恋喜欢上直男或直女以后。然而从科学的角度来讲，一个人的性取向无法后天改变。在网络语境下，“弯的”通常即是同性恋的意思。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('250', '2015-08-05 19:36:37', '2015-08-05 19:36:37', '59', '溜肝尖儿', '电脑修的好，师从单晓帆。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('251', '2015-08-05 20:56:17', '2015-08-05 20:56:17', '49', 'Patrick小白', '是李维斯的一个子牌子！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('252', '2015-08-05 21:01:30', '2015-08-05 21:01:30', '41', '嘘', '可以babababa拍滴', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('253', '2015-08-05 22:16:46', '2015-08-05 22:16:46', '33', '小萌萌', 'noodle machine', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('254', '2015-08-05 22:37:07', '2015-08-05 22:37:07', '160', '热心听众', '你们知道的太多了。', '0', '0', '');
