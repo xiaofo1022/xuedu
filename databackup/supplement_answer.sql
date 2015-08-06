@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-05 23:13:04
+Date: 2015-08-07 07:29:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=287 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -288,3 +288,35 @@ INSERT INTO `supplement_answer` VALUES ('251', '2015-08-05 20:56:17', '2015-08-0
 INSERT INTO `supplement_answer` VALUES ('252', '2015-08-05 21:01:30', '2015-08-05 21:01:30', '41', '嘘', '可以babababa拍滴', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('253', '2015-08-05 22:16:46', '2015-08-05 22:16:46', '33', '小萌萌', 'noodle machine', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('254', '2015-08-05 22:37:07', '2015-08-05 22:37:07', '160', '热心听众', '你们知道的太多了。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('255', '2015-08-05 23:19:40', '2015-08-05 23:19:40', '508', 'MathLotus乐队小刘', '中关村修电脑的，环游世界的水手。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('256', '2015-08-06 01:21:06', '2015-08-06 01:21:06', '3', 'X_CHEN', '紫红色的牙龈', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('257', '2015-08-06 01:24:42', '2015-08-06 01:24:42', '79', '我是我', '布满铁砂的香皂', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('258', '2015-08-06 01:26:45', '2015-08-06 01:26:45', '405', 'X_CHEN', '固体饮料啊 可以冲着喝的，但是不要酸梅晶哦～要东南亚的咖啡噢耶', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('259', '2015-08-06 01:30:29', '2015-08-06 01:30:29', '97', 'X_CHEN', '洗澡的时候对着镜子说，苏盼 你行', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('260', '2015-08-06 09:55:38', '2015-08-06 09:55:38', '60', 'MathLotus乐队小刘', '孕育包的母亲核。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('261', '2015-08-06 12:33:22', '2015-08-06 12:33:22', '468', 'Slim Pillow', '小名馕馕，还是一种食物。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('262', '2015-08-06 12:39:29', '2015-08-06 12:39:29', '209', 'Slim Pillow', '薛老师穿成什么样都是道德模范，不穿也是。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('263', '2015-08-06 12:43:27', '2015-08-06 12:43:27', '552', 'Slim Pillow', '跟外星人亲戚联络，不过我们都发现不了！', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('264', '2015-08-06 13:21:33', '2015-08-06 13:21:33', '97', 'xue', '随风的小子 三元的饺子', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('265', '2015-08-06 14:19:44', '2015-08-06 14:19:44', '3', 'MathLotus乐队小刘', '泰勒斯威夫特的老公', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('266', '2015-08-06 15:33:08', '2015-08-06 15:33:08', '308', '有套票', '藤椅上的老人', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('267', '2015-08-06 17:58:20', '2015-08-06 17:58:20', '436', '米小诺', '不要再来伤害我~~~', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('268', '2015-08-06 18:01:51', '2015-08-06 18:01:51', '84', '米小诺', '见天要下雨，提溜俩电瓶赶那雷~~', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('269', '2015-08-06 18:02:52', '2015-08-06 18:02:52', '97', '米小诺', '洗完对着镜子欣赏自己的body', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('270', '2015-08-06 18:17:28', '2015-08-06 18:17:28', '501', '米小诺', '片儿鞋都飞出去了', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('271', '2015-08-06 18:21:46', '2015-08-06 18:21:46', '144', '米小诺', '我薛哥连上世纪欧洲妓女穿什么鞋为什么穿都知道 世界知识的宝库啊', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('272', '2015-08-06 20:28:20', '2015-08-06 20:28:20', '319', 'Slim Pillow', '海螺侠', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('273', '2015-08-06 20:43:57', '2015-08-06 20:43:57', '144', 'Slim Pillow', '薛哥总是能知道一些别人不知道的！比如为什么大拇指有两节，为什么香烟的直径是现在的这个样子等等。。。牛逼呀！', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('274', '2015-08-06 20:44:36', '2015-08-06 20:44:36', '436', 'Slim Pillow', '这不是我想要的结果～结果～', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('275', '2015-08-06 20:48:04', '2015-08-06 20:48:04', '97', 'Slim Pillow', '一定要用牛奶味道的沐浴露！！', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('276', '2015-08-06 20:48:47', '2015-08-06 20:48:47', '555', 'Slim Pillow', '飞碟呀！', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('277', '2015-08-06 23:54:38', '2015-08-06 23:54:38', '291', 'Lithium_35mm', '分手后nun心受到打击，抽烟治大病', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('278', '2015-08-06 23:55:41', '2015-08-06 23:55:41', '14', 'Lithium_35mm', '国家一级铲屎运动员', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('279', '2015-08-07 00:09:04', '2015-08-07 00:09:04', '503', 'Lithium_35mm', '色迷迷的看李斯文', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('280', '2015-08-07 00:14:27', '2015-08-07 00:14:27', '225', '薛科长的情人', '可是占地儿啊', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('281', '2015-08-07 01:08:25', '2015-08-07 01:08:25', '555', '扶明侠', '藤椅', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('282', '2015-08-07 01:14:43', '2015-08-07 01:14:43', '552', '扶明侠', '炒一本儿', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('283', '2015-08-07 01:17:09', '2015-08-07 01:17:09', '330', '扶明侠', '北京求姻缘胜地 米克寺', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('284', '2015-08-07 02:28:02', '2015-08-07 02:28:02', '163', '三爷', 'lost 砍臭！还有一个豆浆机，我们公司抽奖送的。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('285', '2015-08-07 06:05:35', '2015-08-07 06:05:35', '225', '溜肝尖儿', '有地儿～', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('286', '2015-08-07 06:45:30', '2015-08-07 06:45:30', '94', '溜肝尖儿', '蜜克斯返聘的60岁老DJ', '1', '1', '');

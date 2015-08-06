@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-05 23:12:57
+Date: 2015-08-07 07:29:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=650 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=663 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -681,3 +681,16 @@ INSERT INTO `question` VALUES ('646', '2015-08-05 19:35:42', '2015-08-05 19:35:4
 INSERT INTO `question` VALUES ('647', '2015-08-05 20:21:04', '2015-08-05 20:21:04', '手术', '1', '0', null);
 INSERT INTO `question` VALUES ('648', '2015-08-05 21:04:34', '2015-08-05 21:04:34', '秦迪泉', '1', '0', null);
 INSERT INTO `question` VALUES ('649', '2015-08-05 21:21:21', '2015-08-05 21:21:21', '苏朵', '1', '0', null);
+INSERT INTO `question` VALUES ('650', '2015-08-06 09:36:50', '2015-08-06 09:36:50', '语言', '1', '0', null);
+INSERT INTO `question` VALUES ('651', '2015-08-06 10:47:44', '2015-08-06 10:47:44', '帆儿哥的爱好', '1', '0', null);
+INSERT INTO `question` VALUES ('652', '2015-08-06 12:22:38', '2015-08-06 12:22:38', '小萌萌', '1', '0', null);
+INSERT INTO `question` VALUES ('653', '2015-08-06 15:33:13', '2015-08-06 15:33:13', '倒萨', '1', '0', null);
+INSERT INTO `question` VALUES ('654', '2015-08-06 18:15:57', '2015-08-06 18:15:57', '游泳', '1', '0', null);
+INSERT INTO `question` VALUES ('655', '2015-08-06 18:45:41', '2015-08-06 18:45:41', 'vans', '1', '0', null);
+INSERT INTO `question` VALUES ('656', '2015-08-06 18:46:35', '2015-08-06 18:46:35', '洗脚', '1', '0', null);
+INSERT INTO `question` VALUES ('657', '2015-08-06 18:46:46', '2015-08-06 18:46:46', '足疗', '1', '0', null);
+INSERT INTO `question` VALUES ('658', '2015-08-06 19:19:44', '2015-08-06 19:19:44', '荡司', '1', '0', null);
+INSERT INTO `question` VALUES ('659', '2015-08-06 19:20:07', '2015-08-06 19:20:07', '荡丝', '1', '0', null);
+INSERT INTO `question` VALUES ('660', '2015-08-06 19:52:15', '2015-08-06 19:52:15', '女的', '1', '0', null);
+INSERT INTO `question` VALUES ('661', '2015-08-06 23:55:21', '2015-08-06 23:55:21', '我要嫁给你', '1', '0', null);
+INSERT INTO `question` VALUES ('662', '2015-08-07 07:13:20', '2015-08-07 07:13:20', '熊猫', '1', '0', null);
