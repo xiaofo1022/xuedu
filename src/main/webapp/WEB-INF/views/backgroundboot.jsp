@@ -49,6 +49,17 @@
 		content:"";
 		clear:both;
 	}
+	
+	.supple-block {
+		border-top:1px solid #E5E5E5;
+		margin-top:10px;
+		padding-top:10px;
+		text-align:left;
+	}
+	
+	.fright {
+		float:right;
+	}
 </style>
 </head>
 <body>
@@ -159,6 +170,9 @@
           		<div class="form-group">
             		<textarea id="answer" placeholder="内容" class="form-control" rows="6" maxlength="1000"></textarea>
           		</div>
+          		<div id="supple-block">
+          		
+          		</div>
 	      	</div>
 	      	<div class="modal-footer">
 	        	<button type="button" class="btn btn-default" style="outline:none;" data-dismiss="modal">关闭</button>
@@ -172,6 +186,7 @@
 	$("#word-modal").on("hidden.bs.modal", function(e) {
 		$("#title").val("");
 		$("#answer").val("");
+		$("#supple-block").html("");
 	});
 
 	function changeTableView(element) {
@@ -350,7 +365,7 @@
 	}
 	
 	function getAnswer(id) {
-		$.get("<c:url value='/answerdetail/" + id + "'/>", function(data) {
+		$.get("<c:url value='/getanswer/" + id + "'/>", function(data) {
 			if (data) {
 				updateAnswer(data);
 			}
@@ -367,6 +382,14 @@
 	
 	function updateAnswer(data) {
 		initModal(data.title, data.answer);
+		if (data.supplementAnswerList) {
+			var list = data.supplementAnswerList;
+			for (var i in list) {
+				var data = list[i];
+				var suppleHtml = ("<div class='supple-block clearfix'>" + data.answer + "<br/><button class='btn btn-danger btn-xs fright' onclick='deleteSupplement(" + data.id + ", this)'>删除</button><span class='fright'> --- 来自:" + data.fansName + "的补充</span></div>");
+				$("#supple-block").append($(suppleHtml));
+			}
+		}
 		submitFunction = function() {
 			var title = $("#title").val();
 			var answer = $("#answer").val();
@@ -377,6 +400,17 @@
 				}
 			});
 		};
+	}
+	
+	function deleteSupplement(id, element) {
+		var result = confirm("是否确认删除这条补充？");
+		if (result) {
+			$.post("<c:url value='/denialSupplement/" + id + "'/>", null, function(data) {
+				if (data == "success") {
+					$(element).parent().remove();
+				}
+			});
+		}
 	}
 	
 	function updateFansAnswer(data) {
