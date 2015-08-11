@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-10 09:24:14
+Date: 2015-08-11 09:22:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=366 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -399,3 +399,12 @@ INSERT INTO `supplement_answer` VALUES ('362', '2015-08-09 17:29:37', '2015-08-0
 INSERT INTO `supplement_answer` VALUES ('363', '2015-08-09 17:38:08', '2015-08-09 17:38:08', '59', '小萌萌', '字优雅，又称薛贝贝、薛老师、小营薛富城，人见人爱的人民艺术家，世界冷知识大花园的一朵奇葩。', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('364', '2015-08-09 17:38:31', '2015-08-09 17:38:31', '59', '小萌萌', '不是gay。', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('365', '2015-08-09 20:56:56', '2015-08-09 20:56:56', '27', '嘿嘿呦', '大豪的爸爸', '0', '1', '');
+INSERT INTO `supplement_answer` VALUES ('366', '2015-08-10 09:56:28', '2015-08-10 09:56:28', '15', '我是我', '我仄世乔丹', '1', '0', '');
+INSERT INTO `supplement_answer` VALUES ('367', '2015-08-10 10:02:26', '2015-08-10 10:02:26', '571', '粑粑', '这应该是薛科最常说的吧 惊讶状 有韵味 ', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('368', '2015-08-10 10:23:05', '2015-08-10 10:23:05', '78', 'M赫儿', '人 只就是猫的仆人以及玩物', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('369', '2015-08-10 10:26:32', '2015-08-10 10:26:32', '491', 'M赫儿', '一个大背挎', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('370', '2015-08-10 10:30:23', '2015-08-10 10:30:23', '62', 'M赫儿', '想成为第一个伪装成地球人的外星人 回到外太空', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('371', '2015-08-10 17:08:21', '2015-08-10 17:08:21', '27', 'Ixlee', '道哥还欠我一次太仓的巡演啊，苏州太仓！《摇滚乐队》那期43分54秒，还记得吗？您说的争取啊！我可等了好久了啊。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('372', '2015-08-10 20:42:09', '2015-08-10 20:42:09', '3', '张小琦咦唔吁', '牙龈薛', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('373', '2015-08-10 23:56:40', '2015-08-10 23:56:40', '91', '崇拜优雅老师的彪马控小斯文', '单恋警卫员，最后让警卫员给了一大背垮。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('374', '2015-08-11 09:20:30', '2015-08-11 09:20:30', '577', '米小诺', '疤在心里', '1', '0', '');

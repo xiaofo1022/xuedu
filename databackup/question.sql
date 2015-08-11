@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-10 09:24:06
+Date: 2015-08-11 09:21:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=708 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=715 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -739,3 +739,10 @@ INSERT INTO `question` VALUES ('704', '2015-08-09 17:12:07', '2015-08-09 17:12:0
 INSERT INTO `question` VALUES ('705', '2015-08-09 18:06:02', '2015-08-09 18:06:02', '动慈园的由来', '1', '0', null);
 INSERT INTO `question` VALUES ('706', '2015-08-09 18:06:47', '2015-08-09 18:06:47', '共慈园', '1', '0', null);
 INSERT INTO `question` VALUES ('707', '2015-08-09 20:41:46', '2015-08-09 20:41:46', '嚯', '1', '0', null);
+INSERT INTO `question` VALUES ('708', '2015-08-10 09:53:51', '2015-08-10 09:53:51', '大拇指为什么两截', '1', '0', null);
+INSERT INTO `question` VALUES ('709', '2015-08-10 09:54:17', '2015-08-10 09:54:17', '手指头两截', '1', '0', null);
+INSERT INTO `question` VALUES ('710', '2015-08-10 10:41:04', '2015-08-10 10:41:04', '百万富翁', '1', '0', null);
+INSERT INTO `question` VALUES ('711', '2015-08-10 13:36:45', '2015-08-10 13:36:45', '叶敬楠', '1', '0', null);
+INSERT INTO `question` VALUES ('712', '2015-08-10 14:02:14', '2015-08-10 14:02:14', '苏德彪的砍刀', '1', '0', null);
+INSERT INTO `question` VALUES ('713', '2015-08-10 14:09:32', '2015-08-10 14:09:32', '小懦弱', '1', '0', null);
+INSERT INTO `question` VALUES ('714', '2015-08-10 18:55:25', '2015-08-10 18:55:25', '能不能拜帆儿哥为师学打鼓！咚咚锵！', '1', '0', null);
