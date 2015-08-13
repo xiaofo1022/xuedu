@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-11 09:21:47
+Date: 2015-08-13 09:12:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=394 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -416,3 +416,13 @@ INSERT INTO `fans_answer` VALUES ('380', '2015-08-10 22:51:41', '2015-08-10 22:5
 INSERT INTO `fans_answer` VALUES ('381', '2015-08-10 22:52:38', '2015-08-10 22:52:38', 'Slim Pillow', '彪子为什么特想当明教教主？', '因为想学乾坤大挪移，省路费。', '1', '1');
 INSERT INTO `fans_answer` VALUES ('382', '2015-08-10 22:59:19', '2015-08-10 22:59:19', 'Slim Pillow', '李斯文想当什么武侠人物？', '一个冷酷的杀手，无情无爱，不会武功，心里有爱假装无爱，脸色苍白，出门擦粉，回家抱猫，阑尾上有刀疤。', '1', '1');
 INSERT INTO `fans_answer` VALUES ('383', '2015-08-10 23:01:30', '2015-08-10 23:01:30', 'Slim Pillow', '李斯文行走江湖靠什么暗器？', '香港脚，就给一纸条写着“敢闻么？”', '0', '0');
+INSERT INTO `fans_answer` VALUES ('384', '2015-08-11 17:11:13', '2015-08-11 17:11:13', '米小诺', '很多人失恋以后就走撒很难过了摇滚乐的道路', '有什么了不起的呀 妈给我二十块钱吃串切', '0', '0');
+INSERT INTO `fans_answer` VALUES ('385', '2015-08-11 23:07:17', '2015-08-11 23:07:17', 'Slim Pillow', '侠客行里的岛是什么岛？', '李斯文：“冒险岛”。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('386', '2015-08-11 23:14:06', '2015-08-11 23:14:06', 'Slim Pillow', '东辉在武侠里开了什么店？', '优雅楼，经常去找一位扫塔的大师买盗版盘。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('387', '2015-08-11 23:16:01', '2015-08-11 23:16:01', 'Slim Pillow', '东辉在武侠里有什么技能？', '一笑倾城。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('388', '2015-08-12 11:18:22', '2015-08-12 11:18:22', '诚如神之所说', '我就想问问红旗机床厂小李家的房分没分？', '估计是没分，呵呵。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('389', '2015-08-12 11:31:12', '2015-08-12 11:31:12', 'BeatsFucker', '失格懦夫', '来自李斯文老师给彪子起的名字，原话是“这是来自白俄罗斯的失格懦夫（是个懦夫）”', '1', '1');
+INSERT INTO `fans_answer` VALUES ('390', '2015-08-12 20:32:21', '2015-08-12 20:32:21', '溜肝尖儿', '利拉德', '婷美最新代言人，当黑人挺美～', '1', '1');
+INSERT INTO `fans_answer` VALUES ('391', '2015-08-12 20:37:08', '2015-08-12 20:37:08', '溜肝尖儿', '双臭牛肉汉堡', '麦当劳和王致和合作的一款百年臭豆腐系列产品', '1', '1');
+INSERT INTO `fans_answer` VALUES ('392', '2015-08-12 21:19:47', '2015-08-12 21:19:47', '看风景的人', 'Kanye West家是哪儿的？', '陕西的～', '1', '1');
+INSERT INTO `fans_answer` VALUES ('393', '2015-08-12 21:36:03', '2015-08-12 21:36:03', '看风景的人', '帆儿哥合作品牌', '杜蕾斯！一款“活明白了”在普利司通商店出售，65年如一日！', '1', '1');
