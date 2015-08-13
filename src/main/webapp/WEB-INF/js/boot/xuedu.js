@@ -85,7 +85,18 @@ function getAnswer(id) {
 				$.post(baseurl + "/increasesearch/" + id, null, function(data) {});
 				increaseMap[id] = true;
 			}
-			var answer = "<div class='clearfix'>" + result.answer.replace(/\n/g, "<br/>");
+			var resultAnswer = result.answer;
+			var resultLines = resultAnswer.split("\n");
+			if (resultLines) {
+				for (var i in resultLines) {
+					var line = resultLines[i];
+					if (line.indexOf("http") >= 0) {
+						var linkLine = "<a target='_blank' href='" + line + "'>" + line + "</a>";
+						resultAnswer = resultAnswer.replace(line, linkLine);
+					}
+				}
+			}
+			var answer = "<div class='clearfix'>" + resultAnswer.replace(/\n/g, "<br/>");
 			if (result.fansAnswer) {
 				var fansName = result.fansAnswer.fansName;
 				answer += getContributeFromBlock(fansName);
