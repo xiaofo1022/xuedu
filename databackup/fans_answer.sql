@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-13 09:12:48
+Date: 2015-08-20 09:35:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=394 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -426,3 +426,12 @@ INSERT INTO `fans_answer` VALUES ('390', '2015-08-12 20:32:21', '2015-08-12 20:3
 INSERT INTO `fans_answer` VALUES ('391', '2015-08-12 20:37:08', '2015-08-12 20:37:08', '溜肝尖儿', '双臭牛肉汉堡', '麦当劳和王致和合作的一款百年臭豆腐系列产品', '1', '1');
 INSERT INTO `fans_answer` VALUES ('392', '2015-08-12 21:19:47', '2015-08-12 21:19:47', '看风景的人', 'Kanye West家是哪儿的？', '陕西的～', '1', '1');
 INSERT INTO `fans_answer` VALUES ('393', '2015-08-12 21:36:03', '2015-08-12 21:36:03', '看风景的人', '帆儿哥合作品牌', '杜蕾斯！一款“活明白了”在普利司通商店出售，65年如一日！', '1', '1');
+INSERT INTO `fans_answer` VALUES ('394', '2015-08-13 10:07:19', '2015-08-13 10:07:19', 'naul', '中分', '中国本土化fender', '0', '0');
+INSERT INTO `fans_answer` VALUES ('395', '2015-08-13 16:53:47', '2015-08-13 16:53:47', '米小诺', '哈达蔻', '一个非常玄妙的形容词，一般指重口味事物。', '1', '1');
+INSERT INTO `fans_answer` VALUES ('396', '2015-08-13 17:45:10', '2015-08-13 17:45:10', '小宇', '帆儿布', '一种优质布料', '1', '1');
+INSERT INTO `fans_answer` VALUES ('397', '2015-08-14 14:18:11', '2015-08-14 14:18:11', '裸烧锅炉身体棒', '彪马不在北京的时候', '去外地给大妈remix广场舞音乐。', '1', '1');
+INSERT INTO `fans_answer` VALUES ('398', '2015-08-16 00:29:04', '2015-08-16 00:29:04', 'Bankswei41', '优思迪吧真棒！', '生活中不可缺少的播客节目', '0', '0');
+INSERT INTO `fans_answer` VALUES ('399', '2015-08-17 07:27:40', '2015-08-17 07:27:40', '米小诺', '彪马最爱逛超市的哪区', '彪马：奶区。\n李斯文：对啊，哪区啊', '1', '1');
+INSERT INTO `fans_answer` VALUES ('400', '2015-08-17 19:55:23', '2015-08-17 19:55:23', 'AKA.小胖子', '我真惊了！惊了！', '彪马苏口头禅  类似于黑人打招呼：YO!', '0', '0');
+INSERT INTO `fans_answer` VALUES ('401', '2015-08-17 19:56:34', '2015-08-17 19:56:34', 'AKA.小胖子', '啊，哈哈哈哈哈哈哈哈哈！', '帆哥的笑声，是向外太空穿简讯的方式。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('402', '2015-08-20 07:35:31', '2015-08-20 07:35:31', 'Patrick小白', '港台四大丧逼', '张信哲、熊天平、齐秦、王杰', '1', '1');
