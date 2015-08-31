@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-20 09:35:12
+Date: 2015-08-31 09:53:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=759 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=787 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -790,3 +790,31 @@ INSERT INTO `question` VALUES ('755', '2015-08-18 20:53:06', '2015-08-18 20:53:0
 INSERT INTO `question` VALUES ('756', '2015-08-19 12:43:47', '2015-08-19 12:43:47', '为什么大拇指', '1', '0', null);
 INSERT INTO `question` VALUES ('757', '2015-08-19 17:06:09', '2015-08-19 17:06:09', '等三大', '1', '0', null);
 INSERT INTO `question` VALUES ('758', '2015-08-20 00:23:34', '2015-08-20 00:23:34', '苏得彪', '1', '0', null);
+INSERT INTO `question` VALUES ('759', '2015-08-20 21:49:22', '2015-08-20 21:49:22', 'Mariana', '1', '0', null);
+INSERT INTO `question` VALUES ('760', '2015-08-21 17:03:00', '2015-08-21 17:03:00', '天堂制造', '1', '0', null);
+INSERT INTO `question` VALUES ('761', '2015-08-21 17:38:10', '2015-08-21 17:38:10', '生活就是', '1', '0', null);
+INSERT INTO `question` VALUES ('762', '2015-08-21 23:44:47', '2015-08-21 23:44:47', '随风小子 歌单', '1', '0', null);
+INSERT INTO `question` VALUES ('763', '2015-08-22 09:35:00', '2015-08-22 09:35:00', '原始社会', '1', '0', null);
+INSERT INTO `question` VALUES ('764', '2015-08-22 09:35:29', '2015-08-22 09:35:29', '原始社会的人都想什么事', '1', '0', null);
+INSERT INTO `question` VALUES ('765', '2015-08-22 22:59:16', '2015-08-22 22:59:16', '帆儿ge', '1', '0', null);
+INSERT INTO `question` VALUES ('766', '2015-08-23 01:32:02', '2015-08-23 01:32:02', '昆', '1', '0', null);
+INSERT INTO `question` VALUES ('767', '2015-08-23 01:32:06', '2015-08-23 01:32:06', 'kun', '1', '0', null);
+INSERT INTO `question` VALUES ('768', '2015-08-23 01:32:14', '2015-08-23 01:32:14', '够昆', '1', '0', null);
+INSERT INTO `question` VALUES ('769', '2015-08-23 22:45:03', '2015-08-23 22:45:03', '李斯文老婆', '1', '0', null);
+INSERT INTO `question` VALUES ('770', '2015-08-23 22:45:17', '2015-08-23 22:45:17', '薛优雅老婆', '1', '0', null);
+INSERT INTO `question` VALUES ('771', '2015-08-24 22:34:12', '2015-08-24 22:34:12', '道哥为什么叫仔仔', '1', '0', null);
+INSERT INTO `question` VALUES ('772', '2015-08-26 16:44:05', '2015-08-26 16:44:05', '道hia', '1', '0', null);
+INSERT INTO `question` VALUES ('773', '2015-08-27 20:53:16', '2015-08-27 20:53:16', '女人', '1', '0', null);
+INSERT INTO `question` VALUES ('774', '2015-08-28 15:02:40', '2015-08-28 15:02:40', 'SUM41', '1', '0', null);
+INSERT INTO `question` VALUES ('775', '2015-08-28 15:02:50', '2015-08-28 15:02:50', 'GREENDAY', '1', '0', null);
+INSERT INTO `question` VALUES ('776', '2015-08-28 15:02:57', '2015-08-28 15:02:57', '酒泉', '1', '0', null);
+INSERT INTO `question` VALUES ('777', '2015-08-28 20:44:18', '2015-08-28 20:44:18', '皇家', '1', '0', null);
+INSERT INTO `question` VALUES ('778', '2015-08-28 20:44:28', '2015-08-28 20:44:28', '黄家', '1', '0', null);
+INSERT INTO `question` VALUES ('779', '2015-08-28 22:42:47', '2015-08-28 22:42:47', '薛老师结婚', '1', '0', null);
+INSERT INTO `question` VALUES ('780', '2015-08-28 23:14:27', '2015-08-28 23:14:27', '杜', '1', '0', null);
+INSERT INTO `question` VALUES ('781', '2015-08-28 23:14:36', '2015-08-28 23:14:36', '杜兰特', '1', '0', null);
+INSERT INTO `question` VALUES ('782', '2015-08-28 23:45:55', '2015-08-28 23:45:55', '五子', '1', '0', null);
+INSERT INTO `question` VALUES ('783', '2015-08-28 23:46:13', '2015-08-28 23:46:13', '大哥', '1', '0', null);
+INSERT INTO `question` VALUES ('784', '2015-08-30 00:08:32', '2015-08-30 00:08:32', '啦啦', '1', '0', null);
+INSERT INTO `question` VALUES ('785', '2015-08-31 00:28:18', '2015-08-31 00:28:18', '仙', '1', '0', null);
+INSERT INTO `question` VALUES ('786', '2015-08-31 00:28:24', '2015-08-31 00:28:24', '仙儿', '1', '0', null);

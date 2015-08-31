@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-20 09:35:18
+Date: 2015-08-31 09:53:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=430 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=448 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -461,5 +461,23 @@ INSERT INTO `supplement_answer` VALUES ('424', '2015-08-16 23:26:51', '2015-08-1
 INSERT INTO `supplement_answer` VALUES ('425', '2015-08-17 11:15:58', '2015-08-17 11:15:58', '396', '米小诺', '大石碎胸口 口含麦克风', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('426', '2015-08-17 16:08:17', '2015-08-17 16:08:17', '193', '啦啦啦', '啦啦啦', '0', '0', '');
 INSERT INTO `supplement_answer` VALUES ('427', '2015-08-17 16:24:14', '2015-08-17 16:24:14', '225', '马外外', '性价比高', '1', '1', '');
-INSERT INTO `supplement_answer` VALUES ('428', '2015-08-18 03:59:34', '2015-08-18 03:59:34', '47', '鸭尼玛', '洗完澡后，光着Dance会儿', '1', '0', '');
+INSERT INTO `supplement_answer` VALUES ('428', '2015-08-18 03:59:34', '2015-08-18 03:59:34', '47', '鸭尼玛', '洗完澡后，光着Dance会儿', '0', '0', '');
 INSERT INTO `supplement_answer` VALUES ('429', '2015-08-18 23:14:55', '2015-08-18 23:14:55', '332', '咔咔咔', '没结！我要迎娶薛哥', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('430', '2015-08-20 11:01:52', '2015-08-20 11:01:52', '14', '就内谁呗', '散发着喜剧明星气质，看他弹贝斯就像在企鹅馆里看企鹅。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('431', '2015-08-20 16:16:18', '2015-08-20 16:16:18', '3', '小迪迪', '隐身侠！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('432', '2015-08-20 16:18:23', '2015-08-20 16:18:23', '396', '小迪迪', '在愚公移山，灯光只给贝斯！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('433', '2015-08-20 16:19:20', '2015-08-20 16:19:20', '463', '小迪迪', '干过道德模范', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('434', '2015-08-20 16:20:43', '2015-08-20 16:20:43', '463', '小迪迪', '在中医药大学里的桑塔纳上dance', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('435', '2015-08-22 23:00:38', '2015-08-22 23:00:38', '160', '迪吧僵尸粉', '大米精', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('436', '2015-08-23 23:50:37', '2015-08-23 23:50:37', '565', 'O Momo', '器材这块儿', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('437', '2015-08-24 07:43:56', '2015-08-24 07:43:56', '607', '中华好记星', '张宇候补', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('438', '2015-08-24 17:44:03', '2015-08-24 17:44:03', '565', 'leon凉老师', '各种治鱼良方：孔雀石绿，给鱼治疗白点儿病', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('439', '2015-08-24 17:44:34', '2015-08-24 17:44:34', '84', '锤子他二姐', '小葱豆腐势力小，金针菇太sei牙', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('440', '2015-08-26 16:34:02', '2015-08-26 16:34:02', '14', 'diggler', '李换妻', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('441', '2015-08-27 09:26:03', '2015-08-27 09:26:03', '612', '溜肝尖儿', '家里还摆着高达和扎古', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('442', '2015-08-27 10:39:43', '2015-08-27 10:39:43', '463', 'Slim Pillow', '养各种养鱼的设备。', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('443', '2015-08-27 17:21:13', '2015-08-27 17:21:13', '3', '大能猫', '萧王', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('444', '2015-08-27 17:25:57', '2015-08-27 17:25:57', '145', '大能猫', '我舒适了', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('445', '2015-08-27 19:25:11', '2015-08-27 19:25:11', '601', 'wdtz', '回福建当英雄', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('446', '2015-08-27 19:30:43', '2015-08-27 19:30:43', '614', '维他命帝', '薛优雅他们家六楼的家伙。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('447', '2015-08-28 22:43:41', '2015-08-28 22:43:41', '0', 'vivivi', '没有 因为李羽要送盔给他...', '1', '0', '薛老师结婚');

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-20 09:35:05
+Date: 2015-08-31 09:53:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=409 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -435,3 +435,9 @@ INSERT INTO `fans_answer` VALUES ('399', '2015-08-17 07:27:40', '2015-08-17 07:2
 INSERT INTO `fans_answer` VALUES ('400', '2015-08-17 19:55:23', '2015-08-17 19:55:23', 'AKA.小胖子', '我真惊了！惊了！', '彪马苏口头禅  类似于黑人打招呼：YO!', '0', '0');
 INSERT INTO `fans_answer` VALUES ('401', '2015-08-17 19:56:34', '2015-08-17 19:56:34', 'AKA.小胖子', '啊，哈哈哈哈哈哈哈哈哈！', '帆哥的笑声，是向外太空穿简讯的方式。', '0', '0');
 INSERT INTO `fans_answer` VALUES ('402', '2015-08-20 07:35:31', '2015-08-20 07:35:31', 'Patrick小白', '港台四大丧逼', '张信哲、熊天平、齐秦、王杰', '1', '1');
+INSERT INTO `fans_answer` VALUES ('403', '2015-08-21 01:50:31', '2015-08-21 01:50:31', '迪吧僵尸粉', '帆儿哥', '大米精（李斯文说的）', '0', '0');
+INSERT INTO `fans_answer` VALUES ('404', '2015-08-22 08:20:19', '2015-08-22 08:20:19', '我是我', '我要说迪吧好好好', '我也不知是什么', '0', '0');
+INSERT INTO `fans_answer` VALUES ('405', '2015-08-25 13:17:08', '2015-08-25 13:17:08', '溜肝尖儿', '男子两项全能比赛有哪两项', '抽烟，喝酒。', '1', '1');
+INSERT INTO `fans_answer` VALUES ('406', '2015-08-28 15:02:10', '2015-08-28 15:02:10', 'KnIEST', '你猜', '你猜', '0', '0');
+INSERT INTO `fans_answer` VALUES ('407', '2015-08-29 17:36:35', '2015-08-29 17:36:35', '熘肝尖儿', '彪子如何补肾', '六味地黄丸就着红牛顺下去', '1', '1');
+INSERT INTO `fans_answer` VALUES ('408', '2015-08-29 18:00:31', '2015-08-29 18:00:31', '熘肝尖儿', '博尔特的绝活儿是什么', '自己跟自己打乒乓球', '1', '1');
