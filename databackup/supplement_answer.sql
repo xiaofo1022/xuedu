@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-31 09:53:15
+Date: 2015-09-25 17:18:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=448 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=465 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -480,4 +480,21 @@ INSERT INTO `supplement_answer` VALUES ('443', '2015-08-27 17:21:13', '2015-08-2
 INSERT INTO `supplement_answer` VALUES ('444', '2015-08-27 17:25:57', '2015-08-27 17:25:57', '145', '大能猫', '我舒适了', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('445', '2015-08-27 19:25:11', '2015-08-27 19:25:11', '601', 'wdtz', '回福建当英雄', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('446', '2015-08-27 19:30:43', '2015-08-27 19:30:43', '614', '维他命帝', '薛优雅他们家六楼的家伙。', '1', '1', '');
-INSERT INTO `supplement_answer` VALUES ('447', '2015-08-28 22:43:41', '2015-08-28 22:43:41', '0', 'vivivi', '没有 因为李羽要送盔给他...', '1', '0', '薛老师结婚');
+INSERT INTO `supplement_answer` VALUES ('447', '2015-08-28 22:43:41', '2015-08-28 22:43:41', '0', 'vivivi', '没有 因为李羽要送盔给他...', '1', '1', '薛老师结婚');
+INSERT INTO `supplement_answer` VALUES ('448', '2015-08-31 16:13:16', '2015-08-31 16:13:16', '91', 'chenmaru', '相识于学校篮球运动会，那天拿了全国健美冠军', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('449', '2015-08-31 17:24:48', '2015-08-31 17:24:48', '601', 'Slim Pillow', '去索马里跟老丈杆子谈天说地道古论今，跟黑公主恩恩爱爱。', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('450', '2015-08-31 22:20:53', '2015-08-31 22:20:53', '352', '张德彪', '主持一个正义', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('451', '2015-08-31 22:21:32', '2015-08-31 22:21:32', '617', '张德彪', '找他的警卫员', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('452', '2015-08-31 22:22:25', '2015-08-31 22:22:25', '601', '张德彪', '回福建找他念念不忘的警卫员', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('453', '2015-08-31 22:22:52', '2015-08-31 22:22:52', '614', '张德彪', '高处跳下', '0', '1', '');
+INSERT INTO `supplement_answer` VALUES ('454', '2015-08-31 22:23:21', '2015-08-31 22:23:21', '565', '张德彪', '器械大王', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('455', '2015-08-31 22:24:37', '2015-08-31 22:24:37', '97', '张德彪', '苏德彪的夜是警卫员的夜', '0', '1', '');
+INSERT INTO `supplement_answer` VALUES ('456', '2015-09-01 11:02:38', '2015-09-01 11:02:38', '352', 'USDB忠实听众', '自己呆着 默默的观察着一切', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('457', '2015-09-02 10:40:39', '2015-09-02 10:40:39', '99', '小李', '当爸爸', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('458', '2015-09-05 01:14:46', '2015-09-05 01:14:46', '37', 'JY', '薛哥唱《不要再来伤害我》的时候是极帅的！！！', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('459', '2015-09-05 01:19:35', '2015-09-05 01:19:35', '156', 'JY', '深爱着警卫员叔叔的懦弱公子', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('460', '2015-09-11 00:03:35', '2015-09-11 00:03:35', '84', '祸祸大王', '鼻子流血，瑞典肉丸', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('461', '2015-09-11 00:05:59', '2015-09-11 00:05:59', '14', '祸祸大王', '青少年高血压基金创办人', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('462', '2015-09-17 17:30:41', '2015-09-17 17:30:41', '584', '汪汪', '听活结儿', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('463', '2015-09-19 23:27:10', '2015-09-19 23:27:10', '620', '蓝天', '苏粗俗', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('464', '2015-09-22 00:16:49', '2015-09-22 00:16:49', '208', 'SuzyQoo', '背景音乐：Barbie Girl - Aqua', '1', '1', '');

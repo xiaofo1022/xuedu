@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-31 09:53:08
+Date: 2015-09-25 17:18:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=787 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=801 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -818,3 +818,17 @@ INSERT INTO `question` VALUES ('783', '2015-08-28 23:46:13', '2015-08-28 23:46:1
 INSERT INTO `question` VALUES ('784', '2015-08-30 00:08:32', '2015-08-30 00:08:32', '啦啦', '1', '0', null);
 INSERT INTO `question` VALUES ('785', '2015-08-31 00:28:18', '2015-08-31 00:28:18', '仙', '1', '0', null);
 INSERT INTO `question` VALUES ('786', '2015-08-31 00:28:24', '2015-08-31 00:28:24', '仙儿', '1', '0', null);
+INSERT INTO `question` VALUES ('787', '2015-09-02 01:56:37', '2015-09-02 01:56:37', '避孕', '1', '0', null);
+INSERT INTO `question` VALUES ('788', '2015-09-04 14:48:27', '2015-09-04 14:48:27', '天堂', '1', '0', null);
+INSERT INTO `question` VALUES ('789', '2015-09-04 16:29:15', '2015-09-04 16:29:15', '王结石', '1', '0', null);
+INSERT INTO `question` VALUES ('790', '2015-09-09 04:29:33', '2015-09-09 04:29:33', '米哈也', '1', '0', null);
+INSERT INTO `question` VALUES ('791', '2015-09-10 10:50:49', '2015-09-10 10:50:49', '杜蕾斯', '1', '0', null);
+INSERT INTO `question` VALUES ('792', '2015-09-14 21:36:15', '2015-09-14 21:36:15', '想听音乐', '1', '0', null);
+INSERT INTO `question` VALUES ('793', '2015-09-14 21:36:23', '2015-09-14 21:36:23', '听音乐', '1', '0', null);
+INSERT INTO `question` VALUES ('794', '2015-09-15 14:22:46', '2015-09-15 14:22:46', '什么啊', '1', '0', null);
+INSERT INTO `question` VALUES ('795', '2015-09-17 10:39:04', '2015-09-17 10:39:04', '苏粗族', '1', '0', null);
+INSERT INTO `question` VALUES ('796', '2015-09-17 10:39:25', '2015-09-17 10:39:25', '粗俗族', '1', '0', null);
+INSERT INTO `question` VALUES ('797', '2015-09-18 07:44:18', '2015-09-18 07:44:18', '仁科百华', '1', '0', null);
+INSERT INTO `question` VALUES ('798', '2015-09-18 07:44:27', '2015-09-18 07:44:27', '仁科', '1', '0', null);
+INSERT INTO `question` VALUES ('799', '2015-09-19 23:17:14', '2015-09-19 23:17:14', '李斯文家的猫', '1', '0', null);
+INSERT INTO `question` VALUES ('800', '2015-09-24 19:38:49', '2015-09-24 19:38:49', '星座', '1', '0', null);

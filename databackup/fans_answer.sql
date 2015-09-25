@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-08-31 09:53:01
+Date: 2015-09-25 17:18:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=409 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=411 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -441,3 +441,5 @@ INSERT INTO `fans_answer` VALUES ('405', '2015-08-25 13:17:08', '2015-08-25 13:1
 INSERT INTO `fans_answer` VALUES ('406', '2015-08-28 15:02:10', '2015-08-28 15:02:10', 'KnIEST', '你猜', '你猜', '0', '0');
 INSERT INTO `fans_answer` VALUES ('407', '2015-08-29 17:36:35', '2015-08-29 17:36:35', '熘肝尖儿', '彪子如何补肾', '六味地黄丸就着红牛顺下去', '1', '1');
 INSERT INTO `fans_answer` VALUES ('408', '2015-08-29 18:00:31', '2015-08-29 18:00:31', '熘肝尖儿', '博尔特的绝活儿是什么', '自己跟自己打乒乓球', '1', '1');
+INSERT INTO `fans_answer` VALUES ('409', '2015-09-02 09:42:35', '2015-09-02 09:42:35', 'vivivi', '薛老师结婚', '没有 因为李羽要送盔给他...', '1', '1');
+INSERT INTO `fans_answer` VALUES ('410', '2015-09-17 10:40:27', '2015-09-17 10:40:27', '蛤蟆吐蜜', '粗俗族', '有族长 族长叫：', '1', '1');
