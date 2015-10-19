@@ -118,10 +118,12 @@ public class AnswerDao {
 		int answerCount = 0;
 		while (answerCount < 20) {
 			Answer shuffleAnswer = this.getShuffleAnswer();
-			if (!shuffleMap.containsKey(shuffleAnswer.getId())) {
-				shuffleAnswerList.add(shuffleAnswer);
-				shuffleMap.put(shuffleAnswer.getId(), shuffleAnswer.getId());
-				answerCount++;
+			if (shuffleAnswer != null) {
+				if (!shuffleMap.containsKey(shuffleAnswer.getId())) {
+					shuffleAnswerList.add(shuffleAnswer);
+					shuffleMap.put(shuffleAnswer.getId(), shuffleAnswer.getId());
+					answerCount++;
+				}
 			}
 		}
 		return shuffleAnswerList;
