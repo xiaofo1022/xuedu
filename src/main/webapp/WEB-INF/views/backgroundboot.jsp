@@ -153,7 +153,7 @@
 </div>
 
 <div class="footer">
-	薛人一度 优斯无数 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> | 浙ICP备15023861号 | ©2015
+	薛微一度  潇洒一路 Powered By <a href="http://weibo.com/p/1005052006466631" target="_blank">小佛儿</a> | 浙ICP备15023861号 | ©2015
 </div>
 
 <div id="word-modal" class="modal fade" tabindex="-1" role="dialog">

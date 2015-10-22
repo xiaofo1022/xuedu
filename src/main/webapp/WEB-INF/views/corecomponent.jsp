@@ -84,7 +84,7 @@
 		<div class="panel-heading" role="tab" id="headingFive">
       		<h4 class="panel-title">
         		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          			迪吧哈哈哈
+          			迪吧乐疯了
         		</a>
       		</h4>
     	</div>
