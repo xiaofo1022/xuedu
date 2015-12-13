@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-10-19 18:42:09
+Date: 2015-12-13 14:27:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=829 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=886 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -860,3 +860,60 @@ INSERT INTO `question` VALUES ('825', '2015-10-19 17:52:22', '2015-10-19 17:52:2
 INSERT INTO `question` VALUES ('826', '2015-10-19 17:56:19', '2015-10-19 17:56:19', '我擦', '1', '0', null);
 INSERT INTO `question` VALUES ('827', '2015-10-19 18:34:43', '2015-10-19 18:34:43', '棉猴是一种猴子么', '1', '0', null);
 INSERT INTO `question` VALUES ('828', '2015-10-19 18:41:33', '2015-10-19 18:41:33', '苹果设备安全验证', '1', '0', null);
+INSERT INTO `question` VALUES ('829', '2015-10-19 18:48:30', '2015-10-19 18:48:30', '帆哥 女友', '1', '0', null);
+INSERT INTO `question` VALUES ('830', '2015-10-19 19:37:03', '2015-10-19 19:37:03', '呱呱', '1', '0', null);
+INSERT INTO `question` VALUES ('831', '2015-10-19 19:59:50', '2015-10-19 19:59:50', '斯文的国歌', '1', '0', null);
+INSERT INTO `question` VALUES ('832', '2015-10-19 20:56:37', '2015-10-19 20:56:37', '小鸡鸡', '1', '0', null);
+INSERT INTO `question` VALUES ('833', '2015-10-19 21:08:04', '2015-10-19 21:08:04', '帆不烦', '1', '0', null);
+INSERT INTO `question` VALUES ('834', '2015-10-19 21:12:51', '2015-10-19 21:12:51', '天津帆', '1', '0', null);
+INSERT INTO `question` VALUES ('835', '2015-10-20 02:41:05', '2015-10-20 02:41:05', 'asd', '1', '0', null);
+INSERT INTO `question` VALUES ('836', '2015-10-20 11:39:07', '2015-10-20 11:39:07', '2b', '1', '0', null);
+INSERT INTO `question` VALUES ('837', '2015-10-21 17:11:32', '2015-10-21 17:11:32', '尼玛', '1', '0', null);
+INSERT INTO `question` VALUES ('838', '2015-10-21 18:46:18', '2015-10-21 18:46:18', 'Claudi', '1', '0', null);
+INSERT INTO `question` VALUES ('839', '2015-10-21 18:46:26', '2015-10-21 18:46:26', 'Saudis', '1', '0', null);
+INSERT INTO `question` VALUES ('840', '2015-10-21 18:46:34', '2015-10-21 18:46:34', 'duadua', '1', '0', null);
+INSERT INTO `question` VALUES ('841', '2015-10-22 00:12:40', '2015-10-22 00:12:40', 'nova heart', '1', '0', null);
+INSERT INTO `question` VALUES ('842', '2015-10-22 09:43:30', '2015-10-22 09:43:30', '郑', '1', '0', null);
+INSERT INTO `question` VALUES ('843', '2015-10-22 18:54:20', '2015-10-22 18:54:20', '摩登天空', '1', '0', null);
+INSERT INTO `question` VALUES ('844', '2015-10-25 19:26:39', '2015-10-25 19:26:39', '张靓颖', '1', '0', null);
+INSERT INTO `question` VALUES ('845', '2015-10-31 22:45:30', '2015-10-31 22:45:30', '顽主', '1', '0', null);
+INSERT INTO `question` VALUES ('846', '2015-10-31 22:45:39', '2015-10-31 22:45:39', '北京暴徒', '1', '0', null);
+INSERT INTO `question` VALUES ('847', '2015-11-02 17:54:32', '2015-11-02 17:54:32', '王军霞', '1', '0', null);
+INSERT INTO `question` VALUES ('848', '2015-11-03 21:42:16', '2015-11-03 21:42:16', '胡歌', '1', '0', null);
+INSERT INTO `question` VALUES ('849', '2015-11-03 21:42:27', '2015-11-03 21:42:27', '奥巴马', '1', '0', null);
+INSERT INTO `question` VALUES ('850', '2015-11-03 21:42:37', '2015-11-03 21:42:37', '你妹', '1', '0', null);
+INSERT INTO `question` VALUES ('851', '2015-11-03 21:42:46', '2015-11-03 21:42:46', '王校长', '1', '0', null);
+INSERT INTO `question` VALUES ('852', '2015-11-04 02:11:08', '2015-11-04 02:11:08', 'waiwai', '1', '0', null);
+INSERT INTO `question` VALUES ('853', '2015-11-04 16:41:45', '2015-11-04 16:41:45', '风 歌单', '1', '0', null);
+INSERT INTO `question` VALUES ('854', '2015-11-04 21:56:50', '2015-11-04 21:56:50', '合作社 歌单', '1', '0', null);
+INSERT INTO `question` VALUES ('855', '2015-11-05 02:17:15', '2015-11-05 02:17:15', '薛老师谈过几次恋爱', '1', '0', null);
+INSERT INTO `question` VALUES ('856', '2015-11-06 01:40:30', '2015-11-06 01:40:30', '李斯文长的像我爸', '1', '0', null);
+INSERT INTO `question` VALUES ('857', '2015-11-14 03:06:57', '2015-11-14 03:06:57', '石锁', '1', '0', null);
+INSERT INTO `question` VALUES ('858', '2015-11-18 02:49:14', '2015-11-18 02:49:14', '薛老师要孩子了吗', '1', '0', null);
+INSERT INTO `question` VALUES ('859', '2015-11-18 10:51:00', '2015-11-18 10:51:00', '苏粗俗', '1', '0', null);
+INSERT INTO `question` VALUES ('860', '2015-11-20 00:48:04', '2015-11-20 00:48:04', '何淼', '1', '0', null);
+INSERT INTO `question` VALUES ('861', '2015-11-20 00:48:22', '2015-11-20 00:48:22', 'demo', '1', '0', null);
+INSERT INTO `question` VALUES ('862', '2015-11-20 00:48:48', '2015-11-20 00:48:48', '小秦', '1', '0', null);
+INSERT INTO `question` VALUES ('863', '2015-11-20 00:48:53', '2015-11-20 00:48:53', '秦', '1', '0', null);
+INSERT INTO `question` VALUES ('864', '2015-11-21 09:19:00', '2015-11-21 09:19:00', '结婚', '1', '0', null);
+INSERT INTO `question` VALUES ('865', '2015-11-21 11:12:25', '2015-11-21 11:12:25', '沐浴歌单', '1', '0', null);
+INSERT INTO `question` VALUES ('866', '2015-11-24 09:00:00', '2015-11-24 09:00:00', '恒大', '1', '0', null);
+INSERT INTO `question` VALUES ('867', '2015-11-25 10:23:21', '2015-11-25 10:23:21', 'Slim', '1', '0', null);
+INSERT INTO `question` VALUES ('868', '2015-11-25 10:23:27', '2015-11-25 10:23:27', 'Slim Shady', '1', '0', null);
+INSERT INTO `question` VALUES ('869', '2015-11-25 10:23:35', '2015-11-25 10:23:35', '宝贝', '1', '0', null);
+INSERT INTO `question` VALUES ('870', '2015-11-25 15:56:15', '2015-11-25 15:56:15', '设呵呵', '1', '0', null);
+INSERT INTO `question` VALUES ('871', '2015-11-26 01:54:08', '2015-11-26 01:54:08', '是个懦夫', '1', '0', null);
+INSERT INTO `question` VALUES ('872', '2015-11-26 01:54:17', '2015-11-26 01:54:17', '施', '1', '0', null);
+INSERT INTO `question` VALUES ('873', '2015-11-29 19:32:22', '2015-11-29 19:32:22', '合作社歌单', '1', '0', null);
+INSERT INTO `question` VALUES ('874', '2015-12-01 16:44:49', '2015-12-01 16:44:49', '死', '1', '0', null);
+INSERT INTO `question` VALUES ('875', '2015-12-02 02:50:49', '2015-12-02 02:50:49', '什么几把玩意', '1', '0', null);
+INSERT INTO `question` VALUES ('876', '2015-12-02 14:45:28', '2015-12-02 14:45:28', 'www', '1', '0', null);
+INSERT INTO `question` VALUES ('877', '2015-12-03 11:05:19', '2015-12-03 11:05:19', '红星', '1', '0', null);
+INSERT INTO `question` VALUES ('878', '2015-12-04 13:13:15', '2015-12-04 13:13:15', '面交', '1', '0', null);
+INSERT INTO `question` VALUES ('879', '2015-12-07 10:49:34', '2015-12-07 10:49:34', '客厅', '1', '0', null);
+INSERT INTO `question` VALUES ('880', '2015-12-07 10:49:53', '2015-12-07 10:49:53', '一副字', '1', '0', null);
+INSERT INTO `question` VALUES ('881', '2015-12-09 23:17:49', '2015-12-09 23:17:49', '胡必硕', '1', '0', null);
+INSERT INTO `question` VALUES ('882', '2015-12-09 23:24:08', '2015-12-09 23:24:08', '六神王', '1', '0', null);
+INSERT INTO `question` VALUES ('883', '2015-12-10 02:39:15', '2015-12-10 02:39:15', '王菲', '1', '0', null);
+INSERT INTO `question` VALUES ('884', '2015-12-10 02:57:01', '2015-12-10 02:57:01', '李斯文为什么喜欢铁饼', '1', '0', null);
+INSERT INTO `question` VALUES ('885', '2015-12-12 23:46:53', '2015-12-12 23:46:53', '薛老师老婆', '1', '0', null);
