@@ -284,4 +284,34 @@ public class MainController {
 		supplementAnswerDao.denialSupplement(id);
 		return CommonConst.SUCCESS;
 	}
+	
+	@RequestMapping(value="/shuffle", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> shuffle() {
+		return answerDao.getShuffleAnswerList();
+	}
+	
+	@RequestMapping(value="/latest", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> latest() {
+		return answerDao.getLatestAnswerList();
+	}
+	
+	@RequestMapping(value="/hotest", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> hotest() {
+		return answerDao.getHotestAnswerList();
+	}
+	
+	@RequestMapping(value="/happiest", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Answer> happiest() {
+		return answerDao.getHappiestAnswerList();
+	}
+	
+	@RequestMapping(value="/contribute", method=RequestMethod.GET)
+	@ResponseBody
+	public List<FansContribute> contribute() {
+		return fansAnswerDao.getFansContributeList();
+	}
 }
