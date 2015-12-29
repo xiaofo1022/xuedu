@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-12-13 14:27:45
+Date: 2015-12-29 10:19:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=886 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=896 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -917,3 +917,13 @@ INSERT INTO `question` VALUES ('882', '2015-12-09 23:24:08', '2015-12-09 23:24:0
 INSERT INTO `question` VALUES ('883', '2015-12-10 02:39:15', '2015-12-10 02:39:15', '王菲', '1', '0', null);
 INSERT INTO `question` VALUES ('884', '2015-12-10 02:57:01', '2015-12-10 02:57:01', '李斯文为什么喜欢铁饼', '1', '0', null);
 INSERT INTO `question` VALUES ('885', '2015-12-12 23:46:53', '2015-12-12 23:46:53', '薛老师老婆', '1', '0', null);
+INSERT INTO `question` VALUES ('886', '2015-12-14 10:45:05', '2015-12-14 10:45:05', '科比', '1', '0', null);
+INSERT INTO `question` VALUES ('887', '2015-12-17 11:51:42', '2015-12-17 11:51:42', '彪马酥什么星座', '1', '0', null);
+INSERT INTO `question` VALUES ('888', '2015-12-17 11:51:50', '2015-12-17 11:51:50', '彪马酥 星座', '1', '0', null);
+INSERT INTO `question` VALUES ('889', '2015-12-17 11:52:19', '2015-12-17 11:52:19', '单身、', '1', '0', null);
+INSERT INTO `question` VALUES ('890', '2015-12-17 11:52:22', '2015-12-17 11:52:22', '单身', '1', '0', null);
+INSERT INTO `question` VALUES ('891', '2015-12-17 11:52:27', '2015-12-17 11:52:27', '谁单身、', '1', '0', null);
+INSERT INTO `question` VALUES ('892', '2015-12-17 11:52:31', '2015-12-17 11:52:31', '谁单身', '1', '0', null);
+INSERT INTO `question` VALUES ('893', '2015-12-18 11:53:13', '2015-12-18 11:53:13', '零食', '1', '0', null);
+INSERT INTO `question` VALUES ('894', '2015-12-24 17:28:47', '2015-12-24 17:28:47', 'klkl', '1', '0', null);
+INSERT INTO `question` VALUES ('895', '2015-12-28 21:39:05', '2015-12-28 21:39:05', '薛 绕口令', '1', '0', null);

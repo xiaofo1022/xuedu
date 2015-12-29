@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-12-13 14:27:39
+Date: 2015-12-29 10:19:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=438 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=446 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -470,3 +470,11 @@ INSERT INTO `fans_answer` VALUES ('434', '2015-12-10 18:49:10', '2015-12-10 18:4
 INSERT INTO `fans_answer` VALUES ('435', '2015-12-12 20:12:12', '2015-12-12 20:12:12', '那我就叫丽芙泰勒吧', '李斯文都吃什么', '午饭自带便当\n猪肉的不要！', '1', '1');
 INSERT INTO `fans_answer` VALUES ('436', '2015-12-12 20:53:07', '2015-12-12 20:53:07', 'Raven.Han', '我想问问薛老师', '天堂制造是怎么回事', '0', '0');
 INSERT INTO `fans_answer` VALUES ('437', '2015-12-12 23:27:01', '2015-12-12 23:27:01', 'Slim Pillow', '东辉有什么优点？', '不糟践东西！', '1', '1');
+INSERT INTO `fans_answer` VALUES ('438', '2015-12-16 21:59:38', '2015-12-16 21:59:38', 'Slim Pillow', '李斯文起床后先干什么？', '先生会气。干嘛呢这么早起，被窝里多暖和呀。。。然后再抽烟。', '1', '1');
+INSERT INTO `fans_answer` VALUES ('439', '2015-12-19 23:53:58', '2015-12-19 23:53:58', '大蒙', '零食', '肠 熟食 肘子  李老师早年零食 ', '1', '1');
+INSERT INTO `fans_answer` VALUES ('440', '2015-12-22 21:59:23', '2015-12-22 21:59:23', 'LonesomeGeorge', '帆哥当年为什么选了架子鼓没选其他乐器', '贪多. 个大.', '0', '0');
+INSERT INTO `fans_answer` VALUES ('441', '2015-12-28 10:54:41', '2015-12-28 10:54:41', '安卓测试', '安卓测试', '安卓测试', '0', '0');
+INSERT INTO `fans_answer` VALUES ('442', '2015-12-28 13:33:41', '2015-12-28 13:33:41', 'Gwen不是特别好', '大海航行靠什么？', '靠剁手啊！', '1', '1');
+INSERT INTO `fans_answer` VALUES ('443', '2015-12-28 13:50:56', '2015-12-28 13:50:56', '溜肝尖儿', '薛老师的爱好', '铁锨拍乌龟', '1', '1');
+INSERT INTO `fans_answer` VALUES ('444', '2015-12-28 13:53:15', '2015-12-28 13:53:15', '溜肝尖儿', '薛老师的B-BOX', '小和尚端汤上塔塔滑汤洒汤烫塔', '1', '1');
+INSERT INTO `fans_answer` VALUES ('445', '2015-12-28 16:27:34', '2015-12-28 16:27:34', '坚果测试', '坚果测试', '坚果测试', '0', '0');

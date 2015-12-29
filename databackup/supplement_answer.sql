@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2015-12-13 14:27:52
+Date: 2015-12-29 10:20:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `supplement_answer` (
   `IS_APPROVED` int(11) DEFAULT '0',
   `TITLE` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=556 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=577 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of supplement_answer
@@ -589,3 +589,24 @@ INSERT INTO `supplement_answer` VALUES ('552', '2015-12-12 20:06:41', '2015-12-1
 INSERT INTO `supplement_answer` VALUES ('553', '2015-12-12 20:10:20', '2015-12-12 20:10:20', '17', '那我就叫丽芙泰勒吧', '福建龙岩人 来北京时揣着姥姥给的挂坠和舅舅的照片', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('554', '2015-12-13 08:39:04', '2015-12-13 08:39:04', '512', '那我就叫丽芙泰勒吧', '哪长包最难受 眼镜鼻托下面', '1', '1', '');
 INSERT INTO `supplement_answer` VALUES ('555', '2015-12-13 14:21:17', '2015-12-13 14:21:17', '245', '杰西库克', '迎娶苏菲玛索（索马里籍），成为二当家的', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('556', '2015-12-13 19:36:51', '2015-12-13 19:36:51', '217', '那我就叫丽芙泰勒吧', '因为他们没有知识', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('557', '2015-12-13 19:39:39', '2015-12-13 19:39:39', '479', '那我就叫丽芙泰勒吧', '把手放屁股底下坐麻', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('558', '2015-12-13 19:54:24', '2015-12-13 19:54:24', '33', '那我就叫丽芙泰勒吧', '香疯了', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('559', '2015-12-13 21:23:30', '2015-12-13 21:23:30', '94', '红旗机床厂炊事员大师傅', '京城老庙蜜客寺住持', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('560', '2015-12-16 11:46:23', '2015-12-16 11:46:23', '294', '大蒙', '认识玩返老还童这块的朋友~~', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('561', '2015-12-16 17:42:08', '2015-12-16 17:42:08', '395', '那我就叫丽芙泰勒吧', '最怕微风', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('562', '2015-12-16 17:42:57', '2015-12-16 17:42:57', '198', '那我就叫丽芙泰勒吧', '就是一匹马 ', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('563', '2015-12-17 07:22:19', '2015-12-17 07:22:19', '3', 'Slim Pillow', '双子座！', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('564', '2015-12-17 18:59:45', '2015-12-17 18:59:45', '651', '那我就叫丽芙泰勒吧', '起床气 关闹钟 凉白开 拉晨屎 洗漱套装', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('565', '2015-12-18 10:52:51', '2015-12-18 10:52:51', '641', '大蒙', '金钱豹~~李指导早年的食堂', '0', '1', '');
+INSERT INTO `supplement_answer` VALUES ('566', '2015-12-18 11:53:53', '2015-12-18 11:53:53', '0', '大蒙', '肠 熟食 肘子  李老师早年零食 ', '1', '1', '零食');
+INSERT INTO `supplement_answer` VALUES ('567', '2015-12-18 20:21:15', '2015-12-18 20:21:15', '312', '那我就叫丽芙泰勒吧', '可配合红牛一起服用', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('568', '2015-12-18 20:23:49', '2015-12-18 20:23:49', '179', '那我就叫丽芙泰勒吧', '肚脐眼儿里的皴儿', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('569', '2015-12-18 20:32:39', '2015-12-18 20:32:39', '399', '那我就叫丽芙泰勒吧', '还有 杰西卡 阿尔芭', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('570', '2015-12-18 20:37:19', '2015-12-18 20:37:19', '182', '那我就叫丽芙泰勒吧', '婚礼上接新娘子抛出的糖 后仰趴了\n滑冰 人中着地 刘雪华了', '0', '0', '');
+INSERT INTO `supplement_answer` VALUES ('571', '2015-12-21 11:33:29', '2015-12-21 11:33:29', '97', 'Slim Pillow', '随风的小子，三元的饺子', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('572', '2015-12-21 11:34:14', '2015-12-21 11:34:14', '91', 'Slim Pillow', '索马里黑公主啊', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('573', '2015-12-28 11:15:22', '2015-12-28 11:15:22', '219', '安卓测试', '安卓测试', '0', '0', '洗澡的意义');
+INSERT INTO `supplement_answer` VALUES ('574', '2015-12-28 21:39:27', '2015-12-28 21:39:27', '631', '那我就叫丽芙泰勒吧', '小和尚端汤上塔 塔滑汤撒汤烫塔', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('575', '2015-12-29 01:01:57', '2015-12-29 01:01:57', '316', 'SUN_mohannn', '铁风筝大哥&呼噜核&提前配好的中药', '1', '1', '');
+INSERT INTO `supplement_answer` VALUES ('576', '2015-12-29 01:02:36', '2015-12-29 01:02:36', '405', 'SUN_mohannn', '大米，因为他是大米精', '1', '1', '');
