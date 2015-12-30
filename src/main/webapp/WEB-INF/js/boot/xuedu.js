@@ -20,6 +20,10 @@ $("#search-text").keypress(function(e) {
 	}
 }();
 
+function downloadApk() {
+	location.replace(baseurl + "/apk/Xuedu-1.0.apk");
+}
+
 function inputCheck() {
 	var search = $("#search-text").val();
 	if (search) {

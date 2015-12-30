@@ -22,6 +22,7 @@ import com.xiaofo1022.xuedu.dao.FansAnswerDao;
 import com.xiaofo1022.xuedu.dao.LoginDao;
 import com.xiaofo1022.xuedu.dao.QuestionDao;
 import com.xiaofo1022.xuedu.dao.SupplementAnswerDao;
+import com.xiaofo1022.xuedu.dao.UtilDao;
 import com.xiaofo1022.xuedu.model.Answer;
 import com.xiaofo1022.xuedu.model.FansAnswer;
 import com.xiaofo1022.xuedu.model.FansContribute;
@@ -42,6 +43,8 @@ public class MainController {
 	private FansAnswerDao fansAnswerDao;
 	@Autowired
 	private SupplementAnswerDao supplementAnswerDao;
+	@Autowired
+	private UtilDao utilDao;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap modelMap) {
@@ -50,6 +53,7 @@ public class MainController {
 		modelMap.addAttribute("shuffleAnswerList", answerDao.getShuffleAnswerList());
 		modelMap.addAttribute("fansContributeList", fansAnswerDao.getFansContributeList());
 		modelMap.addAttribute("happiestAnswerList", answerDao.getHappiestAnswerList());
+		modelMap.addAttribute("downloadCount", utilDao.getDownloadCount());
 		if (RequestChecker.isFromMobile(request)) {
 			return "xuedumobile";
 		} else {

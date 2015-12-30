@@ -13,14 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.xiaofo1022.xuedu.dao.UtilDao;
 import com.xiaofo1022.xuedu.model.User;
 
 public class LoginFilter implements Filter {
+	
+	private UtilDao utilDao;
 	private Pattern allowedResources;
+	private Pattern apkResources;
 	private final static String resPattern = ".*((background)|(alllastestAnswerlist)).*";
+	private final static String apkPattern = ".*(apk).*";
 	
 	public void init(FilterConfig arg0) throws ServletException {
 		allowedResources = Pattern.compile(resPattern);
+		apkResources = Pattern.compile(apkPattern);
 	}
 	
 	public void destroy() {}
@@ -42,6 +51,16 @@ public class LoginFilter implements Filter {
 			}
 		} else {
 			canEnterSystem = true;
+		}
+		
+		if (!uri.equals(baseUri) && apkResources.matcher(uri).matches()) {
+			if (utilDao == null) {
+				if (utilDao == null) {
+					WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
+					utilDao = context.getBean(UtilDao.class);
+				}
+			}
+			utilDao.increaseApkDownloadCount();
 		}
 		
 		if (canEnterSystem) {

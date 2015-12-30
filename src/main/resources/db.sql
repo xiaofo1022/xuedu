@@ -73,3 +73,14 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 ALTER TABLE xuedu.supplement_answer ADD TITLE VARCHAR(100);
+
+/* 2015-12-30 */
+CREATE TABLE download_count (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  COUNT int(11) DEFAULT 0,
+  PRIMARY KEY (ID)
+) 
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
+
+INSERT INTO download_count VALUES (1, 0);

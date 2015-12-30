@@ -21,6 +21,22 @@
 
 <div id="accordion" class="panel-group answer-panel" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingDownload">
+      		<h4 class="panel-title">
+        		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDownload" aria-expanded="false" aria-controls="collapseDownload">
+          			客户端下载
+        		</a>
+      		</h4>
+    	</div>
+    	<div id="collapseDownload" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDownload">
+      		<div class="panel-body" style="padding:10px;">
+      			<img src="images/xuedu/emo_im_happy.png"/>
+      			<a href="apk/Xuedu-1.0.apk">安卓客户端V1.0 (已有${downloadCount}人下载)</a>
+      		</div>
+    	</div>
+  	</div>
+  	
+	<div class="panel panel-default">
   		<div class="panel-heading" role="tab" id="headingOne">
 			<h4 class="panel-title">
 				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
