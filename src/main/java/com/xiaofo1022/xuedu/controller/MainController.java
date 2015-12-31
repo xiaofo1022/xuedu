@@ -318,4 +318,9 @@ public class MainController {
 	public List<FansContribute> contribute() {
 		return fansAnswerDao.getFansContributeList();
 	}
+	
+	@RequestMapping(value="/error", method=RequestMethod.GET)
+	public String error(HttpServletRequest request, ModelMap modelMap) {
+		return "error";
+	}
 }
