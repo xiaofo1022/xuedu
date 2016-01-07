@@ -9,7 +9,7 @@ public class PVAnalyzerTest {
 
 	public static void main(String[] args) {
 		PVAnalyzer pvAnalyzer = new PVAnalyzer();
-		pvAnalyzer.analysisLogFileByDay("2015-12-31");
+		pvAnalyzer.analysisLogFileByDay("2015-12-28");
 		Map<String, AnalysisResult> resultMap = pvAnalyzer.getResultMap();
 		System.out.println(resultMap);
 	}

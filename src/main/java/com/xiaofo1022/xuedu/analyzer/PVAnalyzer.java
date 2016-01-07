@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -19,7 +20,8 @@ public class PVAnalyzer {
 	private static Pattern ipPattern = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+");
 	private static Pattern requestPattern = Pattern.compile("\".+\"");
 	
-	private static final String BASE_PATH = "F:\\apache-tomcat-7.0.42\\logs\\";
+	//private static final String BASE_PATH = "F:\\apache-tomcat-7.0.42\\logs\\";
+	private static final String BASE_PATH = "C:\\apache-tomcat-7.0.62\\logs\\";
 	private static final String PREFIX = "localhost_access_log.";
 	private static final String SUFFIX = ".txt";
 	
@@ -40,6 +42,7 @@ public class PVAnalyzer {
 						}
 						AnalysisResult result = resultMap.get(ip);
 						startAnalysis(logLine, result);
+						clearEmptyResult();
 					}
 				}
 			} catch (IOException e) {
@@ -95,6 +98,18 @@ public class PVAnalyzer {
 		return isValidRequest;
 	}
 
+	private void clearEmptyResult() {
+		Iterator<String> iterator = resultMap.keySet().iterator();
+		Map<String, AnalysisResult> finalResult = new HashMap<String, AnalysisResult>(resultMap.size());
+		while (iterator.hasNext()) {
+			String ip = iterator.next();
+			if (resultMap.get(ip).getAll() != 0) {
+				finalResult.put(ip, resultMap.get(ip));
+			}
+		}
+		resultMap = finalResult;
+	}
+	
 	public Map<String, AnalysisResult> getResultMap() {
 		return resultMap;
 	}
