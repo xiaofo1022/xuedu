@@ -130,7 +130,7 @@
       		<div class="panel-body">
       			<ul class="list-group answer-list clearfix">
 					<c:forEach items="${fansContributeList}" var="answer" varStatus="status">
-						<c:if test="${status.index < 10}">
+						<c:if test="${status.index < 20}">
 							<button type="button" class="list-group-item" style="outline:none;" onclick="showFansContributeModal('${answer.fansName}')">
 								${status.index + 1}. ${answer.fansName}
 								<span style="float:right;">${answer.contributeCount}斤油</span>

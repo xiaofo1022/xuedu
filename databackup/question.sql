@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-01-11 10:03:23
+Date: 2016-02-01 11:17:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=940 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=945 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -971,3 +971,8 @@ INSERT INTO `question` VALUES ('936', '2016-01-08 19:31:08', '2016-01-08 19:31:0
 INSERT INTO `question` VALUES ('937', '2016-01-08 19:31:20', '2016-01-08 19:31:20', '李羽的迷彩', '1', '0', null);
 INSERT INTO `question` VALUES ('938', '2016-01-08 19:31:39', '2016-01-08 19:31:39', '李斯文的迷彩外套', '1', '0', null);
 INSERT INTO `question` VALUES ('939', '2016-01-10 07:38:32', '2016-01-10 07:38:32', '龟', '1', '0', null);
+INSERT INTO `question` VALUES ('940', '2016-01-18 05:49:46', '2016-01-18 05:49:46', '社长', '1', '0', null);
+INSERT INTO `question` VALUES ('941', '2016-01-20 23:35:57', '2016-01-20 23:35:57', '安贞附近那地下通道', '1', '0', null);
+INSERT INTO `question` VALUES ('942', '2016-01-25 08:02:39', '2016-01-25 08:02:39', '李斯文生日', '1', '0', null);
+INSERT INTO `question` VALUES ('943', '2016-01-25 08:02:52', '2016-01-25 08:02:52', '李斯文的猫', '1', '0', null);
+INSERT INTO `question` VALUES ('944', '2016-01-28 07:37:13', '2016-01-28 07:37:13', '国歌', '1', '0', null);

@@ -84,7 +84,7 @@ public class AnswerDao {
 	}
 	
 	public List<Answer> getHappiestAnswerList() {
-		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 AND HAPPY_COUNT > 0 ORDER BY HAPPY_COUNT DESC LIMIT 10");
+		return commonDao.query(Answer.class, "SELECT * FROM ANSWER WHERE IS_ACTIVE = 1 AND HAPPY_COUNT > 0 ORDER BY HAPPY_COUNT DESC LIMIT 20");
 	}
 	
 	public List<Answer> getAnswerListByFansName(String fansName) {
