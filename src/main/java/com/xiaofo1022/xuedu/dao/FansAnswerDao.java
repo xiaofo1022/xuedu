@@ -112,7 +112,7 @@ public class FansAnswerDao {
 		}
 		
 		Collections.sort(fansContributeList);
-		fansContributeList = fansContributeList.subList(0, 10);
+		fansContributeList = fansContributeList.subList(0, 20);
 		return fansContributeList;
 	}
 	

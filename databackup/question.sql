@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-01-04 09:32:21
+Date: 2016-02-01 11:17:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=922 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=945 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -953,3 +953,26 @@ INSERT INTO `question` VALUES ('918', '2015-12-31 22:25:59', '2015-12-31 22:25:5
 INSERT INTO `question` VALUES ('919', '2016-01-03 10:36:32', '2016-01-03 10:36:32', '客户端', '1', '0', null);
 INSERT INTO `question` VALUES ('920', '2016-01-03 11:41:19', '2016-01-03 11:41:19', '彪马有女朋友吗', '1', '0', null);
 INSERT INTO `question` VALUES ('921', '2016-01-03 11:41:43', '2016-01-03 11:41:43', '彪马女朋友', '1', '0', null);
+INSERT INTO `question` VALUES ('922', '2016-01-05 00:07:47', '2016-01-05 00:07:47', '78', '1', '0', null);
+INSERT INTO `question` VALUES ('923', '2016-01-05 00:07:59', '2016-01-05 00:07:59', '精子', '1', '0', null);
+INSERT INTO `question` VALUES ('924', '2016-01-05 09:12:12', '2016-01-05 09:12:12', '薛东辉生日', '1', '0', null);
+INSERT INTO `question` VALUES ('925', '2016-01-08 11:55:19', '2016-01-08 11:55:19', '非常的痒是什么意思', '1', '0', null);
+INSERT INTO `question` VALUES ('926', '2016-01-08 11:56:21', '2016-01-08 11:56:21', '胡建人怎么说普通发', '1', '0', null);
+INSERT INTO `question` VALUES ('927', '2016-01-08 12:00:13', '2016-01-08 12:00:13', '睡薛科长的正确姿势是什么', '1', '0', null);
+INSERT INTO `question` VALUES ('928', '2016-01-08 12:03:06', '2016-01-08 12:03:06', '说什么话题薛哥会两眼放光', '1', '0', null);
+INSERT INTO `question` VALUES ('929', '2016-01-08 12:15:52', '2016-01-08 12:15:52', '蘑菇', '1', '0', null);
+INSERT INTO `question` VALUES ('930', '2016-01-08 12:16:03', '2016-01-08 12:16:03', '小薛', '1', '0', null);
+INSERT INTO `question` VALUES ('931', '2016-01-08 12:17:40', '2016-01-08 12:17:40', '催惨素', '1', '0', null);
+INSERT INTO `question` VALUES ('932', '2016-01-08 12:17:51', '2016-01-08 12:17:51', '催产素', '1', '0', null);
+INSERT INTO `question` VALUES ('933', '2016-01-08 12:19:07', '2016-01-08 12:19:07', '薛哥摔跟头', '1', '0', null);
+INSERT INTO `question` VALUES ('934', '2016-01-08 12:24:35', '2016-01-08 12:24:35', '多行不义必自毙', '1', '0', null);
+INSERT INTO `question` VALUES ('935', '2016-01-08 12:25:25', '2016-01-08 12:25:25', '出其不意必自毙', '1', '0', null);
+INSERT INTO `question` VALUES ('936', '2016-01-08 19:31:08', '2016-01-08 19:31:08', '李羽的迷彩外套在哪里买的？', '1', '0', null);
+INSERT INTO `question` VALUES ('937', '2016-01-08 19:31:20', '2016-01-08 19:31:20', '李羽的迷彩', '1', '0', null);
+INSERT INTO `question` VALUES ('938', '2016-01-08 19:31:39', '2016-01-08 19:31:39', '李斯文的迷彩外套', '1', '0', null);
+INSERT INTO `question` VALUES ('939', '2016-01-10 07:38:32', '2016-01-10 07:38:32', '龟', '1', '0', null);
+INSERT INTO `question` VALUES ('940', '2016-01-18 05:49:46', '2016-01-18 05:49:46', '社长', '1', '0', null);
+INSERT INTO `question` VALUES ('941', '2016-01-20 23:35:57', '2016-01-20 23:35:57', '安贞附近那地下通道', '1', '0', null);
+INSERT INTO `question` VALUES ('942', '2016-01-25 08:02:39', '2016-01-25 08:02:39', '李斯文生日', '1', '0', null);
+INSERT INTO `question` VALUES ('943', '2016-01-25 08:02:52', '2016-01-25 08:02:52', '李斯文的猫', '1', '0', null);
+INSERT INTO `question` VALUES ('944', '2016-01-28 07:37:13', '2016-01-28 07:37:13', '国歌', '1', '0', null);

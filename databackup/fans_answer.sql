@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-01-04 09:32:13
+Date: 2016-02-01 11:17:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=457 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=472 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -489,3 +489,18 @@ INSERT INTO `fans_answer` VALUES ('453', '2016-01-02 16:31:00', '2016-01-02 16:3
 INSERT INTO `fans_answer` VALUES ('454', '2016-01-02 23:21:13', '2016-01-02 23:21:13', '凡高贵', '生命密码', '凤凰卫视中文台2016年全新大型情趣节目 跟着优斯迪吧胡专家和夏教授一起走进科学 了解人体奥秘 探索生命起源', '1', '1');
 INSERT INTO `fans_answer` VALUES ('455', '2016-01-03 07:56:11', '2016-01-03 07:56:11', '爵士与布鲁斯之后', '大家帮我给猫起名儿~', '黄白两色 黄眼珠 特别粘人！！！', '1', '1');
 INSERT INTO `fans_answer` VALUES ('456', '2016-01-03 20:16:19', '2016-01-03 20:16:19', '凡高贵', '小营薛富城', '薛科长年轻时不懂事儿的样子 以大偏分得名 说他还不爱听了 你没梳过 你没梳过', '1', '1');
+INSERT INTO `fans_answer` VALUES ('457', '2016-01-04 22:41:49', '2016-01-04 22:41:49', 'Slim Pillow', '为什么要溺爱你的猫？', '它吃你们家小鱼干了？', '1', '1');
+INSERT INTO `fans_answer` VALUES ('458', '2016-01-04 22:42:31', '2016-01-04 22:42:31', 'Slim Pillow', '老李对待猫的四字真言？', '忍气吞声！', '1', '1');
+INSERT INTO `fans_answer` VALUES ('459', '2016-01-04 22:44:23', '2016-01-04 22:44:23', 'Slim Pillow', '东辉的绕口令', '小和尚端汤上塔，塔滑汤洒汤烫塔。暗喻老李和猫的故事。', '0', '0');
+INSERT INTO `fans_answer` VALUES ('460', '2016-01-06 10:44:20', '2016-01-06 10:44:20', '友情演出1991', '我爱迪吧', '没有是什么！就是爱！', '1', '1');
+INSERT INTO `fans_answer` VALUES ('461', '2016-01-06 17:22:25', '2016-01-06 17:22:25', '凡高贵', '怕痒的地方', '德语', '1', '1');
+INSERT INTO `fans_answer` VALUES ('462', '2016-01-06 17:36:46', '2016-01-06 17:36:46', '凡高贵', '非常的痒~', '外国女性钟爱的一句中国话', '1', '1');
+INSERT INTO `fans_answer` VALUES ('463', '2016-01-07 20:22:00', '2016-01-07 20:22:00', 'D.ouble', '肺肠德养昂', '德语，女性的私处', '1', '1');
+INSERT INTO `fans_answer` VALUES ('464', '2016-01-08 13:47:41', '2016-01-08 13:47:41', 'JY', '出其不意必自毙', '迪吧对国内摇滚乐队的一个警示语', '1', '1');
+INSERT INTO `fans_answer` VALUES ('465', '2016-01-08 13:48:11', '2016-01-08 13:48:11', 'JY', '说什么话题薛哥会两眼放光', '医药卫生，中医养生，总之就是科学', '1', '1');
+INSERT INTO `fans_answer` VALUES ('466', '2016-01-08 13:48:16', '2016-01-08 13:48:16', 'JY', '睡薛科长的正确姿势是什么', '穿上钢盔先', '1', '1');
+INSERT INTO `fans_answer` VALUES ('467', '2016-01-08 13:48:25', '2016-01-08 13:48:25', 'JY', '胡建人怎么说普通发', '先给彪子来一杯乐牛奶', '1', '1');
+INSERT INTO `fans_answer` VALUES ('468', '2016-01-12 15:00:37', '2016-01-12 15:00:37', '凡高贵', '因地制宜', '呦 流氓 流氓 流氓 不录了 不录了', '1', '1');
+INSERT INTO `fans_answer` VALUES ('469', '2016-01-15 13:26:25', '2016-01-15 13:26:25', 'Gwen不是特别好', '优斯迪吧卫衣', '暖身更暖心，我爱大米精。', '1', '1');
+INSERT INTO `fans_answer` VALUES ('470', '2016-01-15 21:45:30', '2016-01-15 21:45:30', '凡高贵', '苏路易', '一款产自胡建的假洋酒', '1', '1');
+INSERT INTO `fans_answer` VALUES ('471', '2016-01-19 14:32:26', '2016-01-19 14:32:26', 'Bankswei', 'USDB是什么意思？', ' United States Disciplinary Barracks 美国军人惩戒所', '1', '1');

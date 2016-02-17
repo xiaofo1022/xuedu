@@ -1,5 +1,6 @@
 package com.xiaofo1022.xuedu.test;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -11,8 +12,10 @@ import java.nio.file.Paths;
 public class IOTest {
 
 	private static final String PIC_URL = "http://orange9.cn/images/show/enu/19/7.jpg";
+	private static InputStream netpicInputStream;
 	
 	public void nio2Test() {
+		long start = System.currentTimeMillis();
 		try {
 			byte[] inputBytes = readNetBytes();
 			if (inputBytes != null) {
@@ -25,10 +28,11 @@ public class IOTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("nio2Test cost: " + (System.currentTimeMillis() - start));
 	}
 	
 	public byte[] readNetBytes() {
-		try (InputStream inputStream = getNetInputStream();
+		try (InputStream inputStream = new BufferedInputStream(netpicInputStream);
 			ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();) {
 			byte[] buffer = new byte[1024];
 			int readBytes = 0;
@@ -58,6 +62,7 @@ public class IOTest {
 	
 	public static void main(String[] args) {
 		IOTest ioTest = new IOTest();
+		netpicInputStream = ioTest.getNetInputStream();
 		ioTest.nio2Test();
 	}
 }
