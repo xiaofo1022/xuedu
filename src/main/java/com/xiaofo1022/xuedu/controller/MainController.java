@@ -323,4 +323,9 @@ public class MainController {
 	public String error(HttpServletRequest request, ModelMap modelMap) {
 		return "error";
 	}
+	
+	@RequestMapping(value="/old", method=RequestMethod.GET)
+	public String old(HttpServletRequest request, ModelMap modelMap) {
+		return "xuedu";
+	}
 }
