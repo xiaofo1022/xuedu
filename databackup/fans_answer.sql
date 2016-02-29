@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-02-01 11:17:17
+Date: 2016-02-29 09:39:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,7 @@ CREATE TABLE `fans_answer` (
   `IS_ACTIVE` int(11) DEFAULT '1',
   `IS_APPROVED` int(11) DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=472 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=480 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fans_answer
@@ -504,3 +504,11 @@ INSERT INTO `fans_answer` VALUES ('468', '2016-01-12 15:00:37', '2016-01-12 15:0
 INSERT INTO `fans_answer` VALUES ('469', '2016-01-15 13:26:25', '2016-01-15 13:26:25', 'Gwen不是特别好', '优斯迪吧卫衣', '暖身更暖心，我爱大米精。', '1', '1');
 INSERT INTO `fans_answer` VALUES ('470', '2016-01-15 21:45:30', '2016-01-15 21:45:30', '凡高贵', '苏路易', '一款产自胡建的假洋酒', '1', '1');
 INSERT INTO `fans_answer` VALUES ('471', '2016-01-19 14:32:26', '2016-01-19 14:32:26', 'Bankswei', 'USDB是什么意思？', ' United States Disciplinary Barracks 美国军人惩戒所', '1', '1');
+INSERT INTO `fans_answer` VALUES ('472', '2016-02-03 01:47:09', '2016-02-03 01:47:09', '斯文李的接盘侠', '李斯文', '李羽 字斯文  和平里小王子 红旗机床厂主任  dabang乐队贝斯手 usdb主持人  ', '0', '0');
+INSERT INTO `fans_answer` VALUES ('473', '2016-02-10 22:38:58', '2016-02-10 22:38:58', '郑肾', '璀璨的生理世界', '李斯文建议在机核开设的姊妹节目', '1', '1');
+INSERT INTO `fans_answer` VALUES ('474', '2016-02-12 23:39:34', '2016-02-12 23:39:34', '大豆', '家乐品', '家乐福副食品区的简称——节目：超市', '1', '1');
+INSERT INTO `fans_answer` VALUES ('475', '2016-02-14 06:06:04', '2016-02-14 06:06:04', '爵士与布鲁斯之后', '感谢薛度让我记得青春曾经那么快乐', '谢谢你们的陪伴', '1', '1');
+INSERT INTO `fans_answer` VALUES ('476', '2016-02-16 14:44:47', '2016-02-16 14:44:47', '溜肝尖儿', '腋下', '腋~夏夏~', '1', '1');
+INSERT INTO `fans_answer` VALUES ('477', '2016-02-19 18:45:34', '2016-02-19 18:45:34', '那我就叫丽芙泰勒吧', '李斯文为啥不吃猪肉', '他说想控制自己', '1', '1');
+INSERT INTO `fans_answer` VALUES ('478', '2016-02-25 21:07:22', '2016-02-25 21:07:22', '恩呐哦', '李斯文穿的迷彩外套', '求购买地址', '1', '1');
+INSERT INTO `fans_answer` VALUES ('479', '2016-02-28 09:25:17', '2016-02-28 09:25:17', '徐多尼', '凯特布兰切特', '头发丝儿都是演技。', '1', '1');

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-02-01 11:17:11
+Date: 2016-02-29 09:39:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,4 +27,4 @@ CREATE TABLE `download_count` (
 -- ----------------------------
 -- Records of download_count
 -- ----------------------------
-INSERT INTO `download_count` VALUES ('1', '1389');
+INSERT INTO `download_count` VALUES ('1', '2122');

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2016-02-01 11:17:23
+Date: 2016-02-29 09:39:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   `IS_ANSWERED` int(11) DEFAULT '0',
   `FROM_WHO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=945 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=957 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of question
@@ -976,3 +976,15 @@ INSERT INTO `question` VALUES ('941', '2016-01-20 23:35:57', '2016-01-20 23:35:5
 INSERT INTO `question` VALUES ('942', '2016-01-25 08:02:39', '2016-01-25 08:02:39', '李斯文生日', '1', '0', null);
 INSERT INTO `question` VALUES ('943', '2016-01-25 08:02:52', '2016-01-25 08:02:52', '李斯文的猫', '1', '0', null);
 INSERT INTO `question` VALUES ('944', '2016-01-28 07:37:13', '2016-01-28 07:37:13', '国歌', '1', '0', null);
+INSERT INTO `question` VALUES ('945', '2016-02-01 19:48:47', '2016-02-01 19:48:47', '李斯文 猫', '1', '0', null);
+INSERT INTO `question` VALUES ('946', '2016-02-10 01:10:45', '2016-02-10 01:10:45', '这是啥', '1', '0', null);
+INSERT INTO `question` VALUES ('947', '2016-02-12 16:07:02', '2016-02-12 16:07:02', '生理世界', '1', '0', null);
+INSERT INTO `question` VALUES ('948', '2016-02-12 16:07:51', '2016-02-12 16:07:51', '爱尔兰张学友', '1', '0', null);
+INSERT INTO `question` VALUES ('949', '2016-02-18 14:13:13', '2016-02-18 14:13:13', '等等萨达手机卡了', '1', '0', null);
+INSERT INTO `question` VALUES ('950', '2016-02-18 14:13:40', '2016-02-18 14:13:40', '大鸟', '1', '0', null);
+INSERT INTO `question` VALUES ('951', '2016-02-18 14:13:44', '2016-02-18 14:13:44', '鸟', '1', '0', null);
+INSERT INTO `question` VALUES ('952', '2016-02-24 22:04:40', '2016-02-24 22:04:40', 'dsfkj', '1', '0', null);
+INSERT INTO `question` VALUES ('953', '2016-02-24 22:04:49', '2016-02-24 22:04:49', '难得', '1', '0', null);
+INSERT INTO `question` VALUES ('954', '2016-02-25 21:06:03', '2016-02-25 21:06:03', '迷彩外套', '1', '0', null);
+INSERT INTO `question` VALUES ('955', '2016-02-27 10:08:39', '2016-02-27 10:08:39', '光棍', '1', '0', null);
+INSERT INTO `question` VALUES ('956', '2016-02-27 20:55:29', '2016-02-27 20:55:29', '凯特布兰切特', '1', '0', null);
